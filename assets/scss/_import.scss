@@ -1,0 +1,7 @@
+@import "variables";
+@import "functions";
+@import "mixins";
+// Если вы не используете bootstrap - удалите или закомментируйте последние строчки
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";

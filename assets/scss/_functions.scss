@@ -1,0 +1,10 @@
+// Тут вы можете записывать свои функции, которые будут использоваться в компонентах
+
+@function rem($px) {
+    @return $px/$html-fz * 1rem;
+}
+@function lh($fz, $lh) {
+    @return $lh/$fz;// Example: 16 / 12
+}
+
+
