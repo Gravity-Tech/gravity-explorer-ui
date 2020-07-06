@@ -1,3 +1,24 @@
 
-$html-fz: 14;
+$html-fz: 14px;
+$line-height-base: 1.5;
+$font-size-base: 1rem;
 $font-family-base: sans-serif;
+$body-bg: #181A29;
+$body-color: #EEECEC;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1220px,
+  xxl: 1380px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1210px,
+  xxl: 1370px
+);
+
