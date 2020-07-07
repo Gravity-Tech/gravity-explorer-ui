@@ -1,8 +1,8 @@
-
 $html-fz: 14px;
 $line-height-base: 1.5;
 $font-size-base: 1rem;
-$font-family-base: sans-serif;
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-base: 'Poppins', $font-family-sans-serif;
 $body-bg: #181A29;
 $body-color: #EEECEC;
 $grid-breakpoints: (
@@ -21,4 +21,5 @@ $container-max-widths: (
   xl: 1210px,
   xxl: 1370px
 );
-
+$green: #44D7B6;
+$orange: #FF8E1E;

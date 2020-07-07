@@ -5,7 +5,33 @@
         <img class="responsive-item" src="/img/logo.svg" alt="Logo" />
       </nuxt-link>
       <div class="nav-panel">
-        <icon image="/img/icons/nodes.svg"></icon>
+        <div class="nav-panel-col">
+          <div class="nav-panel-indikator">
+            <icon image="/img/icons/nodes.svg"></icon>
+            <span>Nodes</span> <b>32</b>
+          </div>
+          <div class="nav-panel-indikator">
+            <icon image="/img/icons/pulses.svg"></icon>
+            <span>Pulses</span> <b>20k</b>
+          </div>
+          <div class="nav-panel-indikator">
+            <icon image="/img/icons/feeds.svg"></icon>
+            <span>Datafeeds</span> <b>102</b>
+          </div>
+        </div>
+        <div class="nav-panel-col">
+          <div class="nav-panel-indikator text-green">
+            <icon image="/img/icons/pulses.svg"></icon>
+            <span>Pulses</span> <b>20k</b>
+          </div>
+        </div>
+        <div class="nav-panel-col">
+          <div class="nav-panel-account">
+            1,41 ETH | <b>$344</b>
+            <icon image="/img/icons/metamask.svg"></icon>
+            <span class="text-orange">0x1015e2 ...</span>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -57,7 +83,44 @@ $nav-panel-height: 42px;
   flex-grow: 1;
   min-width: 0;
   max-width: 100%;
+}
+.nav-panel,
+.nav-panel-col {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+.nav-panel-col {
+  @include make-col-auto();
+}
+.nav-panel-indikator {
+  display: flex;
+  align-items: flex-end;
+  white-space: normal;
+  font-size: rem(12px);
+  line-height: 1;
+  top: -5px;
+  position: relative;
+  + .nav-panel-indikator {
+    margin-left: rem(50px);
+  }
+  i {
+    top: 3px;
+    margin-right: 5px;
+  }
+  b {
+    padding-left: 4px;
+    font-weight: 600;
+    font-size: rem(15px);
+    line-height: 1;
+  }
+}
+.nav-panel-account {
+  font-size: rem(14px);
+  font-weight: 300;
+  b {
+    font-size: rem(14px);
+    font-weight: 400;
+  }
 }
 </style>
