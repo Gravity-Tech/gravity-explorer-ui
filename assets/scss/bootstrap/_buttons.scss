@@ -20,6 +20,7 @@
   transition: $btn-transition;
   border-radius: $btn-border-radius;
   overflow: hidden;
+  @include make-col-auto();
 
   @include btn-size($btn-height, $btn-line-height, $btn-border-width, $btn-font-size, $btn-padding-x);
   border-color: $btn-bg-color;
@@ -60,7 +61,7 @@ fieldset:disabled a.btn {
   pointer-events: none;
 }
 
-.btn-primary, .btn-secondary{
+.btn-primary, .btn-secondary, .btn-outline-primary{
   &:before, &:after{
     content: '';
     display: block;
@@ -112,6 +113,21 @@ fieldset:disabled a.btn {
   &:hover{
     color: #000000;
     background: #44D7B6;
+  }
+}
+
+.btn-outline-primary{
+  color: #D8D8D8;
+  background: #878EA1;
+  &:before{
+    background: $body-bg;
+  }
+  &:after{
+    background: #EEECEC;
+  }
+  &:hover{
+    color: #000000;
+    background: #EEECEC;
   }
 }
 
