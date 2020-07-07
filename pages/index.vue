@@ -1,6 +1,14 @@
 <template>
   <div class="container">
-    awd
+    <button class="btn">
+      <b>Link</b>
+    </button>
+    <button class="btn btn-primary">
+      <b>Deposit management</b>
+    </button>
+    <button class="btn btn-secondary">
+      <b>View details</b>
+    </button>
   </div>
 </template>
 

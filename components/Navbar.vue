@@ -97,12 +97,12 @@ $nav-panel-height: 42px;
   display: flex;
   align-items: flex-end;
   white-space: normal;
-  font-size: rem(12px);
+  font-size: 12px;
   line-height: 1;
   top: -5px;
   position: relative;
   + .nav-panel-indikator {
-    margin-left: rem(50px);
+    margin-left: 50px;
   }
   i {
     top: 3px;
@@ -111,15 +111,15 @@ $nav-panel-height: 42px;
   b {
     padding-left: 4px;
     font-weight: 600;
-    font-size: rem(15px);
+    font-size: 15px;
     line-height: 1;
   }
 }
 .nav-panel-account {
-  font-size: rem(14px);
+  font-size: 14px;
   font-weight: 300;
   b {
-    font-size: rem(14px);
+    font-size: 14px;
     font-weight: 400;
   }
 }

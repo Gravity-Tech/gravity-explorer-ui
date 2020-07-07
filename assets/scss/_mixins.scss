@@ -13,3 +13,16 @@
     border: 0;
 }
 
+
+@mixin btn-padding($btn-height, $btn-line-height, $btn-border-width, $btn-font-size, $btn-padding-x) {
+  $btn-padding-y: ($btn-height - $btn-border-width * 2 - $btn-font-size * $btn-line-height) / 2;
+  padding: $btn-padding-y $btn-padding-x;
+}
+
+
+@mixin btn-size($btn-height, $btn-line-height, $btn-border-width, $btn-font-size, $btn-padding-x) {
+  line-height: $btn-line-height;
+  border: $btn-border-width solid;
+  @include btn-padding($btn-height, $btn-line-height, $btn-border-width, $btn-font-size, $btn-padding-x);
+}
+

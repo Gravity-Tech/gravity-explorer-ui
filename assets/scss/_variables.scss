@@ -23,3 +23,18 @@ $container-max-widths: (
 );
 $green: #44D7B6;
 $orange: #FF8E1E;
+
+$btn-font-family: null;
+$btn-font-weight: null;
+$btn-height: 38px;
+$btn-font-size: 13px;
+$btn-padding-x: 26px;
+$btn-line-height: lh($btn-font-size, 18px);
+$btn-border-width: 0;
+$btn-border-radius: 6px;
+$btn-color: $body-color;
+$btn-bg-color: #222438;
+$btn-bg-color-hover: #323652;
+$btn-white-space: nowrap;
+$btn-transition: .2s;
+$btn-disabled-opacity: .5;
