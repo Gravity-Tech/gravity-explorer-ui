@@ -2,7 +2,35 @@
   <footer class="footer">
     <hr />
     <div class="container">
-      <div class="footer-nav"></div>
+      <div class="footer-nav">
+        <div class="footer-nav-logo-wrapper">
+          <nuxt-link
+            to="/"
+            class="footer-nav-logo responsive responsive-bsizer"
+          >
+            <img class="responsive-item" src="/img/logo.svg" alt="Logo" />
+          </nuxt-link>
+        </div>
+        <div class="footer-nav-item">
+          <a class="link-invert" href="/">Docs</a>
+        </div>
+        <div class="footer-nav-item">
+          <a class="link-invert" href="/">Whitepaper</a>
+        </div>
+        <div class="footer-nav-item">
+          <a class="link-invert" href="/">FAQ</a>
+        </div>
+        <div class="footer-nav-item">
+          <a class="link-invert" href="/">Brand Assets</a>
+        </div>
+        <div class="footer-nav-item"><a href="/">Privacy policy</a></div>
+        <div class="footer-nav-item"><a href="/">Terms & Conditions</a></div>
+        <div class="footer-nav-item">
+          <a href="mailto:oracle@gravity.tech" class="text-green">
+            oracle@gravity.tech
+          </a>
+        </div>
+      </div>
     </div>
     <hr />
     <div class="container">
@@ -159,6 +187,34 @@ export default Vue.extend({
   margin: 0;
   padding: 0;
 }
+.footer-nav {
+  min-height: 118px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #878ea1;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.footer-nav-item {
+  a {
+    display: block;
+    padding: 15px;
+  }
+}
+.footer-nav-logo-wrapper {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.footer-nav-logo {
+  display: block;
+  flex: 0 0 $nav-logo-width;
+  width: $nav-logo-width;
+  max-width: 100%; // Reset earlier grid tiers
+  &:before {
+    padding-top: #{$nav-logo-height / $nav-logo-width * 100%};
+  }
+}
 .footer-cookies-wrapper {
   position: fixed;
   bottom: 30px;
@@ -181,9 +237,6 @@ export default Vue.extend({
   @include media-breakpoint-up(sm) {
     display: inline;
   }
-}
-.footer-nav {
-  height: 118px;
 }
 .footer-socials,
 .footer-contacts {

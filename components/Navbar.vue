@@ -47,8 +47,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-$nav-logo-height: 51px;
-$nav-logo-width: 160.5px;
 $nav-panel-height: 42px;
 
 .nav {
