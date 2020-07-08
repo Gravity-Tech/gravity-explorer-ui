@@ -36,7 +36,21 @@
     </div>
     <hr />
     <div class="modal-footer">
-      1231
+      <table-list>
+        <template v-slot:body>
+          <tr v-for="index in 3" :key="index">
+            <td>LinkPool Node 1</td>
+            <td class="small" style="width: 40%;">
+              Payouts depend on platform but are always automated and almost
+              instant.
+            </td>
+            <td>Waves</td>
+            <td class="text-green">10</td>
+            <td>27.05.2020</td>
+            <td>~10 WAVES | $12.6</td>
+          </tr>
+        </template>
+      </table-list>
     </div>
   </div>
 </template>
@@ -44,9 +58,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import Icon from '~/components/Icon.vue'
+import TableList from '~/components/TableList.vue'
 
 export default Vue.extend({
   name: 'ModalContent',
-  components: { Icon },
+  components: { Icon, TableList },
 })
 </script>
