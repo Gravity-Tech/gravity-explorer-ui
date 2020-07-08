@@ -14,14 +14,14 @@
             <icon image="/img/icons/pulses.svg"></icon>
             <span>Pulses</span> <b>20k</b>
           </div>
-          <div class="nav-panel-indikator">
-            <icon image="/img/icons/feeds.svg"></icon>
+          <div class="nav-panel-indikator nav-panel-datafeeds">
+            <icon image="/img/icons/datafeeds.svg"></icon>
             <span>Datafeeds</span> <b>102</b>
           </div>
         </div>
         <div class="nav-panel-col">
           <div class="nav-panel-indikator text-green">
-            <icon image="/img/icons/connected.svg"></icon>
+            <icon image="/img/icons/node_connected.svg"></icon>
             <span>Node Connected</span>
           </div>
         </div>
@@ -104,7 +104,7 @@ $nav-panel-height: 42px;
     margin-left: 50px;
   }
   i {
-    top: 3px;
+    top: 4px;
     margin-right: 5px;
   }
   b {
@@ -114,9 +114,19 @@ $nav-panel-height: 42px;
     line-height: 1;
   }
 }
+.nav-panel-datafeeds {
+  i {
+    margin-right: 2px;
+  }
+}
 .nav-panel-account {
   font-size: 14px;
   font-weight: 300;
+  i {
+    top: 4px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
   b {
     font-size: 14px;
     font-weight: 400;
