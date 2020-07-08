@@ -1,8 +1,13 @@
 <template>
   <div class="container">
-    <btn tag="a" href="/" class="btn-primary">
+    <btn class="btn-primary" @click="$modal.push('example')">
       awdwadawd
     </btn>
+
+    <modal name="example">
+      <modal-content></modal-content>
+    </modal>
+
     <table-block>
       <template v-slot:head>
         <tr>
@@ -35,9 +40,10 @@
 import Vue from 'vue'
 import Btn from '~/components/Btn.vue'
 import TableBlock from '~/components/Table.vue'
+import ModalContent from '~/components/ModalContent.vue'
 
 export default Vue.extend({
-  components: { Btn, TableBlock },
+  components: { Btn, TableBlock, ModalContent },
 })
 </script>
 

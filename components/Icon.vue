@@ -1,5 +1,5 @@
 <template>
-  <i class="icon" :style="style"></i>
+  <i class="icon" :style="style"><slot></slot></i>
 </template>
 
 <script lang="ts">
@@ -17,7 +17,7 @@ export default Vue.extend({
   computed: {
     style() {
       return {
-        backgroundImage: `url(${this.image})`,
+        backgroundImage: this.image ? `url(${this.image})` : null,
       }
     },
   },
@@ -34,5 +34,12 @@ export default Vue.extend({
   background-position: center;
   background-size: contain;
   pointer-events: none;
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>

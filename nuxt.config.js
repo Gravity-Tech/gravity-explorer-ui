@@ -29,7 +29,7 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap',
+          'https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap',
       },
       {
         rel: 'preconnect',
@@ -45,7 +45,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: [{ src: '~plugins/modal', ssr: false }],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
