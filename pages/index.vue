@@ -1,14 +1,9 @@
 <template>
   <div class="container">
-    <button class="btn">
-      <b>Link</b>
-    </button>
-    <button class="btn btn-primary">
-      <b>Deposit management</b>
-    </button>
-    <button class="btn btn-secondary">
-      <b>View details</b>
-    </button>
+    <table>
+      <thead></thead>
+      <tbody></tbody>
+    </table>
   </div>
 </template>
 

@@ -3,6 +3,7 @@
     <hr />
     <div class="container">
       <div class="footer-nav">
+        <hr />
         <div class="footer-nav-logo-wrapper">
           <nuxt-link
             to="/"
@@ -25,7 +26,7 @@
         </div>
         <div class="footer-nav-item"><a href="/">Privacy policy</a></div>
         <div class="footer-nav-item"><a href="/">Terms & Conditions</a></div>
-        <div class="footer-nav-item">
+        <div class="footer-nav-item footer-contacts-email">
           <a href="mailto:oracle@gravity.tech" class="text-green">
             oracle@gravity.tech
           </a>
@@ -35,7 +36,7 @@
     <hr />
     <div class="container">
       <div class="footer-socials">
-        <btn tag="a" href="/" class="footer-socials-btn footer-socials-btn--md">
+        <btn tag="a" href="/" class="footer-socials-btn">
           <icon image="/img/icons/ventuary-lab.svg"></icon>
         </btn>
         <a
@@ -52,7 +53,10 @@
         <btn tag="a" href="/" class="footer-socials-btn">
           <icon image="/img/icons/ventuary-lab.svg"></icon>
         </btn>
-        <a class="text-green" href="mailto:oracle@gravity.tech">
+        <a
+          class="text-green footer-contacts-email"
+          href="mailto:oracle@gravity.tech"
+        >
           oracle@gravity.tech
         </a>
       </div>
@@ -69,8 +73,8 @@
           <div ref="cookiesBox" class="footer-cookies-box">
             <div>
               We use cookies on our website. By continuing to use the site, or
-              by clicking “I agree”, you consent to the use of cookies. For more
-              info click here.
+              by clicking “I&nbsp;agree”, you consent to the use of cookies. For
+              more info click here.
             </div>
             <btn
               class="btn-outline-primary footer-cookies-btn"
@@ -126,11 +130,17 @@ export default Vue.extend({
         link: '/',
       },
     ],
-    isCookiesBox: true,
     heightCookiesBox: 100,
     instanceHeightCookiesBox: undefined,
   }),
   computed: {
+    isCookiesBox() {
+      // @ts-ignore
+      return !this.isAgreeCookies
+    },
+    isAgreeCookies() {
+      return this.$store.getters['app/isAgreeCookies']
+    },
     getCookiesStyle() {
       return {
         height: this.heightCookiesBox + 30 + 'px',
@@ -146,7 +156,7 @@ export default Vue.extend({
   },
   methods: {
     hideCookiesBox() {
-      this.isCookiesBox = false
+      this.$store.dispatch('app/isAgreeCookies')
       this.unbindHeightCookiesBox()
     },
     bindHeightCookiesBox() {
@@ -179,40 +189,85 @@ export default Vue.extend({
 .footer-cookies {
   min-height: 100px;
 }
-.footer hr {
-  height: 1px;
-  width: 100%;
-  border: none;
-  background: #2e3148;
-  margin: 0;
-  padding: 0;
+.footer {
+  font-weight: 300;
+  hr {
+    height: 1px;
+    flex: 0 0 100%;
+    width: 100%;
+    border: none;
+    background: #2e3148;
+    margin: 0;
+    padding: 0;
+    display: none;
+    @include media-breakpoint-up(md) {
+      display: block;
+    }
+  }
 }
 .footer-nav {
-  min-height: 118px;
-  display: flex;
+  padding-top: 25px;
+  display: block;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   color: #878ea1;
   margin-left: -15px;
   margin-right: -15px;
+  @include media-breakpoint-up(md) {
+    min-height: 118px;
+    display: flex;
+    padding-bottom: 25px;
+  }
+  hr {
+    position: relative;
+    top: -25px;
+    display: block;
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+  .footer-contacts-email {
+    display: none;
+    @include media-breakpoint-up(lg) {
+      display: inline-block;
+    }
+  }
 }
 .footer-nav-item {
+  display: none;
   a {
     display: block;
     padding: 15px;
+  }
+  @include media-breakpoint-up(md) {
+    display: inline-block;
   }
 }
 .footer-nav-logo-wrapper {
   padding-left: 15px;
   padding-right: 15px;
+  flex: 0 0 100%;
+  width: 100%;
+  @include media-breakpoint-up(xl) {
+    flex: 0 0 auto;
+    width: auto;
+  }
 }
 .footer-nav-logo {
   display: block;
   flex: 0 0 $nav-logo-width;
   width: $nav-logo-width;
   max-width: 100%; // Reset earlier grid tiers
+  margin-bottom: 15px;
   &:before {
     padding-top: #{$nav-logo-height / $nav-logo-width * 100%};
+  }
+  @include media-breakpoint-up(md) {
+    margin-bottom: 21px;
+  }
+  @include media-breakpoint-up(xl) {
+    margin-bottom: 14px;
   }
 }
 .footer-cookies-wrapper {
@@ -220,8 +275,10 @@ export default Vue.extend({
   bottom: 30px;
   left: 0;
   width: 100%;
+  z-index: 10;
 }
 .footer-cookies-box {
+  font-weight: 400;
   background: $body-bg;
   border: 1px solid #2e3148;
   min-height: 70px;
@@ -239,35 +296,56 @@ export default Vue.extend({
   }
 }
 .footer-socials,
+.footer-contacts,
+.footer-social {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.footer-socials,
 .footer-contacts {
-  padding-bottom: 34px;
+  @include media-breakpoint-up(md) {
+    padding-bottom: 34px;
+  }
   @include media-breakpoint-up(md) {
     padding-bottom: 43px;
   }
 }
 .footer-socials {
-  padding-top: 27px;
-  display: flex;
-  align-items: center;
+  margin-left: -10px;
+  margin-right: -10px;
   @include media-breakpoint-up(md) {
     padding-top: 47px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .footer-socials-btn {
+    display: none;
+    @include media-breakpoint-up(lg) {
+      display: inline-block;
+    }
   }
 }
 .footer-social {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  height: 42px;
-  width: 42px;
-  min-width: 42px;
+  height: 50px;
+  width: 50px;
+  min-width: 50px;
   opacity: 0.65;
   transition: $btn-transition;
+  @include media-breakpoint-up(md) {
+    height: 42px;
+    width: 42px;
+    min-width: 42px;
+  }
   i {
     height: 32px;
     width: 32px;
   }
   + .footer-social {
-    margin-left: auto;
+    @include media-breakpoint-up(md) {
+      margin-left: auto;
+    }
   }
   &:hover {
     opacity: 1;
@@ -282,21 +360,37 @@ export default Vue.extend({
   }
 }
 .footer-contacts {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  @include media-breakpoint-up(md) {
+  margin-top: 14px;
+  @include media-breakpoint-up(lg) {
     display: none;
   }
-}
-.footer-socials-btn--md {
-  display: none;
   @include media-breakpoint-up(md) {
-    display: block;
+    margin-top: 0;
+  }
+  .footer-contacts-email {
+    @include media-breakpoint-down(xs) {
+      color: #ffffff !important;
+      font-weight: 200;
+      font-size: 16px;
+    }
+  }
+  .footer-contacts-email,
+  .footer-socials-btn {
+    margin-bottom: 14px;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 0;
+    }
   }
 }
 .footer-copyright {
-  padding-bottom: 38px;
+  padding-bottom: 24px;
+  @include media-breakpoint-down(xs) {
+    font-weight: 200;
+  }
+  @include media-breakpoint-up(sm) {
+    padding-bottom: 38px;
+  }
 }
 .footer-cookies-btn {
   margin-top: 19px;

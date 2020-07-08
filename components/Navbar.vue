@@ -21,8 +21,8 @@
         </div>
         <div class="nav-panel-col">
           <div class="nav-panel-indikator text-green">
-            <icon image="/img/icons/pulses.svg"></icon>
-            <span>Pulses</span> <b>20k</b>
+            <icon image="/img/icons/connected.svg"></icon>
+            <span>Node Connected</span>
           </div>
         </div>
         <div class="nav-panel-col">
@@ -56,6 +56,7 @@ $nav-panel-height: 42px;
   width: 100%;
   display: flex;
   align-items: center;
+  display: none;
 }
 .nav-container {
   display: flex;

@@ -8,7 +8,7 @@ export default {
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
-  target: 'static',
+  target: 'server',
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
@@ -29,7 +29,7 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap',
+          'https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap',
       },
       {
         rel: 'preconnect',
