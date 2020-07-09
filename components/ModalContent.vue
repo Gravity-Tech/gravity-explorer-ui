@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="modal-nebula">
     <button class="modal-close" aria-label="Close Modal" @click="$modal.pop()">
       <icon>
         <svg
@@ -28,29 +28,15 @@
         </svg>
       </icon>
     </button>
-    <div class="modal-head">
-      Nebula @123
+    <div v-if="!!$slots.head" class="modal-head">
+      <slot name="head"></slot>
     </div>
-    <div class="modal-body">
-      1231
+    <div v-if="!!$slots.body" class="modal-body">
+      <slot name="body"></slot>
     </div>
     <hr />
-    <div class="modal-footer">
-      <table-list>
-        <template v-slot:body>
-          <tr v-for="index in 3" :key="index">
-            <td>LinkPool Node 1</td>
-            <td class="small" style="width: 40%;">
-              Payouts depend on platform but are always automated and almost
-              instant.
-            </td>
-            <td>Waves</td>
-            <td class="text-green">10</td>
-            <td>27.05.2020</td>
-            <td>~10 WAVES | $12.6</td>
-          </tr>
-        </template>
-      </table-list>
+    <div v-if="!!$slots.footer" class="modal-footer">
+      <slot name="footer"></slot>
     </div>
   </div>
 </template>
@@ -58,10 +44,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import Icon from '~/components/Icon.vue'
-import TableList from '~/components/TableList.vue'
 
 export default Vue.extend({
   name: 'ModalContent',
-  components: { Icon, TableList },
+  components: { Icon },
 })
 </script>
