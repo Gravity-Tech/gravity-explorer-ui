@@ -151,7 +151,10 @@ $nav-panel-height: 42px;
   top: -5px;
   position: relative;
   + .nav-panel-indikator {
-    margin-left: 50px;
+    margin-left: 25px;
+    @include media-breakpoint-up(xxl) {
+      margin-left: 50px;
+    }
   }
   i {
     top: 4px;
