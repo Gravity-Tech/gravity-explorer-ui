@@ -14,17 +14,22 @@
         </card>
         <div class="modal-nebula-data">
           <ul>
-            <li><span class="text-muted">Regularity:</span> per hour</li>
-            <li><span class="text-muted">Target chain:</span> ETH</li>
-            <li>
-              <span class="text-muted">Subscription fee:</span>
-              <span class="text-green">~2 ETH | 487.14</span>
+            <li v-if="data.regularity">
+              <span class="text-muted">Regularity:</span> {{ data.regularity }}
             </li>
-            <li><span class="text-muted">Data feed:</span> Binance-G</li>
+            <li v-if="data.chain">
+              <span class="text-muted">Target chain:</span> {{ data.chain }}
+            </li>
+            <li v-if="data.fee">
+              <span class="text-muted">Subscription fee:</span>
+              <span class="text-green">{{ data.fee }}</span>
+            </li>
+            <li v-if="data.feed">
+              <span class="text-muted">Data feed:</span> {{ data.feed }}
+            </li>
           </ul>
-          <div class="modal-nebula-description">
-            5 minutes avg. USD price feed of one troy fine ounce of gold on a
-            London Good Delivery gold bar.
+          <div v-if="data.description" class="modal-nebula-description">
+            {{ data.description }}
           </div>
           <btn class="modal-nebula-btn btn-primary">
             Subscribe
@@ -94,6 +99,11 @@ export default Vue.extend({
     nodesList: {
       type: Array,
       default: () => [],
+      required: false,
+    },
+    data: {
+      type: Object,
+      default: () => {},
       required: false,
     },
   },

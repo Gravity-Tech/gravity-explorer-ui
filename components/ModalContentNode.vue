@@ -23,17 +23,32 @@
           </div>
         </card>
         <div class="modal-node-data">
-          <ul>
-            <li><span class="text-muted">Name:</span> LinkPool Node 1</li>
-            <li><span class="text-muted">Address:</span> 0x123456789</li>
+          <ul v-if="data.name || data.address">
+            <li v-if="data.name">
+              <span class="text-muted">Name:</span> {{ data.name }}
+            </li>
+            <li v-if="data.address">
+              <span class="text-muted">Address:</span> {{ data.address }}
+            </li>
           </ul>
-          <div class="modal-node-description">
-            LinkPool is a leading Gravity node service provider with the goal of
-            providing tools and services that benefit the Gravity ecosystem.
+          <div v-if="data.description" class="modal-node-description">
+            {{ data.description }}
           </div>
-          <div class="modal-node-contacts">
+          <div
+            v-if="data.website && data.website.name"
+            class="modal-node-contacts"
+          >
             <span class="text-muted">Website:</span>
-            <a href="https://linkpool.io" target="_blank">linkpool.io</a>
+            <a
+              v-if="data.website.href"
+              :href="data.website.href"
+              target="_blank"
+            >
+              {{ data.website.name }}
+            </a>
+            <span v-else>
+              {{ data.website.name }}
+            </span>
           </div>
           <btn class="modal-node-btn btn-primary">
             Vote
@@ -80,6 +95,11 @@ export default Vue.extend({
     modalHead: {
       type: String,
       default: () => '',
+      required: false,
+    },
+    data: {
+      type: Object,
+      default: () => {},
       required: false,
     },
     caption: {

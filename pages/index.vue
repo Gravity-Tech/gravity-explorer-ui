@@ -15,6 +15,14 @@
         card-avatar="/img/card/avatar.jpg"
         :nodes-list="nodesList"
         caption="Nodes List:"
+        :data="{
+          regularity: 'per hour',
+          chain: 'ETH',
+          fee: '~2 ETH | 487.14',
+          feed: 'Data feed: Binance-G',
+          description:
+            '5 minutes avg. USD price feed of one troy fine ounce of gold on a London Good Delivery gold bar.',
+        }"
       >
       </modal-content-nebula>
     </modal>
@@ -28,6 +36,16 @@
         card-avatar="/img/card/example-logo.svg"
         :nodes-list="nodesList"
         caption="Nebulae List:"
+        :data="{
+          name: 'LinkPool Node 1',
+          address: '0x123456789',
+          description:
+            'LinkPool is a leading Gravity node service provider with the goal of providing tools and services that benefit the Gravity ecosystem. ',
+          website: {
+            name: 'linkpool.io ',
+            href: 'https://linkpool.io',
+          },
+        }"
       >
       </modal-content-node>
     </modal>
