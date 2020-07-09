@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-nebula">
+  <div>
     <button class="modal-close" aria-label="Close Modal" @click="$modal.pop()">
       <icon>
         <svg

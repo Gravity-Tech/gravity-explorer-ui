@@ -1,5 +1,29 @@
 <template>
   <div class="container">
+    <btn tag="nuxt-link" class="btn-primary" :to="'/nodes'">
+      nodes
+    </btn>
+    <div class="dropdown">
+      <btn
+        id="dropdownMenuButton2"
+        v-dropdown
+        class="btn-primary dropdown-toggle"
+        type="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        nodes
+      </btn>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+        <a class="dropdown-item" href="#">Explorer</a>
+        <a class="dropdown-item" href="#">Node control panel</a>
+        <a class="dropdown-item" href="#">FAQ</a>
+        <a class="dropdown-item" href="#">Docs</a>
+        <a class="dropdown-item" href="#">Log out</a>
+      </div>
+    </div>
+
     <btn class="btn-primary" @click="$modal.push('example')">
       example
     </btn>
@@ -7,48 +31,50 @@
       example1
     </btn>
 
-    <modal name="example">
-      <modal-content-nebula
-        rating="8.7"
-        modal-head="Nebula @123"
-        card-title="Nebula @123"
-        card-avatar="/img/card/avatar.jpg"
-        :nodes-list="nodesList"
-        caption="Nodes List:"
-        :data="{
-          regularity: 'per hour',
-          chain: 'ETH',
-          fee: '~2 ETH | 487.14',
-          feed: 'Data feed: Binance-G',
-          description:
-            '5 minutes avg. USD price feed of one troy fine ounce of gold on a London Good Delivery gold bar.',
-        }"
-      >
-      </modal-content-nebula>
-    </modal>
+    <client-only>
+      <modal name="example">
+        <modal-content-nebula
+          rating="8.7"
+          modal-head="Nebula @123"
+          card-title="Nebula @123"
+          card-avatar="/img/card/avatar.jpg"
+          :nodes-list="nodesList"
+          caption="Nodes List:"
+          :data="{
+            regularity: 'per hour',
+            chain: 'ETH',
+            fee: '~2 ETH | 487.14',
+            feed: 'Data feed: Binance-G',
+            description:
+              '5 minutes avg. USD price feed of one troy fine ounce of gold on a London Good Delivery gold bar.',
+          }"
+        >
+        </modal-content-nebula>
+      </modal>
 
-    <modal name="example1">
-      <modal-content-node
-        rating="8.7"
-        modal-head="LinkPool Node 2"
-        card-date="27.05.2020"
-        card-deposit="~10 WAVES | $12.6"
-        card-avatar="/img/card/example-logo.svg"
-        :nodes-list="nodesList"
-        caption="Nebulae List:"
-        :data="{
-          name: 'LinkPool Node 1',
-          address: '0x123456789',
-          description:
-            'LinkPool is a leading Gravity node service provider with the goal of providing tools and services that benefit the Gravity ecosystem. ',
-          website: {
-            name: 'linkpool.io ',
-            href: 'https://linkpool.io',
-          },
-        }"
-      >
-      </modal-content-node>
-    </modal>
+      <modal name="example1">
+        <modal-content-node
+          rating="8.7"
+          modal-head="LinkPool Node 2"
+          card-date="27.05.2020"
+          card-deposit="~10 WAVES | $12.6"
+          card-avatar="/img/card/example-logo.svg"
+          :nodes-list="nodesList"
+          caption="Nebulae List:"
+          :data="{
+            name: 'LinkPool Node 1',
+            address: '0x123456789',
+            description:
+              'LinkPool is a leading Gravity node service provider with the goal of providing tools and services that benefit the Gravity ecosystem. ',
+            website: {
+              name: 'linkpool.io ',
+              href: 'https://linkpool.io',
+            },
+          }"
+        >
+        </modal-content-node>
+      </modal>
+    </client-only>
 
     <table-block>
       <template v-slot:head>

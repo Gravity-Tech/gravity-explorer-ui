@@ -26,10 +26,61 @@
           </div>
         </div>
         <div class="nav-panel-col">
-          <div class="nav-panel-account">
+          <div class="nav-panel-info">
             1,41 ETH | <b>$344</b>
             <icon image="/img/icons/metamask.svg"></icon>
             <span class="text-orange">0x1015e2 ...</span>
+          </div>
+          <nuxt-link to="/notifications" class="nav-panel-notifications">
+            <icon>
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 30 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.08512 24.5071L5.14558 21.1836C6.0972 19.6496 6.60004 17.8926 6.60004 16.1043V13.1931C6.60004 9.51772 9.13453 6.40909 12.6003 5.40692V3.3225C12.6003 2.04164 13.6767 1 15.0004 1C16.3241 1 17.4005 2.04164 17.4005 3.3225V5.40692C20.8662 6.40909 23.4007 9.51772 23.4007 13.1931V16.1043C23.4007 17.8926 23.9036 19.6484 24.854 21.1824L26.9144 24.5059C27.0261 24.6859 27.0285 24.9089 26.9217 25.0912C26.8148 25.2735 26.6168 25.3862 26.4008 25.3862H3.59994C3.38393 25.3862 3.18474 25.2735 3.07792 25.0924C2.97109 24.9112 2.9747 24.6859 3.08512 24.5071Z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M18.6919 26.2905C18.0306 27.8865 16.6306 29.0001 14.9996 29.0001C13.3687 29.0001 11.9686 27.8865 11.3073 26.2905H18.6919V26.2905Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </icon>
+            <div class="nav-panel-notifications-text">3</div>
+          </nuxt-link>
+          <div class="nav-panel-account">
+            <div class="dropdown">
+              <button
+                id="dropdownMenuButton"
+                v-dropdown
+                class="nav-panel-account-toggle dropdown-toggle"
+                type="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <span class="nav-panel-avatar-bg">
+                  <span
+                    class="nav-panel-avatar"
+                    :lazy-background="'/img/card/avatar.jpg'"
+                  ></span>
+                </span>
+              </button>
+              <div
+                class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <a class="dropdown-item" href="#">Explorer</a>
+                <a class="dropdown-item" href="#">Node control panel</a>
+                <a class="dropdown-item" href="#">FAQ</a>
+                <a class="dropdown-item" href="#">Docs</a>
+                <a class="dropdown-item" href="#">Log out</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -56,7 +107,6 @@ $nav-panel-height: 42px;
   width: 100%;
   display: flex;
   align-items: center;
-  display: none;
 }
 .nav-container {
   display: flex;
@@ -119,11 +169,13 @@ $nav-panel-height: 42px;
     margin-right: 2px;
   }
 }
-.nav-panel-account {
+.nav-panel-info {
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
   font-size: 14px;
   font-weight: 300;
   i {
-    top: 4px;
     margin-right: 10px;
     margin-left: 10px;
   }
@@ -131,5 +183,77 @@ $nav-panel-height: 42px;
     font-size: 14px;
     font-weight: 400;
   }
+}
+.nav-panel-notifications {
+  position: relative;
+  display: block;
+  width: 100%;
+  flex: 0 0 40px;
+  height: 30px;
+  max-width: 40px;
+  margin-left: 30px;
+  .icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+  }
+  &:hover {
+    .icon {
+      color: $green;
+    }
+  }
+}
+.nav-panel-notifications-text {
+  position: absolute;
+  right: 0;
+  top: 4px;
+  background-color: #da4444;
+  border-radius: 2px;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 10px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 17px;
+}
+.nav-panel-account {
+  margin-left: 30px;
+}
+.nav-panel-account-toggle {
+  background: transparent;
+  border: none;
+  outline: none !important;
+}
+.nav-panel-avatar-bg {
+  position: relative;
+  display: block;
+  width: 100%;
+  flex: 0 0 26px;
+  min-width: 26px;
+  height: 26px;
+  max-width: 26px;
+  background: linear-gradient(
+    234.03deg,
+    rgba(#0533f5, 0.68) 12.5%,
+    rgba(#f39949, 0.68) 68.45%
+  );
+  border-radius: 50%;
+}
+.nav-panel-avatar {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 </style>

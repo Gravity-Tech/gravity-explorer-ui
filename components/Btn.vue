@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag" class="btn" @click="$emit('click', $event)">
+  <component :is="tag" class="btn" :to="to" @click="$emit('click', $event)">
     <b><slot></slot></b>
   </component>
 </template>
@@ -13,6 +13,11 @@ export default Vue.extend({
     tag: {
       type: String,
       default: () => 'button',
+      required: false,
+    },
+    to: {
+      type: String,
+      default: () => '',
       required: false,
     },
   },

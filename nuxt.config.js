@@ -17,7 +17,10 @@ export default {
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+      },
       {
         hid: 'description',
         name: 'description',
@@ -45,7 +48,10 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [{ src: '~plugins/modal', ssr: false }],
+  plugins: [
+    { src: '~plugins/modal', ssr: false },
+    { src: '~plugins/dropdown', ssr: false },
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components

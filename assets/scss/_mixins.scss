@@ -26,3 +26,21 @@
   @include btn-padding($btn-height, $btn-line-height, $btn-border-width, $btn-font-size, $btn-padding-x);
 }
 
+@mixin caret-dropdown-img(){
+  background-image: url(escape-svg('data:image/svg+xml,<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 9L14.6862 22.2808L25 9" stroke="#E6E6E8" stroke-width="4" stroke-linecap="square" stroke-linejoin="round"/></svg>'));
+}
+
+@mixin caret-dropdown(){
+  display: flex;
+  align-items: center;
+  &:after{
+    content: '';
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    margin-left: 8px;
+  }
+}
