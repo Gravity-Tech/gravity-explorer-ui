@@ -24,15 +24,21 @@
       </div>
     </div>
 
-    <btn class="btn-primary" @click="$modal.push('example')">
-      example
+    <btn class="btn-primary" @click="$modal.push('modal-content-nebula')">
+      modal-content-nebula
     </btn>
-    <btn class="btn-primary" @click="$modal.push('example1')">
-      example1
+    <btn class="btn-primary" @click="$modal.push('modal-content-node')">
+      modal-content-node
+    </btn>
+    <btn
+      class="btn-primary"
+      @click="$modal.push('modal-content-withdraw-deposit')"
+    >
+      modal-content-withdraw-deposit
     </btn>
 
     <client-only>
-      <modal name="example">
+      <modal name="modal-content-nebula">
         <modal-content-nebula
           rating="8.7"
           modal-head="Nebula @123"
@@ -52,7 +58,7 @@
         </modal-content-nebula>
       </modal>
 
-      <modal name="example1">
+      <modal name="modal-content-node">
         <modal-content-node
           rating="8.7"
           modal-head="LinkPool Node 2"
@@ -73,6 +79,16 @@
           }"
         >
         </modal-content-node>
+      </modal>
+
+      <modal name="modal-content-withdraw-deposit">
+        <modal-content-withdraw-deposit
+          min="10 ETH"
+          modal-head="Withdraw deposit"
+          card-wallet="Ethereum"
+          card-icon="Ethereum"
+        >
+        </modal-content-withdraw-deposit>
       </modal>
     </client-only>
 
@@ -110,6 +126,7 @@ import Btn from '~/components/Btn.vue'
 import TableBlock from '~/components/Table.vue'
 import ModalContentNebula from '~/components/ModalContentNebula.vue'
 import ModalContentNode from '~/components/ModalContentNode.vue'
+import ModalContentWithdrawDeposit from '~/components/ModalContentWithdrawDeposit.vue'
 
 export default Vue.extend({
   components: {
@@ -117,6 +134,7 @@ export default Vue.extend({
     TableBlock,
     ModalContentNebula,
     ModalContentNode,
+    ModalContentWithdrawDeposit,
   },
   data: () => ({
     nodesList: [

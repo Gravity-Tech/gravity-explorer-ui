@@ -64,7 +64,10 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/style-resources', 'nuxt-lazy-load'],
+  modules: [
+    '@nuxtjs/style-resources',
+    ['nuxt-lazy-load', { directiveOnly: true }],
+  ],
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
