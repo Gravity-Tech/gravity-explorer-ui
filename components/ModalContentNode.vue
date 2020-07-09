@@ -5,23 +5,45 @@
     </template>
 
     <template v-slot:body>
-      <card type-img="logo" :img="cardAvatar">
-        <div class="modal-node-scope">8.7</div>
-        <div class="small">
-          <div v-if="cardDate" style="margin-bottom: 12px;">
-            <span class="text-muted">Joined:</span>
-            {{ cardDate }}
+      <div class="row no-gutters">
+        <card type-img="logo" :img="cardAvatar">
+          <template v-if="rating" v-slot:rating>
+            {{ rating }}
+            <icon class="modal-node-crown" image="/img/icons/сonsul.svg"></icon>
+          </template>
+          <div class="small">
+            <div v-if="cardDate" style="margin-bottom: 12px;">
+              <span class="text-muted">Joined:</span>
+              {{ cardDate }}
+            </div>
+            <div v-if="cardDeposit">
+              <span class="text-muted">Deposit:</span>
+              <span class="text-green">{{ cardDeposit }}</span>
+            </div>
           </div>
-          <div v-if="cardDeposit">
-            <span class="text-muted">Deposit:</span>
-            <span class="text-green">{{ cardDeposit }}</span>
+        </card>
+        <div class="modal-node-data">
+          <ul>
+            <li><span class="text-muted">Name:</span> LinkPool Node 1</li>
+            <li><span class="text-muted">Address:</span> 0x123456789</li>
+          </ul>
+          <div class="modal-node-description">
+            LinkPool is a leading Gravity node service provider with the goal of
+            providing tools and services that benefit the Gravity ecosystem.
           </div>
+          <div class="modal-node-contacts">
+            <span class="text-muted">Website:</span>
+            <a href="https://linkpool.io" target="_blank">linkpool.io</a>
+          </div>
+          <btn class="modal-node-btn btn-primary">
+            Vote
+          </btn>
         </div>
-      </card>
+      </div>
     </template>
 
     <template v-if="nodesList.length" v-slot:footer>
-      <table-list>
+      <table-list :caption="caption">
         <template v-slot:body>
           <tr v-for="(item, index) in nodesList" :key="index">
             <td>{{ item.name }}</td>
@@ -42,6 +64,8 @@ import Vue from 'vue'
 import ModalContent from '~/components/ModalContent.vue'
 import Card from '~/components/Card.vue'
 import TableList from '~/components/TableList.vue'
+import Icon from '~/components/Icon.vue'
+import Btn from '~/components/Btn.vue'
 
 export default Vue.extend({
   name: 'ModalContentNode',
@@ -49,9 +73,21 @@ export default Vue.extend({
     ModalContent,
     Card,
     TableList,
+    Icon,
+    Btn,
   },
   props: {
     modalHead: {
+      type: String,
+      default: () => '',
+      required: false,
+    },
+    caption: {
+      type: String,
+      default: () => '',
+      required: false,
+    },
+    rating: {
       type: String,
       default: () => '',
       required: false,
@@ -80,7 +116,39 @@ export default Vue.extend({
 })
 </script>
 
-<style class="">
-.modal-node {
+<style lang="scss">
+.modal-node-crown {
+  position: absolute;
+  right: -35px;
+  top: 0;
+  width: 24px;
+  height: 24px;
+}
+.modal-node-data {
+  padding-left: 42px;
+  flex-basis: 0;
+  flex-grow: 1;
+  min-width: 0;
+  max-width: 100%;
+  ul {
+    font-size: 13px;
+    line-height: lh(13px, 19px);
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 19px;
+    li {
+      display: block;
+      margin-bottom: 9px;
+    }
+  }
+}
+.modal-node-description {
+  margin-bottom: 27px;
+}
+.modal-node-contacts {
+  margin-bottom: 35px;
+}
+.modal-node-btn {
+  min-width: 200px;
 }
 </style>

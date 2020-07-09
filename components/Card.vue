@@ -1,5 +1,8 @@
 <template>
   <div class="card">
+    <div v-if="$slots.rating" class="card-rating">
+      <slot name="rating"></slot>
+    </div>
     <div class="card-bg"></div>
     <div class="card-body">
       <div v-if="isAvatar" class="card-avatar" :lazy-background="img"></div>
@@ -48,8 +51,24 @@ export default Vue.extend({
   flex: 0 0 247px;
   max-width: 247px;
   position: relative;
-  margin-bottom: 24px;
   padding: 30px;
+}
+.card-rating {
+  width: 47px;
+  height: 47px;
+  position: absolute;
+  left: 0;
+  top: -18px;
+  border: 5px dashed #00e6b3;
+  border-radius: 50%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: $green;
 }
 .card-bg {
   &,

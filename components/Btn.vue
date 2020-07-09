@@ -98,12 +98,12 @@ fieldset:disabled a.btn {
     content: '';
     display: block;
     position: absolute;
-    left: 1px;
-    top: 1px;
+    left: $table-border-width;
+    top: $table-border-width;
     transition: $btn-transition;
     border-radius: $btn-border-radius;
-    width: calc(100% - 2px);
-    height: calc(100% - 2px);
+    width: calc(100% - #{$table-border-width * 2});
+    height: calc(100% - #{$table-border-width * 2});
   }
   &:after {
     left: 0;

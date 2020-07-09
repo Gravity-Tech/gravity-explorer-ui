@@ -1,7 +1,9 @@
 <template>
   <table class="table-list">
-    <caption>
-      Nodes List:
+    <caption v-if="caption">
+      {{
+        caption
+      }}
     </caption>
     <tbody>
       <slot name="body"></slot>
@@ -14,6 +16,13 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'TableList',
+  props: {
+    caption: {
+      type: String,
+      default: () => '',
+      required: false,
+    },
+  },
 })
 </script>
 

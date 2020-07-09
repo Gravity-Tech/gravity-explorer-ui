@@ -9,21 +9,25 @@
 
     <modal name="example">
       <modal-content-nebula
+        rating="8.7"
         modal-head="Nebula @123"
         card-title="Nebula @123"
         card-avatar="/img/card/avatar.jpg"
         :nodes-list="nodesList"
+        caption="Nodes List:"
       >
       </modal-content-nebula>
     </modal>
 
     <modal name="example1">
       <modal-content-node
+        rating="8.7"
         modal-head="LinkPool Node 2"
         card-date="27.05.2020"
         card-deposit="~10 WAVES | $12.6"
-        card-avatar="/img/card/avatar.jpg"
+        card-avatar="/img/card/example-logo.svg"
         :nodes-list="nodesList"
+        caption="Nebulae List:"
       >
       </modal-content-node>
     </modal>
@@ -60,19 +64,13 @@
 import Vue from 'vue'
 import Btn from '~/components/Btn.vue'
 import TableBlock from '~/components/Table.vue'
-import ModalContent from '~/components/ModalContent.vue'
 import ModalContentNebula from '~/components/ModalContentNebula.vue'
 import ModalContentNode from '~/components/ModalContentNode.vue'
-import Card from '~/components/Card.vue'
-import TableList from '~/components/TableList.vue'
 
 export default Vue.extend({
   components: {
     Btn,
     TableBlock,
-    ModalContent,
-    Card,
-    TableList,
     ModalContentNebula,
     ModalContentNode,
   },
