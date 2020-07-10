@@ -17,7 +17,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'Checkbox',
+  name: 'BtnCheckbox',
   props: {
     type: {
       type: String,
@@ -41,47 +41,28 @@ export default Vue.extend({
 @import '../assets/scss/import';
 // stylelint-disable selector-no-qualifying-type
 
-.checkbox {
+.btn-checkbox {
   position: relative;
   display: block;
-}
-.checkbox-label {
-  position: relative;
-  display: block;
-  padding-left: 28px;
+  margin-bottom: 0;
   cursor: pointer;
-  color: $text-muted;
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    pointer-events: none;
-  }
-  &:before {
-    border: 1px solid $text-muted;
-    border-radius: 3px;
-  }
-  &:after {
-    opacity: 0;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 10px 11px;
-    background-image: url(escape-svg(
-      'data:image/svg+xml,<svg width="10" height="11" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 5.29874L5.23192 9.92739L9.46384 1" stroke="#EEECEC"/></svg>'
-    ));
-  }
+  user-select: none;
 }
-.checkbox-input:checked {
-  ~ {
-    .checkbox-label {
-      &:after {
-        opacity: 1;
-      }
-    }
+.btn-checkbox-label {
+  height: $input-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 5px 10px;
+  background: transparent;
+  border-radius: 6px;
+  border: 1px solid $primary;
+}
+.btn-checkbox-input:checked {
+  ~ .btn-checkbox-label {
+    background: $primary;
+    color: #1d1f23;
   }
 }
 </style>

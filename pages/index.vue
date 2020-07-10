@@ -173,6 +173,13 @@
                 Method name
               </template>
             </form-input>
+            <btn-checkbox-group>
+              <template v-slot:label>
+                Subscription type
+              </template>
+              <btn-checkbox name="subscribe">Deposit</btn-checkbox>
+              <btn-checkbox name="subscribe">Per transaction</btn-checkbox>
+            </btn-checkbox-group>
           </template>
           <template v-slot:footer>
             <btn class="btn-primary btn-block">Next</btn>
@@ -222,6 +229,8 @@ import ModalContentSubscribe from '~/components/ModalContentSubscribe.vue'
 import FormInput from '~/components/FormInput.vue'
 import CoinCheckbox from '~/components/CoinCheckbox.vue'
 import Checkbox from '~/components/Checkbox.vue'
+import BtnCheckboxGroup from '~/components/BtnCheckboxGroup.vue'
+import BtnCheckbox from '~/components/BtnCheckbox.vue'
 
 export default Vue.extend({
   components: {
@@ -236,6 +245,8 @@ export default Vue.extend({
     ModalContentSubscribe,
     CoinCheckbox,
     Checkbox,
+    BtnCheckboxGroup,
+    BtnCheckbox,
   },
   data: () => ({
     nodesList: [
