@@ -42,6 +42,9 @@
     >
       modal-content-withdraw-success
     </btn>
+    <btn class="btn-primary" @click="$modal.push('modal-content-wallet')">
+      modal-content-wallet
+    </btn>
 
     <client-only>
       <modal name="modal-content-nebula">
@@ -125,6 +128,26 @@
         >
         </modal-content-withdraw-success>
       </modal>
+
+      <modal name="modal-content-wallet">
+        <modal-content-wallet modal-head="Select Wallet Provider">
+          <template v-slot:body>
+            <coin-checkbox
+              name="wallet"
+              title="Metamask"
+              icon="/img/icons/metamask.svg"
+            ></coin-checkbox>
+            <coin-checkbox
+              name="wallet"
+              title="Waves Keeper"
+              icon="/img/icons/waves.svg"
+            ></coin-checkbox>
+          </template>
+          <template v-slot:footer>
+            <btn class="btn-outline-primary btn-block">Login</btn>
+          </template>
+        </modal-content-wallet>
+      </modal>
     </client-only>
 
     <table-block>
@@ -163,7 +186,9 @@ import ModalContentNebula from '~/components/ModalContentNebula.vue'
 import ModalContentNode from '~/components/ModalContentNode.vue'
 import ModalContentWithdrawDeposit from '~/components/ModalContentWithdrawDeposit.vue'
 import ModalContentWithdrawSuccess from '~/components/ModalContentWithdrawSuccess.vue'
+import ModalContentWallet from '~/components/ModalContentWallet.vue'
 import FormInput from '~/components/FormInput.vue'
+import CoinCheckbox from '~/components/CoinCheckbox.vue'
 
 export default Vue.extend({
   components: {
@@ -174,6 +199,8 @@ export default Vue.extend({
     ModalContentNode,
     ModalContentWithdrawDeposit,
     ModalContentWithdrawSuccess,
+    ModalContentWallet,
+    CoinCheckbox,
   },
   data: () => ({
     nodesList: [
@@ -209,4 +236,4 @@ export default Vue.extend({
 })
 </script>
 
-<style></style>
+<style lang="scss"></style>

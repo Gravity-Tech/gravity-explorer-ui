@@ -200,4 +200,9 @@ input[type='button'] {
     width: 100%;
   }
 }
+.modal-content {
+  .btn-outline-primary:before {
+    background: $modal-content-bg;
+  }
+}
 </style>
