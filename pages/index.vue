@@ -134,14 +134,22 @@
           <template v-slot:body>
             <coin-checkbox
               name="wallet"
-              title="Metamask"
+              label="Metamask"
               icon="/img/icons/metamask.svg"
             ></coin-checkbox>
             <coin-checkbox
               name="wallet"
-              title="Waves Keeper"
+              label="Waves Keeper"
               icon="/img/icons/waves.svg"
+              style="margin-bottom: 46px;"
             ></coin-checkbox>
+            <checkbox name="isAgree">
+              <template v-slot:label>
+                By connecting, you agree to the
+                <a href="/">Terms of Service</a> and
+                <a href="/">Privacy Policy</a>
+              </template>
+            </checkbox>
           </template>
           <template v-slot:footer>
             <btn class="btn-outline-primary btn-block">Login</btn>
@@ -189,6 +197,7 @@ import ModalContentWithdrawSuccess from '~/components/ModalContentWithdrawSucces
 import ModalContentWallet from '~/components/ModalContentWallet.vue'
 import FormInput from '~/components/FormInput.vue'
 import CoinCheckbox from '~/components/CoinCheckbox.vue'
+import Checkbox from '~/components/Checkbox.vue'
 
 export default Vue.extend({
   components: {
@@ -201,6 +210,7 @@ export default Vue.extend({
     ModalContentWithdrawSuccess,
     ModalContentWallet,
     CoinCheckbox,
+    Checkbox,
   },
   data: () => ({
     nodesList: [
