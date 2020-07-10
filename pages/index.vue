@@ -83,10 +83,12 @@
 
       <modal name="modal-content-withdraw-deposit">
         <modal-content-withdraw-deposit
-          min="10 ETH"
           modal-head="Withdraw deposit"
-          card-wallet="Ethereum"
-          card-icon="Ethereum"
+          :success="{
+            active: true,
+            title: 'Your deposit has been sent',
+            description: 'You have sent 25 ETH',
+          }"
         >
         </modal-content-withdraw-deposit>
       </modal>
