@@ -330,13 +330,17 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
       <modal name="modal-content-increase-deposit">
         <modal-content-increase-deposit modal-head="Increase deposit">
           <template v-slot:body>
+            <block-list
+              :items="[
+                { name: 'Deposit Balance:', value: '~1.1 ETH | $261.39' },
+                { name: 'Account Balance:', value: '~1.4 ETH | $344' },
+              ]"
+            ></block-list>
             <form-input value="1">
               <template v-slot:append>
                 ETH
               </template>
             </form-input>
-          </template>
-          <template v-slot:footer>
             <btn class="btn-primary btn-block">Increase</btn>
           </template>
         </modal-content-increase-deposit>
@@ -389,6 +393,7 @@ import Checkbox from '~/components/Checkbox.vue'
 import BtnCheckboxGroup from '~/components/BtnCheckboxGroup.vue'
 import BtnCheckbox from '~/components/BtnCheckbox.vue'
 import FormTextarea from '~/components/FormTextarea.vue'
+import BlockList from '~/components/BlockList.vue'
 
 export default Vue.extend({
   components: {
@@ -408,6 +413,7 @@ export default Vue.extend({
     BtnCheckboxGroup,
     BtnCheckbox,
     FormTextarea,
+    BlockList,
   },
   data: () => ({
     nodesList: [
