@@ -1,13 +1,13 @@
 <template>
   <div class="form-group">
     <label v-if="$slots.label" :for="id"><slot name="label"></slot></label>
-    <input
+    <textarea
       :id="id"
-      :type="type"
-      :value="value"
       class="form-control"
+      :rows="rows"
       @input="$emit('input', $event)"
-    />
+      >{{ value }}</textarea
+    >
     <div v-if="$slots.text" class="form-text"><slot name="text"></slot></div>
   </div>
 </template>
@@ -16,16 +16,16 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'FormInput',
+  name: 'FormTextarea',
   props: {
-    type: {
-      type: String,
-      default: () => 'text',
-      required: false,
-    },
     value: {
       type: String,
       default: () => '',
+      required: false,
+    },
+    rows: {
+      type: String,
+      default: () => '5',
       required: false,
     },
   },

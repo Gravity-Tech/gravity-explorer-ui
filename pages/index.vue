@@ -48,6 +48,12 @@
     <btn class="btn-primary" @click="$modal.push('modal-content-subscribe')">
       modal-content-subscribe
     </btn>
+    <btn
+      class="btn-primary"
+      @click="$modal.push('modal-content-subscribe-code')"
+    >
+      modal-content-subscribe-code
+    </btn>
 
     <client-only>
       <modal name="modal-content-nebula">
@@ -181,8 +187,75 @@
               <btn-checkbox name="subscribe">Per transaction</btn-checkbox>
             </btn-checkbox-group>
           </template>
+          <template v-slot:footerDescription>
+            <div class="text-center">
+              <span
+                class="small text-muted d-inline-block"
+                style="margin-right: 8px;"
+              >
+                Estimated fee yearly deposit:
+              </span>
+              <span class="d-inline-block">25 ETH | $6078,25</span>
+            </div>
+          </template>
           <template v-slot:footer>
             <btn class="btn-primary btn-block">Next</btn>
+          </template>
+        </modal-content-subscribe>
+      </modal>
+
+      <modal name="modal-content-subscribe-code">
+        <modal-content-subscribe modal-head="New Data Feed Subscription">
+          <template v-slot:body>
+            <div class="text-center" style="margin-bottom: 20px;">
+              You can use this template code <br />in your smart contract
+            </div>
+            <form-textarea
+              rows="6"
+              value="{-# STDLIB_VERSION 3 #-}
+ {-# CONTENT_TYPE DAPP #-}
+ {-# SCRIPT_TYPE ACCOUNT #-} @Callable(i) func finalizeCurrentPrice() = { #Put your
+            code here } @Verifier(tx) func verify() = false"
+            >
+            </form-textarea>
+          </template>
+          <template v-slot:bodyDescription>
+            <div style="margin-bottom: 13px;">
+              <span
+                class="small text-muted d-inline-block"
+                style="margin-right: 8px;"
+              >
+                Deposit address:
+              </span>
+              <span class="d-inline-block">
+                0x1015e2182E6AD26FB945723F7180795693A80D15
+              </span>
+            </div>
+            <div style="margin-bottom: 13px;">
+              <span
+                class="small text-muted d-inline-block"
+                style="margin-right: 8px;"
+              >
+                Deposit amount:
+              </span>
+              <span class="d-inline-block">
+                25 ETH
+              </span>
+            </div>
+            <div style="margin-bottom: 13px;">
+              <span
+                class="small text-muted d-inline-block"
+                style="margin-right: 8px;"
+              >
+                Available balance:
+              </span>
+              <span class="d-inline-block">
+                1200 ETH
+              </span>
+            </div>
+          </template>
+          <template v-slot:footer>
+            <btn class="btn-primary btn-block">Confirm subscription</btn>
           </template>
         </modal-content-subscribe>
       </modal>
@@ -231,6 +304,7 @@ import CoinCheckbox from '~/components/CoinCheckbox.vue'
 import Checkbox from '~/components/Checkbox.vue'
 import BtnCheckboxGroup from '~/components/BtnCheckboxGroup.vue'
 import BtnCheckbox from '~/components/BtnCheckbox.vue'
+import FormTextarea from '~/components/FormTextarea.vue'
 
 export default Vue.extend({
   components: {
@@ -247,6 +321,7 @@ export default Vue.extend({
     Checkbox,
     BtnCheckboxGroup,
     BtnCheckbox,
+    FormTextarea,
   },
   data: () => ({
     nodesList: [

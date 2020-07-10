@@ -58,6 +58,9 @@
     opacity: 1;
   }
 }
+textarea.form-control{
+  padding: $input-padding-x;
+}
 
 input[type="date"],
 input[type="time"],

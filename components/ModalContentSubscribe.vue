@@ -6,19 +6,24 @@
 
     <template v-slot:body>
       <div class="modal-subscribe-container">
-        <div class="modal-subscribe-card">
+        <div v-if="avatar" class="modal-subscribe-card">
           <div class="modal-subscribe-avatar" :lazy-background="avatar"></div>
         </div>
-        <div class="modal-subscribe-title">{{ title }}</div>
+        <div v-if="title" class="modal-subscribe-title">{{ title }}</div>
         <slot name="body"></slot>
+        <div v-if="$slots.bodyDescription" class="modal-subscribe-description">
+          <slot name="bodyDescription"></slot>
+        </div>
       </div>
     </template>
 
     <template v-slot:footer>
       <div class="modal-subscribe-container">
-        <div class="modal-subscribe-deposit">
-          <span class="small text-muted">Estimated fee yearly deposit:</span>
-          <span>25 ETH | $6078,25</span>
+        <div
+          v-if="$slots.footerDescription"
+          class="modal-subscribe-description"
+        >
+          <slot name="footerDescription"></slot>
         </div>
         <slot name="footer"></slot>
       </div>
@@ -118,17 +123,10 @@ export default Vue.extend({
     background: linear-gradient(193deg, #2e3356 -28.01%, #10111a 90.88%);
   }
 }
-.modal-subscribe-deposit {
-  text-align: center;
+.modal-subscribe-description {
   font-size: 16px;
   line-height: lh(16px, 24px);
   margin-bottom: 23px;
-  > span {
-    display: inline-block;
-    &:first-child {
-      margin-right: 8px;
-    }
-  }
   .small {
     font-size: 13px;
   }
