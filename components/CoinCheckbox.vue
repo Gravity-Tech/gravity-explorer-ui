@@ -14,7 +14,7 @@
     <span class="coin-checkbox-icon">
       <icon :image="icon"></icon>
     </span>
-    <span class="coin-checkbox-title">{{ label }}</span>
+    <span class="coin-checkbox-title"><slot></slot></span>
   </label>
 </template>
 
@@ -37,10 +37,6 @@ export default Vue.extend({
       type: Boolean,
       default: () => false,
       required: false,
-    },
-    label: {
-      type: String,
-      required: true,
     },
     name: {
       type: String,

@@ -1,13 +1,13 @@
 <template>
-  <label class="checkbox">
+  <label class="btn-checkbox">
     <input
       :type="type"
       :name="name"
       :checked="checked"
-      class="hide checkbox-input"
+      class="hide btn-checkbox-input"
       @change="$emit('change', $event)"
     />
-    <span class="checkbox-label">
+    <span class="btn-checkbox-label">
       <slot></slot>
     </span>
   </label>

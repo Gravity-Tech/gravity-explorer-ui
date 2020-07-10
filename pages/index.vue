@@ -45,6 +45,9 @@
     <btn class="btn-primary" @click="$modal.push('modal-content-wallet')">
       modal-content-wallet
     </btn>
+    <btn class="btn-primary" @click="$modal.push('modal-content-subscribe')">
+      modal-content-subscribe
+    </btn>
 
     <client-only>
       <modal name="modal-content-nebula">
@@ -132,29 +135,49 @@
       <modal name="modal-content-wallet">
         <modal-content-wallet modal-head="Select Wallet Provider">
           <template v-slot:body>
+            <coin-checkbox name="wallet" icon="/img/icons/metamask.svg"
+              >Metamask</coin-checkbox
+            >
             <coin-checkbox
               name="wallet"
-              label="Metamask"
-              icon="/img/icons/metamask.svg"
-            ></coin-checkbox>
-            <coin-checkbox
-              name="wallet"
-              label="Waves Keeper"
               icon="/img/icons/waves.svg"
               style="margin-bottom: 46px;"
-            ></coin-checkbox>
+              >Waves Keeper</coin-checkbox
+            >
             <checkbox name="isAgree">
-              <template v-slot:label>
-                By connecting, you agree to the
-                <a href="/">Terms of Service</a> and
-                <a href="/">Privacy Policy</a>
-              </template>
+              By connecting, you agree to the
+              <a href="/">Terms of Service</a> and
+              <a href="/">Privacy Policy</a>
             </checkbox>
           </template>
           <template v-slot:footer>
             <btn class="btn-outline-primary btn-block">Login</btn>
           </template>
         </modal-content-wallet>
+      </modal>
+
+      <modal name="modal-content-subscribe">
+        <modal-content-subscribe
+          modal-head="New Data Feed Subscription"
+          title="Nebula @11"
+          avatar="/img/card/avatar.jpg"
+        >
+          <template v-slot:body>
+            <form-input value="0x1015e2182E6AD26FB945723F7180795693A80D15">
+              <template v-slot:label>
+                dApp address
+              </template>
+            </form-input>
+            <form-input value="0x1015e2182E6AD26FB945723F7180795693A80D15">
+              <template v-slot:label>
+                Method name
+              </template>
+            </form-input>
+          </template>
+          <template v-slot:footer>
+            <btn class="btn-primary btn-block">Next</btn>
+          </template>
+        </modal-content-subscribe>
       </modal>
     </client-only>
 
@@ -195,6 +218,7 @@ import ModalContentNode from '~/components/ModalContentNode.vue'
 import ModalContentWithdrawDeposit from '~/components/ModalContentWithdrawDeposit.vue'
 import ModalContentWithdrawSuccess from '~/components/ModalContentWithdrawSuccess.vue'
 import ModalContentWallet from '~/components/ModalContentWallet.vue'
+import ModalContentSubscribe from '~/components/ModalContentSubscribe.vue'
 import FormInput from '~/components/FormInput.vue'
 import CoinCheckbox from '~/components/CoinCheckbox.vue'
 import Checkbox from '~/components/Checkbox.vue'
@@ -209,6 +233,7 @@ export default Vue.extend({
     ModalContentWithdrawDeposit,
     ModalContentWithdrawSuccess,
     ModalContentWallet,
+    ModalContentSubscribe,
     CoinCheckbox,
     Checkbox,
   },
