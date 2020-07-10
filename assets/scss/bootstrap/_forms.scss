@@ -108,11 +108,59 @@ textarea.form-control {
 // horizontal forms, use the predefined grid classes.
 
 .form-group {
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: $form-group-margin-bottom;
   font-size: $input-font-size;
-  > label, > .form-text{
-    color: $text-muted;
-    font-size: 13px;
+  > {
+    .form-control-label, .form-text{
+      color: $text-muted;
+      display: block;
+      width: 100%;
+      font-size: 13px;
+    }
+    .form-control-prepend, .form-control-append{
+      height: $input-height;
+      padding: $input-padding-y $input-padding-x;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      ~ .form-control{
+        flex-basis: 0;
+        flex-grow: 1;
+        min-width: 0;
+        max-width: 100%;
+      }
+    }
+    .form-control-label{
+      order: 1;
+    }
+    .form-control-prepend{
+      order: 2;
+      background: $btn-bg-color-hover;
+      border-radius: $input-border-radius 0 0 $input-border-radius;
+      margin-right: 2px;
+      ~ .form-control{
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+    .form-control-append{
+      order: 4;
+      background: $btn-bg-color-hover;
+      border-radius: 0 $input-border-radius $input-border-radius 0;
+      margin-left: 2px;
+      ~ .form-control{
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+    .form-control{
+      order: 3;
+    }
+    .form-text{
+      order: 5;
+    }
   }
 }
 

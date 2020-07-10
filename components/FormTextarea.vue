@@ -1,6 +1,8 @@
 <template>
   <div class="form-group">
-    <label v-if="$slots.label" :for="id"><slot name="label"></slot></label>
+    <label v-if="$slots.label" :for="id" class="form-control-label"
+      ><slot name="label"></slot
+    ></label>
     <textarea
       :id="id"
       class="form-control"

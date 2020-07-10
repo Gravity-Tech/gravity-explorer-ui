@@ -57,6 +57,12 @@
     <btn class="btn-primary" @click="$modal.push('modal-content-edit')">
       modal-content-edit
     </btn>
+    <btn
+      class="btn-primary"
+      @click="$modal.push('modal-content-increase-deposit')"
+    >
+      modal-content-increase-deposit
+    </btn>
 
     <client-only>
       <modal name="modal-content-nebula">
@@ -320,6 +326,21 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
           </template>
         </modal-content-edit>
       </modal>
+
+      <modal name="modal-content-increase-deposit">
+        <modal-content-increase-deposit modal-head="Increase deposit">
+          <template v-slot:body>
+            <form-input value="1">
+              <template v-slot:append>
+                ETH
+              </template>
+            </form-input>
+          </template>
+          <template v-slot:footer>
+            <btn class="btn-primary btn-block">Increase</btn>
+          </template>
+        </modal-content-increase-deposit>
+      </modal>
     </client-only>
 
     <table-block>
@@ -354,6 +375,7 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
 import Vue from 'vue'
 import Btn from '~/components/Btn.vue'
 import TableBlock from '~/components/Table.vue'
+import ModalContentIncreaseDeposit from '~/components/ModalContentIncreaseDeposit.vue'
 import ModalContentNebula from '~/components/ModalContentNebula.vue'
 import ModalContentNode from '~/components/ModalContentNode.vue'
 import ModalContentWithdrawDeposit from '~/components/ModalContentWithdrawDeposit.vue'
@@ -373,6 +395,7 @@ export default Vue.extend({
     Btn,
     FormInput,
     TableBlock,
+    ModalContentIncreaseDeposit,
     ModalContentNebula,
     ModalContentNode,
     ModalContentWithdrawDeposit,

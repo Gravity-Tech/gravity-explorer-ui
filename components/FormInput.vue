@@ -1,6 +1,14 @@
 <template>
   <div class="form-group">
-    <label v-if="$slots.label" :for="id"><slot name="label"></slot></label>
+    <label v-if="$slots.label" :for="id" class="form-control-label"
+      ><slot name="label"></slot
+    ></label>
+    <div v-if="$slots.prepend" class="form-control-prepend">
+      <slot name="prepend"></slot>
+    </div>
+    <div v-if="$slots.append" class="form-control-append">
+      <slot name="append"></slot>
+    </div>
     <input
       :id="id"
       :type="type"
