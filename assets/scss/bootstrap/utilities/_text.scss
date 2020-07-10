@@ -10,3 +10,19 @@
 .text-left   { text-align: left !important; }
 .text-right  { text-align: right !important; }
 .text-center { text-align: center !important; }
+
+.text-red{
+  color: $red !important
+}
+
+.text-green {
+  color: $green !important;
+}
+
+.text-orange {
+  color: $orange !important;
+}
+
+.text-muted{
+  color: $text-muted !important;
+}

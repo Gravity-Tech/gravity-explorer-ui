@@ -110,6 +110,10 @@ textarea.form-control {
 .form-group {
   margin-bottom: $form-group-margin-bottom;
   font-size: $input-font-size;
+  > label, > .form-text{
+    color: $text-muted;
+    font-size: 13px;
+  }
 }
 
 .form-text {

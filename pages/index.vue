@@ -54,6 +54,9 @@
     >
       modal-content-subscribe-code
     </btn>
+    <btn class="btn-primary" @click="$modal.push('modal-content-edit')">
+      modal-content-edit
+    </btn>
 
     <client-only>
       <modal name="modal-content-nebula">
@@ -259,6 +262,64 @@
           </template>
         </modal-content-subscribe>
       </modal>
+
+      <modal name="modal-content-edit">
+        <modal-content-edit modal-head="Edit Info">
+          <template v-slot:body>
+            <form-input value="LinkPool Node 1">
+              <template v-slot:label>
+                Name<span class="text-red">*</span>
+              </template>
+            </form-input>
+            <form-textarea
+              rows="3"
+              value="LinkPool is a leading Gravity node service provider
+withthe goal of providing tools and services that benefit the Gravity ecosystem. "
+            >
+              <template v-slot:label>
+                Description<span class="text-red">*</span>
+              </template>
+              <template v-slot:text>
+                <div class="text-right">250 characters max</div>
+              </template>
+            </form-textarea>
+            <hr />
+            <div
+              style="font-size: 15px; font-weight: 600; margin-bottom: 10px;"
+            >
+              Connect to social networks:
+            </div>
+            <form-input>
+              <template v-slot:label>
+                Twitter
+              </template>
+            </form-input>
+            <form-input>
+              <template v-slot:label>
+                Telegram
+              </template>
+            </form-input>
+            <form-input>
+              <template v-slot:label>
+                Linkedin
+              </template>
+            </form-input>
+            <form-input>
+              <template v-slot:label>
+                Facebook
+              </template>
+            </form-input>
+            <form-input>
+              <template v-slot:label>
+                Web
+              </template>
+            </form-input>
+          </template>
+          <template v-slot:footer>
+            <btn class="btn-outline-primary btn-block">Save</btn>
+          </template>
+        </modal-content-edit>
+      </modal>
     </client-only>
 
     <table-block>
@@ -299,6 +360,7 @@ import ModalContentWithdrawDeposit from '~/components/ModalContentWithdrawDeposi
 import ModalContentWithdrawSuccess from '~/components/ModalContentWithdrawSuccess.vue'
 import ModalContentWallet from '~/components/ModalContentWallet.vue'
 import ModalContentSubscribe from '~/components/ModalContentSubscribe.vue'
+import ModalContentEdit from '~/components/ModalContentEdit.vue'
 import FormInput from '~/components/FormInput.vue'
 import CoinCheckbox from '~/components/CoinCheckbox.vue'
 import Checkbox from '~/components/Checkbox.vue'
@@ -317,6 +379,7 @@ export default Vue.extend({
     ModalContentWithdrawSuccess,
     ModalContentWallet,
     ModalContentSubscribe,
+    ModalContentEdit,
     CoinCheckbox,
     Checkbox,
     BtnCheckboxGroup,
