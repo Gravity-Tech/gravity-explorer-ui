@@ -1,30 +1,26 @@
 <template>
-  <modal-content class="modal-w-deposit">
+  <modal-content class="modal-w-success">
     <template v-if="modalHead" v-slot:head>
       {{ modalHead }}
     </template>
 
     <template v-slot:body>
-      <div class="modal-w-deposit-container">
-        <div class="modal-w-deposit-card">
-          <div class="modal-w-deposit-logo">
-            <div class="modal-w-deposit-logo-icon">
-              <icon :image="coin.logo"></icon>
-            </div>
-            <div class="modal-w-deposit-logo-name">{{ coin.name }}</div>
-          </div>
-          <div class="modal-w-deposit-min">
-            <span class="text-muted">Min:</span> {{ coin.min }}
-          </div>
+      <div class="modal-w-success-container">
+        <div class="modal-w-success-card">
+          <icon image="/img/icons/verification.svg"></icon>
         </div>
-
-        <slot name="body"></slot>
+        <div v-if="title" class="modal-w-success-title">
+          {{ title }}
+        </div>
+        <div v-if="description" class="modal-w-success-description text-muted">
+          {{ description }}
+        </div>
       </div>
     </template>
 
     <template v-slot:footer>
-      <div class="modal-w-deposit-container">
-        <btn class="btn-primary btn-block">Continue</btn>
+      <div class="modal-w-success-container">
+        <btn class="btn-primary btn-block">View details</btn>
       </div>
     </template>
   </modal-content>
@@ -49,9 +45,14 @@ export default Vue.extend({
       default: () => '',
       required: false,
     },
-    coin: {
-      type: Object,
-      default: () => ({}),
+    title: {
+      type: String,
+      default: () => '',
+      required: false,
+    },
+    description: {
+      type: String,
+      default: () => '',
       required: false,
     },
   },
@@ -59,33 +60,38 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-.modal-w-deposit {
+.modal-w-success {
   max-width: 630px;
 }
-.modal-w-deposit-container {
-  max-width: 400px;
+.modal-w-success-container {
+  max-width: 276px;
   margin-left: auto;
   margin-right: auto;
 }
-.modal-w-deposit-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 23px;
+.modal-w-success-title {
+  font-size: 15px;
+  line-height: lh(15px, 22px);
+  margin-bottom: 12px;
+  text-align: center;
 }
-.modal-w-deposit-logo {
-  padding: 11px 20px 11px 26px;
+.modal-w-success-description {
   font-size: 13px;
-  display: flex;
-  align-items: center;
-  background: #323652;
-  border-radius: 6px;
+  color: $text-muted;
+  line-height: lh(13px, 19px);
+  text-align: center;
 }
-.modal-w-deposit-logo-icon {
+.modal-w-success-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  width: 67px;
-  height: 67px;
-  margin-right: 9px;
+  height: 122px;
+  margin-bottom: 38px;
+  .icon {
+    width: 67px;
+    height: 67px;
+    z-index: 3;
+  }
   &:before,
   &:after {
     content: '';
@@ -94,7 +100,7 @@ export default Vue.extend({
     top: 0;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 6px;
   }
   &:before {
     background: linear-gradient(
@@ -110,16 +116,6 @@ export default Vue.extend({
     width: calc(100% - 2px);
     height: calc(100% - 2px);
     background: linear-gradient(193deg, #2e3356 -28.01%, #10111a 90.88%);
-  }
-
-  i {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 38px;
-    height: 38px;
-    z-index: 2;
   }
 }
 </style>

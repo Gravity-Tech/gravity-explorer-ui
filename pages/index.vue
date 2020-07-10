@@ -36,6 +36,12 @@
     >
       modal-content-withdraw-deposit
     </btn>
+    <btn
+      class="btn-primary"
+      @click="$modal.push('modal-content-withdraw-success')"
+    >
+      modal-content-withdraw-success
+    </btn>
 
     <client-only>
       <modal name="modal-content-nebula">
@@ -84,13 +90,40 @@
       <modal name="modal-content-withdraw-deposit">
         <modal-content-withdraw-deposit
           modal-head="Withdraw deposit"
-          :success="{
-            active: true,
-            title: 'Your deposit has been sent',
-            description: 'You have sent 25 ETH',
+          :coin="{
+            logo: '/img/icons/ethereum.svg',
+            name: 'Ethereum',
+            min: '10 ETH',
           }"
         >
+          <template v-slot:body>
+            <form-input value="0x1015e2182E6AD26FB945723F7180795693A80D15">
+              <template v-slot:label>
+                To
+              </template>
+            </form-input>
+            <form-input type="number" value="25">
+              <template v-slot:label>
+                Amount
+              </template>
+              <template v-slot:text>
+                <span class="text-muted">Equal to</span> $5.590
+                <span style="float: right;">
+                  <span class="text-muted">Gas:</span> 100 Gwei
+                </span>
+              </template>
+            </form-input>
+          </template>
         </modal-content-withdraw-deposit>
+      </modal>
+
+      <modal name="modal-content-withdraw-success">
+        <modal-content-withdraw-success
+          modal-head="Withdraw deposit"
+          title="Your deposit has been sent"
+          description="You have sent 25 ETH"
+        >
+        </modal-content-withdraw-success>
       </modal>
     </client-only>
 
@@ -129,14 +162,18 @@ import TableBlock from '~/components/Table.vue'
 import ModalContentNebula from '~/components/ModalContentNebula.vue'
 import ModalContentNode from '~/components/ModalContentNode.vue'
 import ModalContentWithdrawDeposit from '~/components/ModalContentWithdrawDeposit.vue'
+import ModalContentWithdrawSuccess from '~/components/ModalContentWithdrawSuccess.vue'
+import FormInput from '~/components/FormInput.vue'
 
 export default Vue.extend({
   components: {
     Btn,
+    FormInput,
     TableBlock,
     ModalContentNebula,
     ModalContentNode,
     ModalContentWithdrawDeposit,
+    ModalContentWithdrawSuccess,
   },
   data: () => ({
     nodesList: [
