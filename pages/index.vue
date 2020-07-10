@@ -3,6 +3,12 @@
     <btn tag="nuxt-link" class="btn-primary" :to="'/nodes'">
       nodes
     </btn>
+    <btn tag="nuxt-link" class="btn-secondary" :to="'/nodes'">
+      nodes
+    </btn>
+    <btn tag="nuxt-link" class="btn-outline-primary" :to="'/nodes'">
+      nodes
+    </btn>
     <div class="dropdown">
       <btn
         id="dropdownMenuButton2"
@@ -341,6 +347,8 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
                 ETH
               </template>
             </form-input>
+          </template>
+          <template v-slot:footer>
             <btn class="btn-primary btn-block">Increase</btn>
           </template>
         </modal-content-increase-deposit>
