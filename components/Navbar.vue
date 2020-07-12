@@ -66,7 +66,7 @@
                 <span class="nav-panel-avatar-bg">
                   <span
                     class="nav-panel-avatar"
-                    :lazy-background="'/img/card/avatar.jpg'"
+                    :lazy-background="'/img/card/avatar1.svg'"
                   ></span>
                 </span>
               </button>

@@ -67,6 +67,7 @@ export default {
   modules: [
     '@nuxtjs/style-resources',
     ['nuxt-lazy-load', { directiveOnly: true }],
+    'nuxt-mq',
   ],
   /*
    ** Build configuration
@@ -78,5 +79,17 @@ export default {
    */
   styleResources: {
     scss: ['~/assets/scss/_import.scss'],
+  },
+  // nuxt-mq (media-query)
+  mq: {
+    defaultBreakpoint: 'big',
+    breakpoints: {
+      sm: 576,
+      md: 768,
+      lg: 992,
+      xl: 1220,
+      xxl: 1380,
+      big: Infinity,
+    },
   },
 }
