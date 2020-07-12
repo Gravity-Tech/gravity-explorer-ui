@@ -28,7 +28,7 @@
         </svg>
       </icon>
     </button>
-    <button class="search-input-clear" aria-label="Clear Input">
+    <button v-if="value" class="search-input-clear" aria-label="Clear Input">
       <icon>
         <svg
           width="30"

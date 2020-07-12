@@ -61,6 +61,7 @@ export default Vue.extend({
     position: sticky;
     top: 0;
     z-index: 10;
+    vertical-align: top;
   }
   thead {
     flex: 0 0 auto;
@@ -73,6 +74,7 @@ export default Vue.extend({
     td,
     th {
       background-color: $table-bg;
+      vertical-align: middle;
     }
     tr {
       &:first-child {
