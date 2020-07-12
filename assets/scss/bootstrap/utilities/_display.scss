@@ -1,3 +1,21 @@
 .d-inline-block{
   display: inline-block;
 }
+
+.d-none-xxl{
+  @include media-breakpoint-down(xxl){
+    display: none!important;
+  }
+}
+
+.d-none-xl{
+  @include media-breakpoint-down(xl){
+    display: none!important;
+  }
+}
+
+.d-none-lg{
+  @include media-breakpoint-down(lg){
+    display: none!important;
+  }
+}

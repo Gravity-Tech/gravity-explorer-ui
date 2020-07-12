@@ -7,6 +7,7 @@
         { label: 'Data feeds', to: { name: 'data-feeds' } },
       ]"
     ></tabs>
+    <search-input placeholder="Search"></search-input>
     <btn tag="nuxt-link" class="btn-primary" :to="'/nodes'">
       nodes
     </btn>
@@ -410,6 +411,7 @@ import BtnCheckbox from '~/components/BtnCheckbox.vue'
 import FormTextarea from '~/components/FormTextarea.vue'
 import BlockList from '~/components/BlockList.vue'
 import Tabs from '~/components/Tabs.vue'
+import SearchInput from '~/components/SearchInput.vue'
 
 export default Vue.extend({
   components: {
@@ -431,6 +433,7 @@ export default Vue.extend({
     FormTextarea,
     BlockList,
     Tabs,
+    SearchInput,
   },
   data: () => ({
     nodesList: [

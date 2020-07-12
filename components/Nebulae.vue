@@ -1,38 +1,57 @@
 <template>
   <div class="container">
-    <table-block>
+    <tabs-and-search></tabs-and-search>
+    <table-block style="margin-bottom: 34px;">
       <template v-slot:head>
         <tr>
-          <th style="width: 10%;">Name</th>
-          <th>About</th>
-          <th>Score (0-10)</th>
-          <th>Deposit chain</th>
-          <th>Node deposit</th>
-          <th>Joined</th>
+          <th>Name</th>
+          <th style="width: 100px;">Status</th>
+          <th>Data Feed</th>
+          <th class="d-none-lg">Description</th>
+          <th style="width: 140px;">Threshold Score<br />(0-10)</th>
+          <th class="d-none-lg">Target chain</th>
+          <th class="d-none-lg">Regularity<br />(hour/day)</th>
+          <th>Subscription fee</th>
         </tr>
       </template>
       <template v-slot:body>
         <tr v-for="index in 20" :key="index">
-          <td style="width: 10%;">LinkPool Node 1</td>
-          <td>
-            Payouts depend on platform but are always automated and almost
-            instant.
+          <td>Nebula @Demo</td>
+          <td style="width: 100px;">
+            Active
           </td>
-          <td>10</td>
-          <td>Waves</td>
-          <td>Waves</td>
-          <td>27.05.2020</td>
+          <td>Binance-Huobi-BTC_USD</td>
+          <td class="d-none-lg">
+            Demo Nebula to accumulate Gravity score.
+          </td>
+          <td class="text-green" style="width: 140px;">0.1</td>
+          <td class="d-none-lg">Waves, ID=1</td>
+          <td class="d-none-lg">~per hour</td>
+          <td>~10 WAVES | $12.6</td>
         </tr>
       </template>
     </table-block>
+    <div class="text-right" style="margin-bottom: 34px;">
+      <btn class="btn-primary" style="padding-left: 70px; padding-right: 70px;"
+        >Add Nebula</btn
+      >
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import TableBlock from '~/components/Table.vue'
+import TabsAndSearch from '~/components/TabsAndSearch.vue'
+import Btn from '~/components/Btn.vue'
 
 export default Vue.extend({
   name: 'Nebulae',
+  components: {
+    TableBlock,
+    TabsAndSearch,
+    Btn,
+  },
 })
 </script>
 

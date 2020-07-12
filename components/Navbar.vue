@@ -19,13 +19,13 @@
             <span>Datafeeds</span> <b>102</b>
           </div>
         </div>
-        <div class="nav-panel-col">
+        <div v-if="isAuth" class="nav-panel-col">
           <div class="nav-panel-indikator text-green">
             <icon image="/img/icons/node_connected.svg"></icon>
             <span>Node Connected</span>
           </div>
         </div>
-        <div class="nav-panel-col">
+        <div v-if="isAuth" class="nav-panel-col">
           <div class="nav-panel-info">
             1,41 ETH | <b>$344</b>
             <icon image="/img/icons/metamask.svg"></icon>
@@ -66,7 +66,7 @@
                 <span class="nav-panel-avatar-bg">
                   <span
                     class="nav-panel-avatar"
-                    :lazy-background="'/img/card/avatar.jpg'"
+                    :lazy-background="'/img/card/avatar1.svg'"
                   ></span>
                 </span>
               </button>
@@ -83,6 +83,14 @@
             </div>
           </div>
         </div>
+        <div v-if="!isAuth" class="nav-panel-col" style="margin-left: auto;">
+          <a href="/">
+            <div class="nav-panel-indikator">
+              <icon image="/img/icons/login.svg"></icon>
+              <span>Login</span>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </nav>
@@ -94,6 +102,11 @@ import Icon from '~/components/Icon.vue'
 
 export default Vue.extend({
   components: { Icon },
+  computed: {
+    isAuth() {
+      return this.$store.getters['auth/isAuth']
+    },
+  },
 })
 </script>
 
