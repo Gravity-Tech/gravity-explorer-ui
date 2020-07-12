@@ -122,6 +122,7 @@ $nav-panel-height: 42px;
     padding-top: #{$nav-logo-height / $nav-logo-width * 100%};
   }
 }
+
 .nav-panel {
   height: $nav-panel-height;
   background: linear-gradient(180.06deg, #323650 -104.69%, #22253b 150.92%);
@@ -258,5 +259,36 @@ $nav-panel-height: 42px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+@include media-breakpoint-between(md, lg) {
+  .nav {
+    height: auto;
+    padding-top: 3px;
+    padding-bottom: 24px;
+  }
+  .nav-container {
+    position: relative;
+    padding-top: 100px;
+  }
+  .nav-logo {
+    position: absolute;
+    top: 24px;
+    left: #{$grid-gutter-width / 2};
+  }
+  .nav-panel-notifications {
+    margin-left: 50px;
+  }
+  .nav-panel {
+    .nav-panel-col {
+      &:first-child {
+        position: absolute;
+        top: 50px;
+        right: #{$grid-gutter-width / 2};
+        .nav-panel-indikator + .nav-panel-indikator {
+          margin-left: 50px;
+        }
+      }
+    }
+  }
 }
 </style>
