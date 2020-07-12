@@ -5,18 +5,18 @@
       <template v-slot:head>
         <tr>
           <th style="width: 35px;"></th>
-          <th style="width: 20%;">
+          <th style="width: 265px;">
             <span>
               Name (
               <icon image="/img/icons/сonsul.svg" style="top: 3px;"></icon> —
               Consul)
             </span>
           </th>
-          <th style="width: 30%;">About</th>
+          <th class="d-none-lg" style="width: 30%;">About</th>
           <th>Score (0-10)</th>
           <th>Deposit chain</th>
           <th>Node deposit</th>
-          <th>Joined</th>
+          <th class="d-none-lg">Joined</th>
         </tr>
       </template>
       <template v-slot:body>
@@ -28,8 +28,8 @@
               style="top: 3px;"
             ></icon>
           </th>
-          <td style="width: 20%;">LinkPool Node 1</td>
-          <td style="width: 30%;">
+          <td style="width: 265px;">LinkPool Node 1</td>
+          <td style="width: 30%;" class="d-none-lg">
             Payouts depend on platform but are always automated and almost
             instant.
           </td>
@@ -43,7 +43,7 @@
           </td>
           <td>Waves</td>
           <td>~10 WAVES | $12.6</td>
-          <td>27.05.2020</td>
+          <td class="d-none-lg">27.05.2020</td>
         </tr>
       </template>
     </table-block>
