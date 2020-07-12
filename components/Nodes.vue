@@ -5,20 +5,18 @@
       <template v-slot:head>
         <tr>
           <th style="width: 35px;"></th>
-          <th>
+          <th style="width: 20%;">
             <span>
               Name (
               <icon image="/img/icons/сonsul.svg" style="top: 3px;"></icon> —
               Consul)
             </span>
           </th>
-          <th style="width: 100px;">Status</th>
-          <th>Data Feed</th>
-          <th class="d-none-lg">Description</th>
-          <th style="width: 140px;">Threshold Score<br />(0-10)</th>
-          <th class="d-none-lg">Target chain</th>
-          <th class="d-none-lg">Regularity<br />(hour/day)</th>
-          <th>Subscription fee</th>
+          <th style="width: 30%;">About</th>
+          <th>Score (0-10)</th>
+          <th>Deposit chain</th>
+          <th>Node deposit</th>
+          <th>Joined</th>
         </tr>
       </template>
       <template v-slot:body>
@@ -30,26 +28,25 @@
               style="top: 3px;"
             ></icon>
           </th>
-          <td>Nebula @Demo</td>
-          <td style="width: 100px;">
-            Active
+          <td style="width: 20%;">LinkPool Node 1</td>
+          <td style="width: 30%;">
+            Payouts depend on platform but are always automated and almost
+            instant.
           </td>
-          <td>Binance-Huobi-BTC_USD</td>
-          <td class="d-none-lg">
-            Demo Nebula to accumulate Gravity score.
+          <td class="text-green">
+            10
+            <icon
+              v-if="index === 1"
+              image="/img/icons/сonnect_node.svg"
+              style="top: 5px;"
+            ></icon>
           </td>
-          <td class="text-green" style="width: 140px;">0.1</td>
-          <td class="d-none-lg">Waves, ID=1</td>
-          <td class="d-none-lg">~per hour</td>
+          <td>Waves</td>
           <td>~10 WAVES | $12.6</td>
+          <td>27.05.2020</td>
         </tr>
       </template>
     </table-block>
-    <div class="text-right" style="margin-bottom: 34px;">
-      <btn class="btn-primary" style="padding-left: 70px; padding-right: 70px;"
-        >Add Nebula</btn
-      >
-    </div>
   </div>
 </template>
 
