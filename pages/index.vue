@@ -1,5 +1,12 @@
 <template>
   <div class="container">
+    <tabs
+      :items="[
+        { label: 'Nebulae', to: { name: 'index' } },
+        { label: 'Nodes', to: { name: 'nodes' } },
+        { label: 'Data feeds', to: { name: 'data-feeds' } },
+      ]"
+    ></tabs>
     <btn tag="nuxt-link" class="btn-primary" :to="'/nodes'">
       nodes
     </btn>
@@ -402,6 +409,7 @@ import BtnCheckboxGroup from '~/components/BtnCheckboxGroup.vue'
 import BtnCheckbox from '~/components/BtnCheckbox.vue'
 import FormTextarea from '~/components/FormTextarea.vue'
 import BlockList from '~/components/BlockList.vue'
+import Tabs from '~/components/Tabs.vue'
 
 export default Vue.extend({
   components: {
@@ -422,6 +430,7 @@ export default Vue.extend({
     BtnCheckbox,
     FormTextarea,
     BlockList,
+    Tabs,
   },
   data: () => ({
     nodesList: [
