@@ -7,10 +7,10 @@
           <th>Name</th>
           <th style="width: 100px;">Status</th>
           <th>Data Feed</th>
-          <th v-if="isShowDescription">Description</th>
+          <th class="d-none-lg">Description</th>
           <th style="width: 140px;">Threshold Score<br />(0-10)</th>
-          <th v-if="isShowDescription">Target chain</th>
-          <th v-if="isShowDescription">Regularity<br />(hour/day)</th>
+          <th class="d-none-lg">Target chain</th>
+          <th class="d-none-lg">Regularity<br />(hour/day)</th>
           <th>Subscription fee</th>
         </tr>
       </template>
@@ -21,12 +21,12 @@
             Active
           </td>
           <td>Binance-Huobi-BTC_USD</td>
-          <td v-if="isShowDescription">
+          <td class="d-none-lg">
             Demo Nebula to accumulate Gravity score.
           </td>
           <td class="text-green" style="width: 140px;">0.1</td>
-          <td v-if="isShowDescription">Waves, ID=1</td>
-          <td v-if="isShowDescription">~per hour</td>
+          <td class="d-none-lg">Waves, ID=1</td>
+          <td class="d-none-lg">~per hour</td>
           <td>~10 WAVES | $12.6</td>
         </tr>
       </template>
@@ -51,12 +51,6 @@ export default Vue.extend({
     TableBlock,
     TabsAndSearch,
     Btn,
-  },
-  computed: {
-    isShowDescription() {
-      // @ts-ignore
-      return this.$mq === 'xxl' || this.$mq === 'big'
-    },
   },
 })
 </script>
