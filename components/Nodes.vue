@@ -8,8 +8,11 @@
           <th style="width: 265px;">
             <span>
               Name (
-              <icon image="/img/icons/сonsul.svg" style="top: 3px;"></icon> —
-              Consul)
+              <icon
+                image="/img/icons/сonsul.svg"
+                style="top: 3px; margin-top: -6px;"
+              ></icon>
+              — Consul)
             </span>
           </th>
           <th class="d-none-lg" style="width: 30%;">About</th>

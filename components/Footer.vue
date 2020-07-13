@@ -192,13 +192,6 @@ export default Vue.extend({
 .footer {
   font-weight: 300;
   hr {
-    height: 1px;
-    flex: 0 0 100%;
-    width: 100%;
-    border: none;
-    background: #2e3148;
-    margin: 0;
-    padding: 0;
     display: none;
     @include media-breakpoint-up(md) {
       display: block;
