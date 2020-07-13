@@ -477,8 +477,6 @@ export default Vue.extend({
         if (this.page > 3) {
           this.isLoadMore = false
         }
-        // eslint-disable-next-line no-console
-        console.log('loadMore')
       }, 1000)
     },
   },
