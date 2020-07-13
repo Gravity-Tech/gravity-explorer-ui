@@ -18,7 +18,12 @@
       </template>
       <template v-slot:body>
         <tr v-for="index in 20" :key="index">
-          <td class="nebulae-first-td">Nebula @Demo</td>
+          <td class="nebulae-first-td">
+            <table-avatar>
+              <icon image="/img/card/avatar2.svg"></icon>
+            </table-avatar>
+            Nebula @Demo
+          </td>
           <td style="width: 100px;">
             Active
           </td>
@@ -46,6 +51,8 @@ import Vue from 'vue'
 import TableBlock from '~/components/Table.vue'
 import TabsAndSearch from '~/components/TabsAndSearch.vue'
 import Btn from '~/components/Btn.vue'
+import Icon from '~/components/Icon.vue'
+import TableAvatar from '~/components/TableAvatar.vue'
 
 export default Vue.extend({
   name: 'Nebulae',
@@ -53,6 +60,8 @@ export default Vue.extend({
     TableBlock,
     TabsAndSearch,
     Btn,
+    Icon,
+    TableAvatar,
   },
 })
 </script>

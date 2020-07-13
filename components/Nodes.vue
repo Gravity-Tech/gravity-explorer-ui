@@ -28,10 +28,15 @@
             <icon
               v-if="index === 1"
               image="/img/icons/сonsul.svg"
-              style="top: 3px;"
+              style="top: 1px;"
             ></icon>
           </th>
-          <td style="width: 265px;">LinkPool Node 1</td>
+          <td style="width: 265px;">
+            <table-avatar-icon>
+              <icon image="/img/icons/nodes_table.svg"></icon>
+            </table-avatar-icon>
+            LinkPool Node 1
+          </td>
           <td style="width: 30%;" class="d-none-lg">
             Payouts depend on platform but are always automated and almost
             instant.
@@ -58,6 +63,7 @@ import Vue from 'vue'
 import TableBlock from '~/components/Table.vue'
 import TabsAndSearch from '~/components/TabsAndSearch.vue'
 import Icon from '~/components/Icon.vue'
+import TableAvatarIcon from '~/components/TableAvatarIcon.vue'
 
 export default Vue.extend({
   name: 'Nodes',
@@ -65,6 +71,7 @@ export default Vue.extend({
     TableBlock,
     TabsAndSearch,
     Icon,
+    TableAvatarIcon,
   },
 })
 </script>

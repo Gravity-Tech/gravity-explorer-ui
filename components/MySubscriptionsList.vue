@@ -79,7 +79,12 @@
       </template>
       <template v-slot:body>
         <tr v-for="index in 20" :key="index">
-          <td class="nebulae-first-td">Nebula @Demo</td>
+          <td class="nebulae-first-td">
+            <table-avatar>
+              <icon image="/img/card/avatar2.svg"></icon>
+            </table-avatar>
+            Nebula @Demo
+          </td>
           <td style="width: 100px;">
             Active
           </td>
@@ -110,7 +115,12 @@
       </template>
       <template v-slot:body>
         <tr v-for="index in 20" :key="index">
-          <td class="nebulae-first-td">Nebula @19</td>
+          <td class="nebulae-first-td">
+            <table-avatar>
+              <icon image="/img/card/avatar2.svg"></icon>
+            </table-avatar>
+            Nebula @19
+          </td>
           <td style="width: 160px;">Data sent</td>
           <td>~2 Etd | $487,14</td>
           <td>Etd</td>
@@ -129,6 +139,7 @@ import TableBlock from '~/components/Table.vue'
 import Tabs from '~/components/Tabs.vue'
 import Btn from '~/components/Btn.vue'
 import Icon from '~/components/Icon.vue'
+import TableAvatar from '~/components/TableAvatar.vue'
 
 const defaultTab = 'my-nebulae'
 
@@ -139,6 +150,7 @@ export default Vue.extend({
     Tabs,
     Icon,
     Btn,
+    TableAvatar,
   },
   asyncData(ctx: Context): Promise<object | void> | object | void {
     return { tab: ctx.query.tab || defaultTab }
