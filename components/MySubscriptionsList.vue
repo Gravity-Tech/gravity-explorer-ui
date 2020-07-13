@@ -49,11 +49,17 @@
     <hr style="margin-bottom: 38px;" />
     <tabs
       :items="[
-        { label: 'My Nebulae', to: { name: 'my-subscriptions-list' } },
-        { label: ' History', to: { name: 'nodes' } },
+        {
+          label: 'My Nebulae',
+          to: { name: 'my-subscriptions-list' },
+        },
+        {
+          label: 'History',
+          to: { name: 'my-subscriptions-list', query: { tab: 'history' } },
+        },
       ]"
     ></tabs>
-    <table-block style="margin-bottom: 34px;">
+    <table-block v-if="tab === defaultTab" style="margin-bottom: 34px;">
       <template v-slot:head>
         <tr>
           <th class="nebulae-first-td">Name</th>
@@ -85,15 +91,40 @@
         </tr>
       </template>
     </table-block>
+    <table-block v-if="tab === 'history'" style="margin-bottom: 34px;">
+      <template v-slot:head>
+        <tr>
+          <th class="nebulae-first-td">Name</th>
+          <th style="width: 160px;">Type</th>
+          <th>Amount</th>
+          <th>Currency</th>
+          <th>Status</th>
+          <th>Time</th>
+        </tr>
+      </template>
+      <template v-slot:body>
+        <tr v-for="index in 20" :key="index">
+          <td class="nebulae-first-td">Nebula @19</td>
+          <td style="width: 160px;">Data sent</td>
+          <td>~2 Etd | $487,14</td>
+          <td>Etd</td>
+          <td class="text-danger">Pending</td>
+          <td>08.06.2020 03:34:35</td>
+        </tr>
+      </template>
+    </table-block>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { Context } from '@nuxt/types/app'
 import TableBlock from '~/components/Table.vue'
 import Tabs from '~/components/Tabs.vue'
 import Btn from '~/components/Btn.vue'
 import Icon from '~/components/Icon.vue'
+
+const defaultTab = 'my-nebulae'
 
 export default Vue.extend({
   name: 'MySubscriptionsList',
@@ -102,6 +133,19 @@ export default Vue.extend({
     Tabs,
     Icon,
     Btn,
+  },
+  asyncData(ctx: Context): Promise<object | void> | object | void {
+    return { tab: ctx.query.tab || defaultTab }
+  },
+  data: () => ({
+    defaultTab,
+    tab: defaultTab,
+  }),
+  watch: {
+    $route(to) {
+      // @ts-ignore
+      this.tab = to.query.tab || defaultTab
+    },
   },
 })
 </script>

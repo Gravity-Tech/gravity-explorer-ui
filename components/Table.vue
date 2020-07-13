@@ -51,6 +51,7 @@ export default Vue.extend({
   }
 
   thead th {
+    font-weight: 400;
     background-color: $table-thead-bg;
     vertical-align: bottom;
     border-top: 0;
