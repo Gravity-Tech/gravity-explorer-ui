@@ -42,7 +42,12 @@
       <table-list :caption="caption">
         <template v-slot:body>
           <tr v-for="(item, index) in nodesList" :key="index">
-            <td>{{ item.name }}</td>
+            <td>
+              <table-avatar>
+                <icon :image="item.avatar || '/img/card/avatar2.svg'"></icon>
+              </table-avatar>
+              {{ item.name }}
+            </td>
             <td class="small" style="width: 40%;">{{ item.description }}</td>
             <td>{{ item.type }}</td>
             <td class="text-green">{{ item.count }}</td>
@@ -61,6 +66,8 @@ import ModalContent from '~/components/ModalContent.vue'
 import Card from '~/components/Card.vue'
 import TableList from '~/components/TableList.vue'
 import Btn from '~/components/Btn.vue'
+import TableAvatar from '~/components/TableAvatar.vue'
+import Icon from '~/components/Icon.vue'
 
 export default Vue.extend({
   name: 'ModalContentNebula',
@@ -69,6 +76,8 @@ export default Vue.extend({
     Card,
     TableList,
     Btn,
+    TableAvatar,
+    Icon,
   },
   props: {
     modalHead: {

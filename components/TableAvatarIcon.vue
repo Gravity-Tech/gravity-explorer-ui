@@ -20,6 +20,7 @@ export default Vue.extend({
 // Basic Bootstrap table
 //
 .table-avatar.table-avatar-icon {
+  background-color: #3e446b;
   .icon {
     left: 5px;
     top: 5px;

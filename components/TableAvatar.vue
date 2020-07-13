@@ -27,7 +27,6 @@ export default Vue.extend({
   margin-right: 4px;
   border-radius: 50%;
   overflow: hidden;
-  background-color: #3e446b;
   .icon {
     width: 100%;
     height: 100%;
