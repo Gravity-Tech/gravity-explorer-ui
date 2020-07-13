@@ -7,9 +7,9 @@
       :id="id"
       class="form-control"
       :rows="rows"
+      :value="value"
       @input="$emit('input', $event)"
-      >{{ value }}</textarea
-    >
+    ></textarea>
     <div v-if="$slots.text" class="form-text"><slot name="text"></slot></div>
   </div>
 </template>

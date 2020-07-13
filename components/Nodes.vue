@@ -57,7 +57,6 @@
 import Vue from 'vue'
 import TableBlock from '~/components/Table.vue'
 import TabsAndSearch from '~/components/TabsAndSearch.vue'
-import Btn from '~/components/Btn.vue'
 import Icon from '~/components/Icon.vue'
 
 export default Vue.extend({
@@ -65,7 +64,6 @@ export default Vue.extend({
   components: {
     TableBlock,
     TabsAndSearch,
-    Btn,
     Icon,
   },
 })
