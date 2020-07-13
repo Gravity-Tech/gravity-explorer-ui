@@ -114,7 +114,7 @@
             description:
               'LinkPool is a leading Gravity node service provider with the goal of providing tools and services that benefit the Gravity ecosystem. ',
             website: {
-              name: 'linkpool.io ',
+              name: 'linkpool.io',
               href: 'https://linkpool.io',
             },
           }"

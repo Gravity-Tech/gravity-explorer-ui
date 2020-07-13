@@ -43,12 +43,15 @@
               v-if="data.website.href"
               :href="data.website.href"
               target="_blank"
-            >
-              {{ data.website.name }}
-            </a>
-            <span v-else>
-              {{ data.website.name }}
-            </span>
+              v-text="data.website.name"
+            ></a>
+            <span v-else v-text="data.website.name"></span>
+            |
+            <span class="text-muted" style="margin-right: 8px;">Socials:</span>
+            <social-link-telegram href="/"></social-link-telegram>
+            <social-link-facebook href="/"></social-link-facebook>
+            <social-link-linked-in href="/"></social-link-linked-in>
+            <social-link-twitter href="/"></social-link-twitter>
           </div>
           <btn class="modal-node-btn btn-primary">
             Vote
@@ -81,6 +84,10 @@ import Card from '~/components/Card.vue'
 import TableList from '~/components/TableList.vue'
 import Icon from '~/components/Icon.vue'
 import Btn from '~/components/Btn.vue'
+import SocialLinkTelegram from '~/components/SocialLinks/Telegram.vue'
+import SocialLinkFacebook from '~/components/SocialLinks/Facebook.vue'
+import SocialLinkLinkedIn from '~/components/SocialLinks/LinkedIn.vue'
+import SocialLinkTwitter from '~/components/SocialLinks/Twitter.vue'
 
 export default Vue.extend({
   name: 'ModalContentNode',
@@ -90,6 +97,10 @@ export default Vue.extend({
     TableList,
     Icon,
     Btn,
+    SocialLinkTelegram,
+    SocialLinkFacebook,
+    SocialLinkLinkedIn,
+    SocialLinkTwitter,
   },
   props: {
     modalHead: {
@@ -137,6 +148,12 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+.modal-node {
+  .social-link {
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
+}
 .modal-node-crown {
   position: absolute;
   right: -35px;
