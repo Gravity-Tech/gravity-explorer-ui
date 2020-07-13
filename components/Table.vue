@@ -5,6 +5,11 @@
     </thead>
     <tbody>
       <slot name="body"></slot>
+      <tr v-if="loading">
+        <td class="table-loading" colspan="100%">
+          Loading...
+        </td>
+      </tr>
     </tbody>
   </table>
 </template>
@@ -14,6 +19,13 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'Table',
+  props: {
+    loading: {
+      type: Boolean,
+      default: () => false,
+      required: false,
+    },
+  },
   data: () => ({
     scrollbarWidth: 10,
   }),
@@ -91,6 +103,31 @@ export default Vue.extend({
     width: 100%;
     display: table;
     table-layout: fixed;
+  }
+}
+.table-loading {
+  position: relative;
+  text-align: center;
+  pointer-events: none;
+  color: transparent !important;
+
+  &:after,
+  &:before {
+    animation: spinAround 500ms infinite linear;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-bottom-color: white;
+    content: '';
+    display: block;
+    height: 1em;
+    width: 1em;
+    position: absolute;
+    left: calc(50% - (1em / 2));
+    top: calc(50% - (1em / 2));
+  }
+  &:before {
+    border: 2px solid transparent;
+    border-top-color: white;
   }
 }
 </style>

@@ -84,7 +84,7 @@
           </div>
         </div>
         <div v-if="!isAuth" class="nav-panel-col" style="margin-left: auto;">
-          <a href="/">
+          <a href="/" class="link-invert">
             <div class="nav-panel-indikator">
               <icon image="/img/icons/login.svg"></icon>
               <span>Login</span>
