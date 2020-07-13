@@ -39,7 +39,9 @@ export default Vue.extend({
 
 <style lang="scss">
 .modal-increase-deposit {
-  max-width: 630px;
+  @media (min-width: 690px) {
+    max-width: 630px;
+  }
 }
 .modal-increase-deposit-container {
   max-width: 400px;
