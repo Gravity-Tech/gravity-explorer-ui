@@ -110,7 +110,7 @@ export default Vue.extend({
         link: '/',
       },
       {
-        icon: 'linkedin',
+        icon: 'linked-in',
         link: '/',
       },
       {
