@@ -23,7 +23,7 @@ export default Vue.extend({
   width: 28px;
   height: 28px;
   margin-top: -18px;
-  top: 8px;
+  top: 9px;
   margin-right: 4px;
   border-radius: 50%;
   overflow: hidden;
