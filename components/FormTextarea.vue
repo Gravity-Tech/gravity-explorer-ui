@@ -3,13 +3,13 @@
     <label v-if="$slots.label" :for="id" class="form-control-label"
       ><slot name="label"></slot
     ></label>
-    <textarea
+    <textarea-autosize
       :id="id"
       class="form-control"
       :rows="rows"
       :value="value"
       @input="$emit('input', $event)"
-    ></textarea>
+    ></textarea-autosize>
     <div v-if="$slots.text" class="form-text"><slot name="text"></slot></div>
   </div>
 </template>

@@ -51,6 +51,7 @@ export default {
   plugins: [
     { src: '~plugins/modal', ssr: false },
     { src: '~plugins/dropdown', ssr: false },
+    { src: '~plugins/textarea-autosize', ssr: true },
   ],
   /*
    ** Auto import components
