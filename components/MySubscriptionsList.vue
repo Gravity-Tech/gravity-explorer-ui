@@ -14,7 +14,7 @@
         >
       </div>
     </div>
-    <table-block style="margin-bottom: 38px;">
+    <table-block style="margin-bottom: 38px; max-height: 335px;">
       <template v-slot:head>
         <tr>
           <th class="nebulae-first-td">Description</th>
@@ -59,7 +59,10 @@
         },
       ]"
     ></tabs>
-    <table-block v-if="tab === defaultTab" style="margin-bottom: 34px;">
+    <table-block
+      v-if="tab === defaultTab"
+      style="margin-bottom: 34px; max-height: 335px;"
+    >
       <template v-slot:head>
         <tr>
           <th class="nebulae-first-td">Name</th>
@@ -91,7 +94,10 @@
         </tr>
       </template>
     </table-block>
-    <table-block v-if="tab === 'history'" style="margin-bottom: 34px;">
+    <table-block
+      v-if="tab === 'history'"
+      style="margin-bottom: 34px; max-height: 335px;"
+    >
       <template v-slot:head>
         <tr>
           <th class="nebulae-first-td">Name</th>
