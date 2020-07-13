@@ -363,7 +363,7 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
       </modal>
     </client-only>
 
-    <table-block>
+    <table-block :is-load-more="isLoadMore" :page="page" @loadMore="loadMore">
       <template v-slot:head>
         <tr>
           <th style="width: 10%;">Name</th>
@@ -375,7 +375,7 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
         </tr>
       </template>
       <template v-slot:body>
-        <tr v-for="index in 20" :key="index">
+        <tr v-for="index in nebules" :key="index">
           <td style="width: 10%;">LinkPool Node 1</td>
           <td>
             Payouts depend on platform but are always automated and almost
@@ -436,6 +436,9 @@ export default Vue.extend({
     SearchInput,
   },
   data: () => ({
+    isLoadMore: true,
+    nebules: 20,
+    page: 1,
     nodesList: [
       {
         name: 'LinkPool Node 1',
@@ -466,6 +469,19 @@ export default Vue.extend({
       },
     ],
   }),
+  methods: {
+    loadMore() {
+      setTimeout(() => {
+        this.nebules += 10
+        this.page += 1
+        if (this.page > 3) {
+          this.isLoadMore = false
+        }
+        // eslint-disable-next-line no-console
+        console.log('loadMore')
+      }, 1000)
+    },
+  },
 })
 </script>
 

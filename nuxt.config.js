@@ -52,6 +52,7 @@ export default {
     { src: '~plugins/modal', ssr: false },
     { src: '~plugins/dropdown', ssr: false },
     { src: '~plugins/textarea-autosize', ssr: true },
+    { src: '~plugins/infinite-scroll', ssr: false },
   ],
   /*
    ** Auto import components

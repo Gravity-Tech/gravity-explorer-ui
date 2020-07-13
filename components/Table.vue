@@ -3,11 +3,19 @@
     <thead :style="`padding-right: ${scrollbarWidth}px;`">
       <slot name="head"></slot>
     </thead>
-    <tbody>
+    <tbody
+      v-infinite-scroll="loadMore"
+      infinite-scroll-disabled="busy"
+      :infinite-scroll-distance="scrollDistance"
+    >
       <slot name="body"></slot>
-      <tr v-if="loading">
-        <td class="table-loading" colspan="100%">
-          Loading...
+      <tr v-if="isLoadMore" key="loading">
+        <td colspan="100%">
+          <span
+            :style="{ opacity: isLoadMore && busy ? 1 : 0 }"
+            class="table-loading"
+            >Loading...</span
+          >
         </td>
       </tr>
     </tbody>
@@ -20,18 +28,42 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'Table',
   props: {
-    loading: {
+    page: {
+      type: Number,
+      default: () => 1,
+      required: false,
+    },
+    scrollDistance: {
+      type: Number,
+      default: () => 200,
+      required: false,
+    },
+    isLoadMore: {
       type: Boolean,
       default: () => false,
       required: false,
     },
   },
   data: () => ({
+    busy: false,
     scrollbarWidth: 10,
   }),
+  watch: {
+    page() {
+      this.busy = !this.isLoadMore
+    },
+  },
   mounted() {
     this.scrollbarWidth =
       window.innerWidth - document.documentElement.clientWidth
+  },
+  methods: {
+    loadMore() {
+      this.busy = this.isLoadMore
+      if (this.isLoadMore) {
+        this.$emit('loadMore')
+      }
+    },
   },
 })
 </script>
@@ -106,11 +138,12 @@ export default Vue.extend({
   }
 }
 .table-loading {
+  display: block;
   position: relative;
   text-align: center;
   pointer-events: none;
   color: transparent !important;
-
+  transition: 0.3s;
   &:after,
   &:before {
     animation: spinAround 500ms infinite linear;
