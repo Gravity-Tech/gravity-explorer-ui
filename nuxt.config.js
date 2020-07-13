@@ -51,7 +51,7 @@ export default {
   plugins: [
     { src: '~plugins/modal', ssr: false },
     { src: '~plugins/dropdown', ssr: false },
-    { src: '~plugins/textarea-autosize', ssr: true },
+    { src: '~plugins/textarea-autosize', ssr: false },
     { src: '~plugins/infinite-scroll', ssr: false },
   ],
   /*
