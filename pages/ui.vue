@@ -381,7 +381,7 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
                 API Token<span class="text-red">*</span>
               </template>
             </form-input>
-            <wallet-card
+            <coin-card
               :icon="valueUrlLogin ? '/img/icons/ethereum.svg' : ''"
               style="margin-bottom: 30px;"
             >
@@ -395,7 +395,7 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
               <div v-else>
                 Enter Node URL to detect the blockchain...
               </div>
-            </wallet-card>
+            </coin-card>
             <checkbox name="isAgree">
               By connecting, you agree to the
               <a href="/">Terms of Service</a> and
@@ -461,7 +461,7 @@ import FormTextarea from '~/components/FormTextarea.vue'
 import BlockList from '~/components/BlockList.vue'
 import Tabs from '~/components/Tabs.vue'
 import SearchInput from '~/components/SearchInput.vue'
-import WalletCard from '~/components/WalletCard.vue'
+import CoinCard from '~/components/CoinCard.vue'
 
 export default Vue.extend({
   components: {
@@ -485,7 +485,7 @@ export default Vue.extend({
     Tabs,
     SearchInput,
     ModalContentLogin,
-    WalletCard,
+    CoinCard,
   },
   data: () => ({
     valueUrlLogin: 'https://27.215.121.161',

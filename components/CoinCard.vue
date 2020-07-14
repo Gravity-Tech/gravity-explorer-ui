@@ -1,9 +1,9 @@
 <template>
-  <label class="wallet-card">
-    <span v-if="icon" class="wallet-card-icon">
+  <label class="coin-card">
+    <span v-if="icon" class="coin-card-icon">
       <icon :image="icon"></icon>
     </span>
-    <span class="wallet-card-title"><slot></slot></span>
+    <span class="coin-card-title"><slot></slot></span>
   </label>
 </template>
 
@@ -12,7 +12,7 @@ import Vue from 'vue'
 import Icon from '~/components/Icon.vue'
 
 export default Vue.extend({
-  name: 'WalletCard',
+  name: 'CoinCard',
   components: {
     Icon,
   },
@@ -30,7 +30,7 @@ export default Vue.extend({
 @import '../assets/scss/import';
 // stylelint-disable selector-no-qualifying-type
 
-.wallet-card {
+.coin-card {
   position: relative;
   display: flex;
   width: 100%;
@@ -41,7 +41,7 @@ export default Vue.extend({
   border-radius: 6px;
   height: 103px;
 
-  + .wallet-card {
+  + .coin-card {
     margin-top: 24px;
   }
 
@@ -52,7 +52,7 @@ export default Vue.extend({
   }
 }
 
-.wallet-card-icon {
+.coin-card-icon {
   display: block;
   flex: 0 0 66px;
   max-width: 66px;
@@ -96,7 +96,7 @@ export default Vue.extend({
   }
 }
 
-.wallet-card-title {
+.coin-card-title {
   display: block;
   font-size: 13px;
   line-height: lh(13px, 19px);
