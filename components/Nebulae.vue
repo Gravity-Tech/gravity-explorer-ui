@@ -31,9 +31,13 @@
           <td class="d-none-lg">
             Demo Nebula to accumulate Gravity score.
           </td>
-          <td class="text-green" style="width: 110px;">0.1</td>
-          <td class="d-none-lg" style="width: 120px;">Waves, ID=1</td>
-          <td class="d-none-lg" style="width: 120px;">~per hour</td>
+          <td class="text-green" style="width: 110px;">{{ nebula.score }}</td>
+          <td class="d-none-lg" style="width: 120px;">
+            Waves, ID={{ nebula.target_chain }}
+          </td>
+          <td class="d-none-lg" style="width: 120px;">
+            ~per {{ nebula.regularity }} blocks
+          </td>
           <td style="width: 140px;">~10 WAVES | $12.6</td>
         </tr>
       </template>
