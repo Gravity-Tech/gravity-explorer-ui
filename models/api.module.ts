@@ -17,6 +17,7 @@ import { NodesService } from './api/nodes.service';
     NodesService ]
 })
 export class ApiModule {
+    // @ts-ignore
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {
         return {
             ngModule: ApiModule,

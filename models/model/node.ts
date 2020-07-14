@@ -9,19 +9,21 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { Nebula } from './nebula';
-import { NodeContacts } from './nodeContacts';
-import { NodeSocials } from './nodeSocials';
 
 export interface Node { 
-    contacts?: NodeContacts;
+    /**
+     * the address of the node
+     */
+    address: string;
     depositAmount?: number;
     depositChain?: number;
     description?: string;
     joinedAt?: number;
     lockedUntil?: number;
     name?: string;
-    nebulasUsing?: Array<Nebula>;
+    /**
+     * NebulasUsing []Nebula `json:\"nebulas_using\",pg:\"-\"`
+     */
+    nebulasUsing?: Array<string>;
     score?: number;
-    socials?: NodeSocials;
 }

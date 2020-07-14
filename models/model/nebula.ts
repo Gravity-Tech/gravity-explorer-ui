@@ -9,20 +9,24 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { IExtractor } from './iExtractor';
-import { Node } from './node';
 
 export interface Nebula { 
+    /**
+     * the address of the nebula SC
+     */
+    address: string;
     /**
      * the description of the nebula
      */
     description: string;
-    extractor?: IExtractor;
     /**
      * the name of the nebula
      */
     name: string;
-    nodesUsing?: Array<Node>;
+    /**
+     * Actual pointers
+     */
+    nodesUsing?: Array<string>;
     /**
      * Data feed subscription charge regularity Represents minutes. For i.g. 1440 - one day
      */
@@ -35,7 +39,7 @@ export interface Nebula {
      * the status of the nebula
      */
     status: number;
-    subscriptionFee?: number;
+    subscriptionFee?: string;
     /**
      * the target chain of the nebula recently allowed: WAVES, ETH
      */

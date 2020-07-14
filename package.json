@@ -13,8 +13,11 @@
     "swagger-typegen": "swagger-codegen generate -i https://node.gravityhub.org/swagger.json -l typescript-angular -o models/"
   },
   "dependencies": {
+    "@angular/common": "^10.0.3",
+    "@angular/core": "^10.0.3",
     "@nuxt/typescript-runtime": "^0.4.10",
     "@nuxtjs/style-resources": "^1.0.0",
+    "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "bootstrap.native": "^3.0.9",
     "js-cookie": "^2.2.1",
