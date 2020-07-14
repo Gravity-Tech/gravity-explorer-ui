@@ -10,9 +10,11 @@
         </tr>
       </template>
       <template v-slot:body>
-        <tr v-for="index in 20" :key="index">
-          <td class="data-feeds-first-td">Binance-ETH_USD</td>
-          <td>Binance-ETH_USD</td>
+        <tr v-for="datafeed in list" :key="datafeed.datafeed_tag">
+          <td class="data-feeds-first-td">{{ datafeed.datafeed_tag }}</td>
+          <td>
+            <span class="data-feeds-second-td">{{ datafeed.description }}</span>
+          </td>
           <td style="width: 50%;">
             Ventuary Binance
             <br />
@@ -35,11 +37,21 @@ export default Vue.extend({
     TableBlock,
     TabsAndSearch,
   },
+  // eslint-disable-next-line vue/require-prop-types
+  props: ['list']
 })
 </script>
 
 <style lang="scss">
 .data-feeds-first-td {
   padding-left: 36px !important;
+}
+
+.data-feeds-second-td {
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 5px;
+  text-overflow: ellipsis;
+  display: block;
 }
 </style>

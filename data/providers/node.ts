@@ -18,10 +18,10 @@ export const NodeRoutes = {
 
 export function mapNodeChain(chain: number): string {
   if (chain === ChainEnum.ETH) {
-    return 'Eth'
+    return 'ETH'
   }
   if (chain === ChainEnum.WAVES) {
-    return 'Waves'
+    return 'WAVES'
   }
   return ''
 }
@@ -31,7 +31,8 @@ export function mapNode(
 ): Omit<Node, 'depositChain'> & { depositChain: string } {
   return {
     ...node,
-    depositChain: mapNodeChain(node.depositChain as number),
+    // @ts-ignore
+    deposit_chain: mapNodeChain(Number(node.deposit_chain)),
     // @ts-ignore
     joined_at: DateFormatter.format(moment(node.joined_at)),
   }

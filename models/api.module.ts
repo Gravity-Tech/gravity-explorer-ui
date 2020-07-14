@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 
 import { CommonService } from './api/common.service';
+import { DatafeedsService } from './api/datafeeds.service';
 import { NebulasService } from './api/nebulas.service';
 import { NodesService } from './api/nodes.service';
 
@@ -13,6 +14,7 @@ import { NodesService } from './api/nodes.service';
   exports:      [],
   providers: [
     CommonService,
+    DatafeedsService,
     NebulasService,
     NodesService ]
 })

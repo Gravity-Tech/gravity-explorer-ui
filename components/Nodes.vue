@@ -48,7 +48,7 @@
               style="top: 5px;"
             ></icon>
           </td>
-          <td>Waves</td>
+          <td>{{ node.deposit_chain }}</td>
           <td>~10 WAVES | $12.6</td>
           <td class="d-none-lg">{{ node.joined_at }}</td>
         </tr>

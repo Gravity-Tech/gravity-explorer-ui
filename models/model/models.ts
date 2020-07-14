@@ -1,5 +1,6 @@
 export * from './asset';
 export * from './commonStats';
+export * from './extractor';
 export * from './nebula';
 export * from './node';
 export * from './nodeContacts';
