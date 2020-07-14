@@ -403,8 +403,15 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
             </checkbox>
           </template>
           <template v-slot:footer>
-            <btn class="btn-outline-primary btn-block" disabled>
+            <btn
+              v-if="!valueUrlLogin"
+              class="btn-outline-primary btn-block"
+              disabled
+            >
               Сonnect to Node
+            </btn>
+            <btn v-else class="btn-primary btn-block">
+              Log in with Metamask
             </btn>
           </template>
         </modal-content-login>
