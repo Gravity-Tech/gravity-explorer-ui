@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es2018",
-    "module": "esnext",
+    "target": "es5",
+    // это обеспечивает более строгий вывод для свойств данных в `this`
+    // при использовании webpack 2+ или rollup, добавить поддержку tree-shaking:
+    "module": "es2015",
+    // "target": "es2018",
+    // "module": "esnext",
     "moduleResolution": "node",
     "lib": [
       "esnext",

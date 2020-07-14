@@ -2,7 +2,7 @@
   <div class="container">
     <tabs
       :items="[
-        { label: 'Nebulae', to: { name: 'index' } },
+        { label: 'Nebulae', to: { name: 'nebulae' } },
         { label: 'Nodes', to: { name: 'nodes' } },
         { label: 'Data feeds', to: { name: 'data-feeds' } },
       ]"

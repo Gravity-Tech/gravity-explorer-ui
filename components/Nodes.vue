@@ -23,7 +23,7 @@
         </tr>
       </template>
       <template v-slot:body>
-        <tr v-for="index in 20" :key="index">
+        <tr v-for="(node, index) in mappedNodesList" :key="node.address">
           <th style="width: 35px;">
             <icon
               v-if="index === 1"
@@ -35,14 +35,13 @@
             <table-avatar-icon>
               <icon image="/img/icons/nodes_table.svg"></icon>
             </table-avatar-icon>
-            LinkPool Node 1
+            {{ node.name }}
           </td>
           <td style="width: 30%;" class="d-none-lg">
-            Payouts depend on platform but are always automated and almost
-            instant.
+            {{ node.description }}
           </td>
           <td class="text-green">
-            10
+            {{ node.score }}
             <icon
               v-if="index === 1"
               image="/img/icons/сonnect_node.svg"
@@ -51,7 +50,7 @@
           </td>
           <td>Waves</td>
           <td>~10 WAVES | $12.6</td>
-          <td class="d-none-lg">27.05.2020</td>
+          <td class="d-none-lg">{{ node.joined_at }}</td>
         </tr>
       </template>
     </table-block>
@@ -64,6 +63,8 @@ import TableBlock from '~/components/Table.vue'
 import TabsAndSearch from '~/components/TabsAndSearch.vue'
 import Icon from '~/components/Icon.vue'
 import TableAvatarIcon from '~/components/TableAvatarIcon.vue'
+import { Node } from '~/models/model/node'
+import { mapNode } from '~/data/providers/node'
 
 export default Vue.extend({
   name: 'Nodes',
@@ -72,6 +73,13 @@ export default Vue.extend({
     TabsAndSearch,
     Icon,
     TableAvatarIcon,
+  },
+  // eslint-disable-next-line vue/require-prop-types
+  props: ['nodesList'],
+  computed: {
+    mappedNodesList() {
+      return (this.nodesList as Node[]).map(mapNode)
+    },
   },
 })
 </script>

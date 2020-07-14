@@ -17,12 +17,12 @@
         </tr>
       </template>
       <template v-slot:body>
-        <tr v-for="index in 20" :key="index">
+        <tr v-for="nebula in nebulaList" :key="nebula.address">
           <td class="nebulae-first-td">
             <table-avatar>
               <icon image="/img/card/avatar2.svg"></icon>
             </table-avatar>
-            Nebula @Demo
+            {{ nebula.name }}
           </td>
           <td style="width: 100px;">
             Active
@@ -53,6 +53,11 @@ import TabsAndSearch from '~/components/TabsAndSearch.vue'
 import Btn from '~/components/Btn.vue'
 import Icon from '~/components/Icon.vue'
 import TableAvatar from '~/components/TableAvatar.vue'
+import { Nebula } from '~/models/model/nebula'
+
+type Props = {
+  nebulaList: Nebula[]
+}
 
 export default Vue.extend({
   name: 'Nebulae',
@@ -63,6 +68,8 @@ export default Vue.extend({
     Icon,
     TableAvatar,
   },
+  // eslint-disable-next-line vue/require-prop-types
+  props: ['nebulaList'],
 })
 </script>
 
