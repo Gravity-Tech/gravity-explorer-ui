@@ -1,7 +1,12 @@
 <template>
   <div class="container">
-    <tabs-and-search></tabs-and-search>
-    <table-block style="margin-bottom: 34px;">
+    <tabs-and-search @query-update="queryUpdate"></tabs-and-search>
+    <table-block
+      ref="table"
+      style="margin-bottom: 34px;"
+      :is-loading="isLoading"
+      @load-more="pageUpdate"
+    >
       <template v-slot:head>
         <tr>
           <th class="data-feeds-first-td">Data feed</th>
@@ -30,6 +35,11 @@
 import Vue from 'vue'
 import TableBlock from '~/components/Table.vue'
 import TabsAndSearch from '~/components/TabsAndSearch.vue'
+import {
+  // DatafeedDataProvider,
+  // Datafeed,
+  FetchCommand,
+} from '~/data/global'
 
 export default Vue.extend({
   name: 'DataFeeds',
@@ -38,7 +48,23 @@ export default Vue.extend({
     TabsAndSearch,
   },
   // eslint-disable-next-line vue/require-prop-types
-  props: ['list']
+  props: ['list', 'isLoading'],
+  data() {
+    return {
+      command: { page: 0 } as FetchCommand,
+    }
+  },
+  methods: {
+    queryUpdate(query: string) {
+      this.$refs.table.$el.querySelector('tbody').scrollTo(0, 0)
+      this.command = { query, page: 0 }
+      this.$emit('query-update', this.command)
+    },
+    pageUpdate() {
+      this.command.page = Number(this.command.page || 0) + 1
+      this.$emit('query-update', this.command)
+    },
+  },
 })
 </script>
 

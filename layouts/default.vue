@@ -17,6 +17,7 @@ import { CommonDataProvider, MappedCommonStats } from '~/data/providers/common'
 import { SystemTimeIntervalIterator } from '~/misc/iterator'
 
 export default {
+  name: 'Default',
   components: {
     navbarBlock,
     footerBlock,

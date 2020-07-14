@@ -28,7 +28,7 @@
         </svg>
       </icon>
     </button>
-    <button v-if="value" class="search-input-clear" aria-label="Clear Input">
+    <button v-if="value" class="search-input-clear" aria-label="Clear Input" @click="clearInput">
       <icon>
         <svg
           width="30"
@@ -57,10 +57,10 @@
       </icon>
     </button>
     <input
+      v-model="value"
       type="search"
-      :value="value"
       :placeholder="placeholder"
-      @input="$emit('input', $event)"
+      @input="$emit('input', $event, value)"
     />
   </label>
 </template>
@@ -73,7 +73,7 @@ export default Vue.extend({
   name: 'SearchInput',
   components: { Icon },
   props: {
-    value: {
+    defaultValue: {
       type: String,
       default: () => '',
       required: false,
@@ -84,6 +84,16 @@ export default Vue.extend({
       required: false,
     },
   },
+  data() {
+    return {
+      value: '',
+    }
+  },
+  methods: {
+    clearInput: function() {
+      this.value = ''
+    }
+  }
 })
 </script>
 

@@ -4,16 +4,15 @@
       <slot name="head"></slot>
     </thead>
     <tbody
+      ref="tbody"
       v-infinite-scroll="loadMore"
       infinite-scroll-disabled="busy"
       :infinite-scroll-distance="scrollDistance"
     >
       <slot name="body"></slot>
-      <tr v-if="isLoadMore" key="loading">
+      <tr v-if="isLoading" key="loading">
         <td colspan="100%">
-          <span
-            :style="{ opacity: isLoadMore && busy ? 1 : 0 }"
-            class="table-loading"
+          <span :style="{ opacity: isLoading ? 1 : 0 }" class="table-loading"
             >Loading...</span
           >
         </td>
@@ -24,6 +23,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { Subscription, BehaviorSubject } from 'rxjs'
 
 export default Vue.extend({
   name: 'Table',
@@ -38,30 +38,36 @@ export default Vue.extend({
       default: () => 200,
       required: false,
     },
-    isLoadMore: {
-      type: Boolean,
+    isLoading: {
+      type: BehaviorSubject,
       default: () => false,
       required: false,
     },
   },
-  data: () => ({
-    busy: false,
-    scrollbarWidth: 10,
-  }),
-  watch: {
-    page() {
-      this.busy = !this.isLoadMore
-    },
+  data() {
+    return {
+      // isLoadMore: false,
+      busy: false,
+      scrollbarWidth: 10,
+      subs: {} as Subscription,
+    }
   },
   mounted() {
     this.scrollbarWidth =
       window.innerWidth - document.documentElement.clientWidth
+
+    if (!this.isLoading) return
+
+    // @ts-ignore
+    this.subs = (this.isLoading as BehaviorSubject<Boolean>).subscribe((next: Boolean) => {
+      this.busy = next
+    })
   },
   methods: {
     loadMore() {
-      this.busy = this.isLoadMore
-      if (this.isLoadMore) {
-        this.$emit('loadMore')
+      // @ts-ignore
+      if (!this.busy) {
+        this.$emit('load-more')
       }
     },
   },
