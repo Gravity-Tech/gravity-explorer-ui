@@ -1,6 +1,6 @@
 import axios from 'axios'
 import moment from 'moment'
-import { DataEnviromentCenter } from '../global'
+import { DataEnviromentCenter, FetchCommand } from '../global'
 import { ChainEnum } from './../enums'
 import { Node } from '~/models/model/node'
 import { NodeHistoryRecord } from '~/models/model/nodeHistoryRecord'
@@ -39,13 +39,28 @@ export function mapNode(
 }
 
 export class NodeDataProvider {
+  static mapCommandToQuery(
+    command: FetchCommand
+  ): Record<string, string | undefined> {
+    return {
+      q: command.query,
+      page: String(command.page),
+      items: String(command.perPage),
+    }
+  }
+
   private static async fetch<T>(route: string): Promise<T> {
     const resp = await axios.get<T>(route)
     return resp.data
   }
 
-  static async fetchAllNodes(): Promise<Node[]> {
-    return await this.fetch<Node[]>(NodeRoutes.allNodes)
+  static async fetchAllNodes(command?: FetchCommand): Promise<Node[]> {
+    const mappedCommand = command ? this.mapCommandToQuery(command) : undefined
+
+    const resp = await axios.get<Node[]>(NodeRoutes.allNodes, {
+      params: mappedCommand,
+    })
+    return resp.data
   }
 
   static async fetchExactNode(): Promise<Node> {
