@@ -387,9 +387,9 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
             >
               <div v-if="valueUrlLogin">
                 Ethereum
-                <div>
+                <div class="text-truncate">
                   <span class="text-muted">Node Address:</span>
-                  0x1234567890000000
+                  0x742d35Cc6634C0532925a3b844Bc454e4438f44e
                 </div>
               </div>
               <div v-else>

@@ -40,7 +40,8 @@ export default Vue.extend({
   background: #323652;
   border-radius: 6px;
   height: 103px;
-
+  padding-left: 10px;
+  padding-right: 10px;
   + .coin-card {
     margin-top: 24px;
   }
@@ -100,5 +101,6 @@ export default Vue.extend({
   display: block;
   font-size: 13px;
   line-height: lh(13px, 19px);
+  max-width: calc(100% - 100px);
 }
 </style>
