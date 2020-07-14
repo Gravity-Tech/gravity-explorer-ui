@@ -28,7 +28,12 @@
         </svg>
       </icon>
     </button>
-    <button v-if="value" class="search-input-clear" aria-label="Clear Input" @click="clearInput">
+    <button
+      v-if="value"
+      class="search-input-clear"
+      aria-label="Clear Input"
+      @click="clearInput"
+    >
       <icon>
         <svg
           width="30"
@@ -90,10 +95,11 @@ export default Vue.extend({
     }
   },
   methods: {
-    clearInput: function() {
+    clearInput() {
       this.value = ''
-    }
-  }
+      this.$emit('input', null, this.value)
+    },
+  },
 })
 </script>
 

@@ -27,7 +27,7 @@ export default Vue.extend({
       datafeedList: [] as Datafeed[],
       isLoading: new BehaviorSubject<Boolean>(false),
       // isScrollDisabled: new BehaviorSubject<Boolean>(false),
-      command: new BehaviorSubject<FetchCommand>({}),
+      command: new BehaviorSubject<FetchCommand>({ page: 0 }),
       // command: {} as FetchCommand,
       dataFeedsSubject: new PublishSubject<Datafeed[]>(),
       iterator: new SystemTimeIntervalIterator({ regularity: 5 * 1000 }, () => {
@@ -42,14 +42,12 @@ export default Vue.extend({
     const sub1 = this.dataFeedsSubject.subscribe((df: Datafeed[]) => {
       this.datafeedList = df
       this.isLoading.next(false)
-
-      // if (df.length === 0) {
-      //   this.isScrollDisabled.next(true)
-      // }
     })
+
     const paginationSub = this.command
-      .pipe(filter((command) => command.page !== undefined && command.page > 0))
+      .pipe(filter((command) => command.page !== undefined && this.datafeedList.length > 15))
       .subscribe((command) => {
+        console.log('paginationSub', command.page)
         if (this.isLoading.value) return
 
         this.isLoading.next(true)
@@ -61,11 +59,13 @@ export default Vue.extend({
         filter((command) => command.page === 0 && command.query !== undefined)
       )
       .subscribe((command) => {
+        console.log('searchSub', command.page)
         this.isLoading.next(true)
         this.updateData(command)
       })
 
-    this.subscriptions.push(sub1, paginationSub)
+    this.subscriptions.push(sub1, paginationSub, searchSub)
+    this.updateData(this.command.value)
 
     this.iterator.startInterval()
   },
@@ -90,7 +90,7 @@ export default Vue.extend({
       })
     },
     queryUpdate(command: FetchCommand) {
-      // console.log({ command, isLoading: this.isLoading }, 'A')
+      console.log({ command, isLoading: this.isLoading }, 'A')
       this.command.next(command)
     },
   },
