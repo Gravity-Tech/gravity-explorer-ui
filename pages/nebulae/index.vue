@@ -63,6 +63,8 @@ export default Vue.extend({
       })
 
     this.subscriptions.push(sub1, paginationSub, searchSub)
+
+    this.isLoading.next(true)
     this.updateData(this.command.value)
   },
   beforeDestroy() {

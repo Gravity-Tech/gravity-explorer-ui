@@ -61,6 +61,10 @@ export default Vue.extend({
       this.$emit('query-update', this.command)
     },
     pageUpdate() {
+      if (this.isLoading.value) {
+        return
+      }
+
       this.command.page = Number(this.command.page || 0) + 1
       this.$emit('query-update', this.command)
     },
