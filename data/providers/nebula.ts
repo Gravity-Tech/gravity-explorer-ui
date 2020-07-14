@@ -1,8 +1,7 @@
 import axios from 'axios'
-import { DataEnviromentCenter } from '../global'
+import { DataEnviromentCenter, FetchCommand } from '../global'
 import { Nebula } from '~/models/model/nebula'
 
-// export const commonStats = `${domain}/common/stats`
 const allNebulas = `${DataEnviromentCenter.domain}/nebulas/all`
 const exactNebula = `${DataEnviromentCenter.domain}/nebulas/exact`
 
@@ -11,8 +10,22 @@ export const NebulaRoutes = {
   exactNebula,
 }
 export class NebulaDataProvider {
-  static async fetchAllNebulas(): Promise<Nebula[]> {
-    const resp = await axios.get<Nebula[]>(NebulaRoutes.allNebulas)
+  static mapCommandToQuery(
+    command: FetchCommand
+  ): Record<string, string | undefined> {
+    return {
+      q: command.query,
+      page: String(command.page),
+      items: String(command.perPage),
+    }
+  }
+
+  static async fetchAllNebulas(command?: FetchCommand): Promise<Nebula[]> {
+    const mappedCommand = command ? this.mapCommandToQuery(command) : undefined
+
+    const resp = await axios.get<Nebula[]>(NebulaRoutes.allNebulas, {
+      params: mappedCommand,
+    })
     return resp.data
   }
 }

@@ -9,13 +9,13 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Subject as PublishSubject, BehaviorSubject, Subscription } from 'rxjs'
-import { debounceTime, filter, distinctUntilChanged } from 'rxjs/operators'
+import { debounceTime, filter } from 'rxjs/operators'
 import DataFeeds from '~/components/DataFeeds.vue'
 import {
   DatafeedDataProvider,
   Datafeed,
-  FetchCommand,
 } from '~/data/providers/datafeed'
+import { FetchCommand } from '~/data/global'
 import { SystemTimeIntervalIterator } from '~/misc/iterator'
 
 export default Vue.extend({
@@ -26,9 +26,7 @@ export default Vue.extend({
     return {
       datafeedList: [] as Datafeed[],
       isLoading: new BehaviorSubject<Boolean>(false),
-      // isScrollDisabled: new BehaviorSubject<Boolean>(false),
       command: new BehaviorSubject<FetchCommand>({ page: 0 }),
-      // command: {} as FetchCommand,
       dataFeedsSubject: new PublishSubject<Datafeed[]>(),
       iterator: new SystemTimeIntervalIterator({ regularity: 5 * 1000 }, () => {
         // @ts-ignore
@@ -45,9 +43,14 @@ export default Vue.extend({
     })
 
     const paginationSub = this.command
-      .pipe(filter((command) => command.page !== undefined && this.datafeedList.length > 15))
+      .pipe(
+        filter(
+          (command) =>
+            command.page !== undefined && this.datafeedList.length > 15
+        )
+      )
       .subscribe((command) => {
-        console.log('paginationSub', command.page)
+        // console.log('paginationSub', command.page)
         if (this.isLoading.value) return
 
         this.isLoading.next(true)
@@ -59,7 +62,7 @@ export default Vue.extend({
         filter((command) => command.page === 0 && command.query !== undefined)
       )
       .subscribe((command) => {
-        console.log('searchSub', command.page)
+        // console.log('searchSub', command.page)
         this.isLoading.next(true)
         this.updateData(command)
       })
