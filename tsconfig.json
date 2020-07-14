@@ -29,12 +29,16 @@
     },
     "types": [
       "@types/node",
-      "@nuxt/types"
+      "@nuxt/types",
     ]
   },
+  "include": [
+    "models/model/"
+  ],
   "exclude": [
     "node_modules",
     ".nuxt",
-    "dist"
+    "models",
+    "dist",
   ]
 }

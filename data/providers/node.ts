@@ -32,6 +32,7 @@ export function mapNode(
   return {
     ...node,
     depositChain: mapNodeChain(node.depositChain as number),
+    // @ts-ignore
     joined_at: DateFormatter.format(moment(node.joined_at)),
   }
 }
