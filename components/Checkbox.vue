@@ -51,6 +51,8 @@ export default Vue.extend({
   padding-left: 28px;
   cursor: pointer;
   color: $text-muted;
+  font-size: 11px;
+  line-height: lh(11px, 19px);
   &:before,
   &:after {
     content: '';

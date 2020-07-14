@@ -77,6 +77,9 @@
     >
       modal-content-increase-deposit
     </btn>
+    <btn class="btn-primary" @click="$modal.push('modal-content-login')">
+      modal-content-login
+    </btn>
 
     <client-only>
       <modal name="modal-content-nebula">
@@ -361,6 +364,58 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
           </template>
         </modal-content-increase-deposit>
       </modal>
+
+      <modal name="modal-content-login">
+        <modal-content-login modal-head="Log in">
+          <template v-slot:body>
+            <form-input v-model="valueUrlLogin">
+              <template v-slot:label>
+                Node URL<span class="text-red">*</span>
+              </template>
+            </form-input>
+            <form-input
+              value="d6c5f660-ace6-47be-a4a6"
+              style="margin-bottom: 24px;"
+            >
+              <template v-slot:label>
+                API Token<span class="text-red">*</span>
+              </template>
+            </form-input>
+            <coin-card
+              :icon="valueUrlLogin ? '/img/icons/ethereum.svg' : ''"
+              style="margin-bottom: 30px;"
+            >
+              <div v-if="valueUrlLogin">
+                Ethereum
+                <div>
+                  <span class="text-muted">Node Address:</span>
+                  0x1234567890000000
+                </div>
+              </div>
+              <div v-else>
+                Enter Node URL to detect the blockchain...
+              </div>
+            </coin-card>
+            <checkbox name="isAgree">
+              By connecting, you agree to the
+              <a href="/">Terms of Service</a> and
+              <a href="/">Privacy Policy</a>
+            </checkbox>
+          </template>
+          <template v-slot:footer>
+            <btn
+              v-if="!valueUrlLogin"
+              class="btn-outline-primary btn-block"
+              disabled
+            >
+              Сonnect to Node
+            </btn>
+            <btn v-else class="btn-primary btn-block">
+              Log in with Metamask
+            </btn>
+          </template>
+        </modal-content-login>
+      </modal>
     </client-only>
 
     <table-block :is-load-more="isLoadMore" :page="page" @loadMore="loadMore">
@@ -403,6 +458,7 @@ import ModalContentWithdrawSuccess from '~/components/ModalContentWithdrawSucces
 import ModalContentWallet from '~/components/ModalContentWallet.vue'
 import ModalContentSubscribe from '~/components/ModalContentSubscribe.vue'
 import ModalContentEdit from '~/components/ModalContentEdit.vue'
+import ModalContentLogin from '~/components/ModalContentLogin.vue'
 import FormInput from '~/components/FormInput.vue'
 import CoinCheckbox from '~/components/CoinCheckbox.vue'
 import Checkbox from '~/components/Checkbox.vue'
@@ -412,6 +468,7 @@ import FormTextarea from '~/components/FormTextarea.vue'
 import BlockList from '~/components/BlockList.vue'
 import Tabs from '~/components/Tabs.vue'
 import SearchInput from '~/components/SearchInput.vue'
+import CoinCard from '~/components/CoinCard.vue'
 
 export default Vue.extend({
   components: {
@@ -434,8 +491,11 @@ export default Vue.extend({
     BlockList,
     Tabs,
     SearchInput,
+    ModalContentLogin,
+    CoinCard,
   },
   data: () => ({
+    valueUrlLogin: 'https://27.215.121.161',
     isLoadMore: true,
     nebules: 20,
     page: 1,

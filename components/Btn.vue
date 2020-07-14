@@ -59,7 +59,7 @@ export default Vue.extend({
   );
   border-color: $btn-bg-color;
 
-  &:hover {
+  &:hover:not(:disabled) {
     color: $btn-color;
     text-decoration: none;
     background-color: $btn-bg-color-hover;
@@ -116,7 +116,7 @@ fieldset:disabled a.btn {
     width: 0;
     height: 100%;
   }
-  &:hover {
+  &:hover:not(:disabled) {
     &:after {
       width: 100%;
     }
@@ -137,7 +137,7 @@ fieldset:disabled a.btn {
   &:after {
     background: #eeecec;
   }
-  &:hover {
+  &:hover:not(:disabled) {
     color: #000000;
     background: #eeecec;
   }
@@ -157,7 +157,7 @@ fieldset:disabled a.btn {
   &:after {
     background: #44d7b6;
   }
-  &:hover {
+  &:hover:not(:disabled) {
     color: #000000;
     background: #44d7b6;
   }
@@ -172,7 +172,7 @@ fieldset:disabled a.btn {
   &:after {
     background: #eeecec;
   }
-  &:hover {
+  &:hover:not(:disabled) {
     color: #000000;
     background: #eeecec;
   }
