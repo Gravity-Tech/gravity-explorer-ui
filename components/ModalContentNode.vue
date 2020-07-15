@@ -27,7 +27,7 @@
             <li v-if="data.name">
               <span class="text-muted">Name:</span> {{ data.name }}
             </li>
-            <li v-if="data.address">
+            <li v-if="data.address" class="address">
               <span class="text-muted">Address:</span> {{ data.address }}
             </li>
           </ul>
@@ -177,6 +177,13 @@ export default Vue.extend({
       display: block;
       margin-bottom: 9px;
     }
+  }
+
+  .address {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+    text-overflow: ellipsis;
   }
 }
 .modal-node-description {
