@@ -7,7 +7,7 @@
   border-radius: $vs-border-radius;
   color: map_get($vs-colors, 'dark');
   line-height: $vs-component-line-height;
-  margin: 4px 2px 0px 2px;
+  margin: $vs-dropdown-vertical-offset 2px 0px 2px;
   padding: 0 0.25em;
   z-index: 0;
 }

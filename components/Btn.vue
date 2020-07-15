@@ -201,6 +201,9 @@ input[type='button'] {
   }
 }
 .modal-content {
+  .btn-link:not(:hover) {
+    background: $modal-content-bg;
+  }
   .btn-outline-primary:before {
     background: $modal-content-bg;
   }

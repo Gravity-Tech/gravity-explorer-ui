@@ -27,7 +27,7 @@ $font-size: 1em;
   border: 1px solid transparent;
   border-left: none;
   outline: none;
-  margin: 4px 0 0 0;
+  margin: $vs-dropdown-vertical-offset 0 0 0;
   padding: 0 7px;
   background: none;
   box-shadow: none;

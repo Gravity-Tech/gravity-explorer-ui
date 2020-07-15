@@ -139,11 +139,18 @@
       <modal name="modal-content-vote-apply-to-nebula">
         <modal-content-vote modal-head="Apply to Nebula">
           <template v-slot:body>
-            <v-select
-              v-model="option"
-              label="name"
-              :options="options"
-            ></v-select>
+            <div style="margin-bottom: 18px;">
+              <span class="text-muted">Data feed:</span> Binance-GLD_USD
+            </div>
+            <form-group>
+              <template v-slot:label>Choose a data extractor</template>
+              <v-select
+                v-model="option"
+                label="name"
+                :options="options"
+              ></v-select>
+            </form-group>
+            This extractor takes Binance Waves/USD data
           </template>
           <template v-slot:footer>
             <btn class="btn-primary btn-block" disabled>
@@ -577,6 +584,7 @@ import Tabs from '~/components/Tabs.vue'
 import SearchInput from '~/components/SearchInput.vue'
 import CoinCard from '~/components/CoinCard.vue'
 import LikeCard from '~/components/LikeCard.vue'
+import FormGroup from '~/components/FormGroup.vue'
 
 export default Vue.extend({
   components: {
@@ -603,6 +611,7 @@ export default Vue.extend({
     ModalContentLogin,
     CoinCard,
     LikeCard,
+    FormGroup,
   },
   data: () => ({
     valueUrlLogin: 'https://27.215.121.161',

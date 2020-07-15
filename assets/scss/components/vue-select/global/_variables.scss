@@ -42,3 +42,5 @@ $vs-dropdown-min-width: 160px !default;
 $vs-dropdown-max-height: 350px !default;
 $vs-dropdown-box-shadow: 0px 3px 6px 0px map_get($vs-colors, 'darkest') !default;
 $vs-dropdown-bg: #fff !default;
+$vs-dropdown-vertical-offset: 4px !default;
+$vs-dropdown-horizontal-offset: 6px !default;

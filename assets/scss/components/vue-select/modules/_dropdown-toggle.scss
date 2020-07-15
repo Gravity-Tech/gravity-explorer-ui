@@ -18,7 +18,7 @@ $border-radius: $vs-border-radius;
 .vs__dropdown-toggle {
   appearance: none;
   display: flex;
-  padding: 0 0 4px 0;
+  padding: 0 0 $vs-dropdown-vertical-offset 0;
   background: $vs-dropdown-bg;
   border: $border-width $border-style $border-color;
   border-radius: $border-radius;
@@ -30,14 +30,14 @@ $border-radius: $vs-border-radius;
   flex-basis: 100%;
   flex-grow: 1;
   flex-wrap: wrap;
-  padding: 0 2px;
+  padding: 0 2px 0 #{$vs-dropdown-horizontal-offset - 4px};
   position: relative;
 }
 
 .vs__actions {
   display: flex;
   align-items: center;
-  padding: 4px 6px 0 3px;
+  padding: $vs-dropdown-vertical-offset $vs-dropdown-horizontal-offset 0 3px;
 }
 
 /* Dropdown Toggle States */
