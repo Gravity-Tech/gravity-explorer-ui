@@ -10,7 +10,7 @@
       :infinite-scroll-distance="scrollDistance"
     >
       <slot name="body"></slot>
-      <tr v-if="isLoading" key="loading">
+      <tr style="display: none;" v-if="isLoading" key="loading">
         <td colspan="100%">
           <span :style="{ opacity: isLoading ? 1 : 0 }" class="table-loading"
             >Loading...</span
