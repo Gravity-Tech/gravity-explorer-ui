@@ -3,7 +3,7 @@
     <span v-if="icon" class="coin-card-icon">
       <icon :image="icon"></icon>
     </span>
-    <span class="coin-card-title"><slot></slot></span>
+    <span v-if="showTitle" class="coin-card-title"><slot></slot></span>
   </div>
 </template>
 
@@ -20,6 +20,11 @@ export default Vue.extend({
     icon: {
       type: String,
       default: '',
+      required: false,
+    },
+    showTitle: {
+      type: Boolean,
+      default: true,
       required: false,
     },
   },
@@ -60,7 +65,9 @@ export default Vue.extend({
   width: 100%;
   height: 66px;
   position: relative;
-  margin-right: 13px;
+  + .coin-card-title {
+    margin-left: 13px;
+  }
   .icon {
     position: absolute;
     left: 50%;

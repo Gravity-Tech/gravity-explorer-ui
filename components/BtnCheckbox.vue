@@ -1,5 +1,5 @@
 <template>
-  <label class="btn-checkbox">
+  <label class="btn-checkbox" :class="classCheckbox">
     <input
       :type="type"
       :name="name"
@@ -29,9 +29,21 @@ export default Vue.extend({
       default: () => false,
       required: false,
     },
+    size: {
+      type: String,
+      default: () => '',
+      required: false,
+    },
     name: {
       type: String,
       required: true,
+    },
+  },
+  computed: {
+    classCheckbox() {
+      return {
+        'btn-checkbox--sm': this.size === 'sm',
+      }
     },
   },
 })
@@ -47,9 +59,13 @@ export default Vue.extend({
   margin-bottom: 0;
   cursor: pointer;
   user-select: none;
+  height: $input-height;
+}
+.btn-checkbox--sm {
+  height: 30px;
 }
 .btn-checkbox-label {
-  height: $input-height;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,6 +74,7 @@ export default Vue.extend({
   background: transparent;
   border-radius: 6px;
   border: 1px solid $primary;
+  font-size: 13px;
 }
 .btn-checkbox-input:checked {
   ~ .btn-checkbox-label {

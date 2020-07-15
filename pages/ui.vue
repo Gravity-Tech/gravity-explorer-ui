@@ -38,6 +38,12 @@
       </div>
     </div>
 
+    <btn
+      class="btn-primary"
+      @click="$modal.push('modal-content-add-new-nebula')"
+    >
+      modal-content-add-new-nebula
+    </btn>
     <btn class="btn-primary" @click="$modal.push('modal-content-vote')">
       modal-content-vote
     </btn>
@@ -100,6 +106,139 @@
     </btn>
 
     <client-only>
+      <modal name="modal-content-add-new-nebula">
+        <modal-content-vote modal-head="Add New Nebula">
+          <template v-slot:body>
+            <form-group>
+              <template v-slot:label>Choose a data extractor</template>
+              <v-select
+                v-model="option"
+                label="name"
+                :options="options"
+              ></v-select>
+            </form-group>
+            <form-input value="125 GOLD-USD">
+              <template v-slot:label>
+                Name
+              </template>
+            </form-input>
+            <form-textarea
+              value="5 minutes avg. USD price feed of one troy fine ounce of gold on a London Good Delivery gold bar"
+              rows="3"
+            >
+              <template v-slot:label>
+                Description:
+              </template>
+            </form-textarea>
+            <div class="row">
+              <div class="col-6" style="padding-right: 10px;">
+                <form-group>
+                  <template v-slot:label>Target blockchain:</template>
+                  <coin-card
+                    style="height: 89px;"
+                    :icon="'/img/icons/waves.svg'"
+                    :show-title="false"
+                  ></coin-card>
+                </form-group>
+              </div>
+              <div class="col-6" style="padding-left: 10px; display: flex;">
+                <btn-checkbox-inline>
+                  <template v-slot:label>Type:</template>
+                  <btn-checkbox
+                    type="radio"
+                    name="target-blockchain"
+                    size="sm"
+                    :checked="true"
+                  >
+                    Data
+                  </btn-checkbox>
+                  <btn-checkbox type="radio" name="target-blockchain" size="sm">
+                    Trigger
+                  </btn-checkbox>
+                </btn-checkbox-inline>
+              </div>
+            </div>
+            <form-input value="3PAASSqnygiyYoQuqmXpwaSUJmRkqytwPaw">
+              <template v-slot:label>
+                Payment account:
+              </template>
+            </form-input>
+            <hr />
+            <div
+              style="font-weight: 600; font-size: 15px; margin-bottom: 10px;"
+            >
+              Specification:
+            </div>
+            <form-group>
+              <btn-checkbox-inline>
+                <template v-slot:label>Min. required signatures:</template>
+                <btn-checkbox type="radio" name="signatures" size="sm">
+                  75%
+                </btn-checkbox>
+                <btn-checkbox
+                  type="radio"
+                  name="signatures"
+                  size="sm"
+                  :checked="true"
+                >
+                  90%
+                </btn-checkbox>
+                <btn-checkbox type="radio" name="signatures" size="sm">
+                  All
+                </btn-checkbox>
+              </btn-checkbox-inline>
+            </form-group>
+            <div class="row">
+              <div class="col-6" style="padding-right: 20px;">
+                <form-input value="75">
+                  <template v-slot:label>
+                    GScore threshold:
+                  </template>
+                </form-input>
+              </div>
+              <div class="col-6" style="padding-left: 20px;">
+                <form-input value="5">
+                  <template v-slot:label>
+                    Cluster size:
+                  </template>
+                </form-input>
+              </div>
+            </div>
+            <div style="display: flex;">
+              <form-group style="margin-left: auto;">
+                <btn-checkbox-inline>
+                  <template v-slot:label>Aggregation:</template>
+                  <btn-checkbox type="radio" name="aggregation" size="sm">
+                    Median
+                  </btn-checkbox>
+                  <btn-checkbox
+                    type="radio"
+                    name="aggregation"
+                    size="sm"
+                    :checked="true"
+                  >
+                    Average
+                  </btn-checkbox>
+                </btn-checkbox-inline>
+              </form-group>
+            </div>
+            <form-textarea
+              value="3PAASSqnygiyYoQuqmXpwaSUJmRkqytwPaw
+3PAASSqnygiyYoQuqmXpwaSUJmRkqytwPaw
+3PAASSqnygiyYoQuqmXpwaSUJmRkqytwPaw"
+              rows="3"
+            >
+              <template v-slot:label>Providers Whitelist:</template>
+            </form-textarea>
+          </template>
+          <template v-slot:footer>
+            <btn class="btn-primary btn-block">
+              Create new nebula
+            </btn>
+          </template>
+        </modal-content-vote>
+      </modal>
+
       <modal name="modal-content-vote">
         <modal-content-vote modal-head="Nebula @123">
           <template v-slot:body>
@@ -585,6 +724,7 @@ import SearchInput from '~/components/SearchInput.vue'
 import CoinCard from '~/components/CoinCard.vue'
 import LikeCard from '~/components/LikeCard.vue'
 import FormGroup from '~/components/FormGroup.vue'
+import BtnCheckboxInline from '~/components/BtnCheckboxInline.vue'
 
 export default Vue.extend({
   components: {
@@ -612,6 +752,7 @@ export default Vue.extend({
     CoinCard,
     LikeCard,
     FormGroup,
+    BtnCheckboxInline,
   },
   data: () => ({
     valueUrlLogin: 'https://27.215.121.161',

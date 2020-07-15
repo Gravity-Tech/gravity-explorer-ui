@@ -33,3 +33,11 @@
     }
   }
 }
+
+.col-6{
+  width: 100%;
+  max-width: 50%;
+  flex: 0 0 50%;
+  padding-left: $grid-gutter-width / 2;
+  padding-right: $grid-gutter-width / 2;
+}

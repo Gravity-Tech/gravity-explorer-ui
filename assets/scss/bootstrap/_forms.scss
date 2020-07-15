@@ -107,18 +107,19 @@ textarea.form-control {
 // Designed to help with the organization and spacing of vertical forms. For
 // horizontal forms, use the predefined grid classes.
 
+.form-control-label, .form-text{
+  color: $text-muted;
+  display: block;
+  width: 100%;
+  font-size: 13px;
+}
+
 .form-group {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: $form-group-margin-bottom;
   font-size: $input-font-size;
   > {
-    .form-control-label, .form-text{
-      color: $text-muted;
-      display: block;
-      width: 100%;
-      font-size: 13px;
-    }
     .form-control-prepend, .form-control-append{
       height: $input-height;
       padding: $input-padding-y $input-padding-x;
@@ -158,7 +159,7 @@ textarea.form-control {
     .form-control{
       order: 3;
     }
-    .v-select{
+    .form-control-content{
       order: 3;
       width: 100%;
     }

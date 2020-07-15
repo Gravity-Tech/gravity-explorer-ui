@@ -1,6 +1,6 @@
 <template>
   <div class="btn-checkbox-group">
-    <label><slot name="label"></slot></label>
+    <label class="form-control-label"><slot name="label"></slot></label>
     <div class="btn-checkbox-group-wrapper">
       <slot></slot>
     </div>
