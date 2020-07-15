@@ -1,5 +1,5 @@
 <template>
-  <modal-content class="modal-edit">
+  <modal-content class="modal-edit" :show-footer="showFooter">
     <template v-if="modalHead" v-slot:head>
       {{ modalHead }}
     </template>
@@ -31,6 +31,11 @@ export default Vue.extend({
     modalHead: {
       type: String,
       default: () => '',
+      required: false,
+    },
+    showFooter: {
+      type: Boolean,
+      default: () => true,
       required: false,
     },
   },

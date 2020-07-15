@@ -1,5 +1,5 @@
 <template>
-  <modal-content class="modal-w-success">
+  <modal-content class="modal-w-success" :show-footer="showFooter">
     <template v-if="modalHead" v-slot:head>
       {{ modalHead }}
     </template>
@@ -53,6 +53,11 @@ export default Vue.extend({
     description: {
       type: String,
       default: () => '',
+      required: false,
+    },
+    showFooter: {
+      type: Boolean,
+      default: () => true,
       required: false,
     },
   },

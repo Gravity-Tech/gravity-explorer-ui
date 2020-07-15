@@ -28,14 +28,14 @@
         </svg>
       </icon>
     </button>
-    <div v-if="!!$slots.head" class="modal-head">
+    <div class="modal-head">
       <slot name="head"></slot>
     </div>
-    <div v-if="!!$slots.body" class="modal-body">
+    <div class="modal-body">
       <slot name="body"></slot>
     </div>
-    <hr />
-    <div v-if="!!$slots.footer" class="modal-footer">
+    <hr v-if="showFooter" />
+    <div v-if="showFooter" class="modal-footer">
       <slot name="footer"></slot>
     </div>
   </div>
@@ -48,5 +48,12 @@ import Icon from '~/components/Icon.vue'
 export default Vue.extend({
   name: 'ModalContent',
   components: { Icon },
+  props: {
+    showFooter: {
+      type: Boolean,
+      default: () => true,
+      required: false,
+    },
+  },
 })
 </script>

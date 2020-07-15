@@ -1,5 +1,5 @@
 <template>
-  <modal-content class="modal-nebula">
+  <modal-content class="modal-nebula" :show-footer="showFooter">
     <template v-if="modalHead" v-slot:head>
       {{ modalHead }}
     </template>
@@ -63,7 +63,6 @@ import Vue from 'vue'
 import ModalContent from '~/components/ModalContent.vue'
 import Card from '~/components/Card.vue'
 import TableList from '~/components/TableList.vue'
-import Btn from '~/components/Btn.vue'
 import TableAvatar from '~/components/TableAvatar.vue'
 import Icon from '~/components/Icon.vue'
 
@@ -73,7 +72,6 @@ export default Vue.extend({
     ModalContent,
     Card,
     TableList,
-    Btn,
     TableAvatar,
     Icon,
   },
@@ -111,6 +109,11 @@ export default Vue.extend({
     data: {
       type: Object,
       default: () => {},
+      required: false,
+    },
+    showFooter: {
+      type: Boolean,
+      default: () => true,
       required: false,
     },
   },

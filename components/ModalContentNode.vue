@@ -1,5 +1,5 @@
 <template>
-  <modal-content class="modal-node">
+  <modal-content class="modal-node" :show-footer="showFooter">
     <template v-if="modalHead" v-slot:head>
       {{ modalHead }}
     </template>
@@ -141,6 +141,11 @@ export default Vue.extend({
     nodesList: {
       type: Array,
       default: () => [],
+      required: false,
+    },
+    showFooter: {
+      type: Boolean,
+      default: () => true,
       required: false,
     },
   },

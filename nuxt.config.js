@@ -53,6 +53,7 @@ export default {
     { src: '~plugins/dropdown', ssr: false },
     { src: '~plugins/textarea-autosize', ssr: true },
     { src: '~plugins/infinite-scroll', ssr: false },
+    { src: '~plugins/select', ssr: true },
   ],
   /*
    ** Auto import components

@@ -1,5 +1,5 @@
 <template>
-  <modal-content class="modal-vote">
+  <modal-content class="modal-vote" :show-footer="showFooter">
     <template v-if="modalHead" v-slot:head>
       {{ modalHead }}
     </template>
@@ -10,7 +10,7 @@
       </div>
     </template>
 
-    <template v-if="$slots.footer" v-slot:footer>
+    <template v-slot:footer>
       <div class="modal-vote-container">
         <slot name="footer"></slot>
       </div>
@@ -31,6 +31,11 @@ export default Vue.extend({
     modalHead: {
       type: String,
       default: () => '',
+      required: false,
+    },
+    showFooter: {
+      type: Boolean,
+      default: () => true,
       required: false,
     },
   },

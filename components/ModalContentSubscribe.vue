@@ -1,5 +1,5 @@
 <template>
-  <modal-content class="modal-subscribe">
+  <modal-content class="modal-subscribe" :show-footer="showFooter">
     <template v-if="modalHead" v-slot:head>
       {{ modalHead }}
     </template>
@@ -54,6 +54,11 @@ export default Vue.extend({
     avatar: {
       type: String,
       default: () => '',
+      required: false,
+    },
+    showFooter: {
+      type: Boolean,
+      default: () => true,
       required: false,
     },
   },

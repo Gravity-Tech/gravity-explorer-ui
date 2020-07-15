@@ -1,0 +1,11 @@
+.v-select {
+  position: relative;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: lh(13px, 18px);
+}
+
+.v-select,
+.v-select * {
+  box-sizing: border-box;
+}

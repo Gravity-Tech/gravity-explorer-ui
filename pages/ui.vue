@@ -47,6 +47,12 @@
     >
       modal-content-vote-confirmed
     </btn>
+    <btn
+      class="btn-primary"
+      @click="$modal.push('modal-content-vote-apply-to-nebula')"
+    >
+      modal-content-vote-apply-to-nebula
+    </btn>
     <btn class="btn-primary" @click="$modal.push('modal-content-nebula')">
       modal-content-nebula
     </btn>
@@ -117,7 +123,7 @@
       </modal>
 
       <modal name="modal-content-vote-confirmed">
-        <modal-content-vote modal-head="Confirmed">
+        <modal-content-vote :show-footer="false" modal-head="Confirmed">
           <template v-slot:body>
             <div class="text-center" style="margin-bottom: 32px;">
               <div style="font-size: 16px; margin-bottom: 6px;">
@@ -126,6 +132,26 @@
               <div class="text-muted">Your vote has been counted</div>
             </div>
             <like-card style="margin-bottom: 30px;"></like-card>
+          </template>
+        </modal-content-vote>
+      </modal>
+
+      <modal name="modal-content-vote-apply-to-nebula">
+        <modal-content-vote modal-head="Apply to Nebula">
+          <template v-slot:body>
+            <v-select
+              v-model="option"
+              label="name"
+              :options="options"
+            ></v-select>
+          </template>
+          <template v-slot:footer>
+            <btn class="btn-primary btn-block" disabled>
+              Apply
+            </btn>
+            <btn class="btn-link btn-block">
+              Cancel
+            </btn>
           </template>
         </modal-content-vote>
       </modal>
@@ -583,6 +609,28 @@ export default Vue.extend({
     isLoadMore: true,
     nebules: 20,
     page: 1,
+    option: {
+      value: 't-1',
+      name: 'Binance Waves',
+    },
+    options: [
+      {
+        value: 'b-1',
+        name: 'Binance Gravity Extractor',
+      },
+      {
+        value: 't-1',
+        name: 'Binance Waves',
+      },
+      {
+        value: 'f-2',
+        name: 'Binance WAVES/USD',
+      },
+      {
+        value: 'g',
+        name: 'Binance Gravity Extractor',
+      },
+    ],
     nodesList: [
       {
         name: 'LinkPool Node 1',

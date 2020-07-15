@@ -1,5 +1,5 @@
 <template>
-  <modal-content class="modal-w-deposit">
+  <modal-content class="modal-w-deposit" :show-footer="showFooter">
     <template v-if="modalHead" v-slot:head>
       {{ modalHead }}
     </template>
@@ -52,6 +52,11 @@ export default Vue.extend({
     coin: {
       type: Object,
       default: () => ({}),
+      required: false,
+    },
+    showFooter: {
+      type: Boolean,
+      default: () => true,
       required: false,
     },
   },
