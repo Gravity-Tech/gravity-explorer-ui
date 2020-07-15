@@ -62,7 +62,9 @@ export default Vue.extend({
 
 <style lang="scss">
 .modal-subscribe {
-  max-width: 800px;
+  @include media-breakpoint-up(md) {
+    max-width: 720px;
+  }
 }
 .modal-subscribe-container {
   max-width: 400px;

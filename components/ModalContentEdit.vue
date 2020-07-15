@@ -39,7 +39,9 @@ export default Vue.extend({
 
 <style lang="scss">
 .modal-edit {
-  max-width: 800px;
+  @include media-breakpoint-up(md) {
+    max-width: 720px;
+  }
 }
 .modal-edit-container {
   max-width: 400px;

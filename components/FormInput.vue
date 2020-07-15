@@ -14,7 +14,7 @@
       :type="type"
       :value="value"
       class="form-control"
-      @input="$emit('input', $event)"
+      @input="$emit('input', $event.target.value)"
     />
     <div v-if="$slots.text" class="form-text"><slot name="text"></slot></div>
   </div>

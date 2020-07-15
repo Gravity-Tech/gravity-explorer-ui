@@ -8,15 +8,15 @@
         <div class="nav-panel-col">
           <div class="nav-panel-indikator">
             <icon image="/img/icons/nodes.svg"></icon>
-            <span>Nodes</span> <b>32</b>
+            <span>Nodes</span> <b>{{ stats.nodes_count }}</b>
           </div>
           <div class="nav-panel-indikator">
             <icon image="/img/icons/pulses.svg"></icon>
-            <span>Pulses</span> <b>20k</b>
+            <span>Pulses</span> <b>{{ stats.pulses }}</b>
           </div>
           <div class="nav-panel-indikator nav-panel-datafeeds">
             <icon image="/img/icons/datafeeds.svg"></icon>
-            <span>Datafeeds</span> <b>102</b>
+            <span>Datafeeds</span> <b>{{ stats.data_feeds }}</b>
           </div>
         </div>
         <div v-if="isAuth" class="nav-panel-col">
@@ -83,8 +83,12 @@
             </div>
           </div>
         </div>
-        <div v-if="!isAuth" class="nav-panel-col" style="margin-left: auto;">
-          <a href="/">
+        <div
+          v-if="!isAuth"
+          class="nav-panel-col"
+          style="margin-left: auto; display: none;"
+        >
+          <a href="/" class="link-invert">
             <div class="nav-panel-indikator">
               <icon image="/img/icons/login.svg"></icon>
               <span>Login</span>
@@ -102,6 +106,8 @@ import Icon from '~/components/Icon.vue'
 
 export default Vue.extend({
   components: { Icon },
+  // eslint-disable-next-line vue/require-prop-types
+  props: ['stats'],
   computed: {
     isAuth() {
       return this.$store.getters['auth/isAuth']

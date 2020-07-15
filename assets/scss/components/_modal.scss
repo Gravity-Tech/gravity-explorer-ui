@@ -56,7 +56,7 @@
   right: 0;
   opacity: 1;
   margin: 30px auto;
-  max-width: 1000px;
+  max-width: map_get($container-max-widths, md);
   width: 100%;
   border-radius: 6px;
   background: $modal-content-bg;
@@ -66,6 +66,12 @@
     background: #323652;
     height: 1px;
     border: none;
+  }
+  @include media-breakpoint-up(lg){
+    max-width: map_get($container-max-widths, lg);
+  }
+  @media (min-width: 1100px) {
+    max-width: 1000px;
   }
 }
 
@@ -93,9 +99,8 @@
 .modal-body, .modal-footer{
   margin-left: auto;
   margin-right: auto;
-  max-width: 800px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  max-width: 860px;
+  padding: 30px;
   hr{
     margin-top: 22px;
     margin-bottom: 22px;

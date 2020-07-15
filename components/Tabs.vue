@@ -48,7 +48,7 @@ export default Vue.extend({
     &:hover {
       border-color: $text-muted;
     }
-    &.nuxt-link-active {
+    &.nuxt-link-exact-active {
       color: #d8d8d8;
       border-color: #d8d8d8;
     }
