@@ -41,7 +41,7 @@
     <template v-if="nodesList.length" v-slot:footer>
       <table-list :caption="caption">
         <template v-slot:body>
-          <tr v-for="(item, index) in nodesList" :key="index">
+          <tr v-for="(item) in nodesList" :key="item.address">
             <td>
               <table-avatar>
                 <icon :image="item.avatar || '/img/card/avatar2.svg'"></icon>

@@ -28,4 +28,12 @@ export class NebulaDataProvider {
     })
     return resp.data
   }
+
+  static async fetchExactNebula(nebulaAddress: string): Promise<Nebula> {
+    const resp = await axios.get<Nebula>(NebulaRoutes.exactNebula, {
+      params: { q: nebulaAddress },
+    })
+
+    return resp.data
+  }
 }

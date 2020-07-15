@@ -3,6 +3,7 @@
     <tabs-and-search @query-update="queryUpdate"></tabs-and-search>
     <table-block
       ref="table"
+      class="nebulae-table"
       style="margin-bottom: 34px;"
       :is-loading="isLoading"
       @load-more="pageUpdate"
@@ -22,7 +23,11 @@
         </tr>
       </template>
       <template v-slot:body>
-        <tr v-for="nebula in nebulaList" :key="nebula.address">
+        <tr
+          v-for="nebula in nebulaList"
+          :key="nebula.address"
+          @click="handleNebulaSelect(nebula)"
+        >
           <td class="nebulae-first-td">
             <table-avatar>
               <icon image="/img/card/avatar2.svg"></icon>
@@ -34,7 +39,7 @@
           </td>
           <td>Binance-Huobi-BTC_USD</td>
           <td class="d-none-lg">
-            Demo Nebula to accumulate Gravity score.
+            {{ nebula.description }}
           </td>
           <td class="text-green" style="width: 110px;">{{ nebula.score }}</td>
           <td class="d-none-lg" style="width: 120px;">
@@ -52,6 +57,26 @@
         >Add Nebula</btn
       >
     </div>
+    <client-only>
+      <modal v-if="currentNebula" name="modal-content-nebula">
+        <modal-content-nebula
+          :rating="String(currentNebula.score)"
+          :modal-head="currentNebula.name"
+          :card-title="currentNebula.name"
+          card-avatar="/img/card/avatar.jpg"
+          :nodes-list="currentNebulaNodes"
+          caption="Nodes List:"
+          :data="{
+            regularity: 'per hour',
+            chain: currentNebula.target_chain,
+            fee: '~2 ETH | 487.14',
+            feed: 'Data feed: Binance-G',
+            description: currentNebula.description,
+          }"
+        >
+        </modal-content-nebula>
+      </modal>
+    </client-only>
   </div>
 </template>
 
@@ -63,7 +88,9 @@ import Btn from '~/components/Btn.vue'
 import Icon from '~/components/Icon.vue'
 import TableAvatar from '~/components/TableAvatar.vue'
 import { Nebula } from '~/models/model/nebula'
+import { Node } from '~/models/model/node'
 import { FetchCommand } from '~/data/global'
+import { NodeDataProvider } from '~/data/providers/node'
 
 type Props = {
   nebulaList: Nebula[]
@@ -83,6 +110,8 @@ export default Vue.extend({
   data() {
     return {
       command: { page: 0 } as FetchCommand,
+      currentNebula: null as Nebula | null,
+      currentNebulaNodes: [] as Node[],
     }
   },
   methods: {
@@ -95,6 +124,29 @@ export default Vue.extend({
       this.command.page = Number(this.command.page || 0) + 1
       this.$emit('query-update', this.command)
     },
+    handleNebulaSelect(nebula: Nebula) {
+      this.currentNebula = nebula
+      console.log({ nebula })
+      this.fetchNebulaNodes(nebula)
+
+      this.$modal.push('modal-content-nebula')
+    },
+    fetchNebulaNodes(nebula: Nebula) {
+      // @ts-ignore
+      if (!nebula.nodes_using) {
+        this.currentNebulaNodes = []
+        return
+      }
+
+      Promise.all(
+        // @ts-ignore
+        nebula.nodes_using.map((address) => {
+          return NodeDataProvider.fetchExactNode(address)
+        })
+      ).then((list: Node[]) => {
+        this.currentNebulaNodes = list.filter(Boolean)
+      })
+    },
   },
 })
 </script>
@@ -102,5 +154,8 @@ export default Vue.extend({
 <style lang="scss">
 .nebulae-first-td {
   padding-left: 36px !important;
+}
+.nebulae-table td {
+  cursor: pointer;
 }
 </style>

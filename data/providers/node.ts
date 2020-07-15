@@ -63,8 +63,11 @@ export class NodeDataProvider {
     return resp.data
   }
 
-  static async fetchExactNode(): Promise<Node> {
-    return await this.fetch<Node>(NodeRoutes.exactNode)
+  static async fetchExactNode(address: string): Promise<Node> {
+    const resp = await axios.get<Node>(NodeRoutes.exactNode, {
+      params: { q: address },
+    })
+    return resp.data
   }
 
   static async fetchNodeActionsHistory(): Promise<NodeHistoryRecord[]> {
