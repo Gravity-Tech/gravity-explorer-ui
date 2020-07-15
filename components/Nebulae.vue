@@ -52,7 +52,7 @@
         </tr>
       </template>
     </table-block>
-    <div class="text-right" style="margin-bottom: 34px;">
+    <div class="text-right" style="margin-bottom: 34px; display: none;">
       <btn class="btn-primary" style="padding-left: 70px; padding-right: 70px;"
         >Add Nebula</btn
       >

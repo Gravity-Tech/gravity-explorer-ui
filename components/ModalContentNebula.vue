@@ -31,7 +31,7 @@
           <div v-if="data.description" class="modal-nebula-description">
             {{ data.description }}
           </div>
-          <btn class="modal-nebula-btn btn-primary">
+          <btn class="modal-nebula-btn btn-primary" style="display: none;">
             Subscribe
           </btn>
         </div>

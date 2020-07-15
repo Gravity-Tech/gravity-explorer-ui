@@ -53,7 +53,7 @@
             <social-link-linked-in href="/"></social-link-linked-in>
             <social-link-twitter href="/"></social-link-twitter>
           </div>
-          <btn class="modal-node-btn btn-primary">
+          <btn class="modal-node-btn btn-primary" style="display: none;">
             Vote
           </btn>
         </div>
