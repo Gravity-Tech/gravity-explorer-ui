@@ -1,9 +1,6 @@
 <template>
-  <div class="coin-card">
-    <span v-if="icon" class="coin-card-icon">
-      <icon :image="icon"></icon>
-    </span>
-    <span class="coin-card-title"><slot></slot></span>
+  <div class="like-card">
+    <icon class="like-card-icon" image="/img/card/like.svg"></icon>
   </div>
 </template>
 
@@ -12,7 +9,7 @@ import Vue from 'vue'
 import Icon from '~/components/Icon.vue'
 
 export default Vue.extend({
-  name: 'CoinCard',
+  name: 'LikeCard',
   components: {
     Icon,
   },
@@ -30,42 +27,16 @@ export default Vue.extend({
 @import '../assets/scss/import';
 // stylelint-disable selector-no-qualifying-type
 
-.coin-card {
+.like-card {
   position: relative;
   display: flex;
   width: 100%;
   margin-bottom: 0;
   align-items: center;
   justify-content: center;
-  background: #323652;
-  border-radius: 6px;
-  height: 103px;
-  padding-left: 10px;
-  padding-right: 10px;
-  + .coin-card {
+  height: 162px;
+  + .like-card {
     margin-top: 24px;
-  }
-
-  .icon {
-    width: 38px;
-    height: 38px;
-    z-index: 2;
-  }
-}
-
-.coin-card-icon {
-  display: block;
-  flex: 0 0 66px;
-  max-width: 66px;
-  width: 100%;
-  height: 66px;
-  position: relative;
-  margin-right: 13px;
-  .icon {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
   }
   &:before,
   &:after {
@@ -75,7 +46,7 @@ export default Vue.extend({
     top: 0;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 6px;
     transition: 0.3s;
   }
 
@@ -97,10 +68,13 @@ export default Vue.extend({
   }
 }
 
-.coin-card-title {
+.like-card-icon {
   display: block;
-  font-size: 13px;
-  line-height: lh(13px, 19px);
-  max-width: calc(100% - 100px);
+  height: 116px;
+  flex: 0 0 123.92px;
+  max-width: 123.92px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
 }
 </style>

@@ -31,9 +31,7 @@
           <div v-if="data.description" class="modal-nebula-description">
             {{ data.description }}
           </div>
-          <btn class="modal-nebula-btn btn-primary">
-            Subscribe
-          </btn>
+          <slot></slot>
         </div>
       </div>
     </template>
@@ -140,8 +138,5 @@ export default Vue.extend({
 }
 .modal-nebula-description {
   margin-bottom: 27px;
-}
-.modal-nebula-btn {
-  min-width: 200px;
 }
 </style>

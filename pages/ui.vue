@@ -38,8 +38,20 @@
       </div>
     </div>
 
+    <btn class="btn-primary" @click="$modal.push('modal-content-vote')">
+      modal-content-vote
+    </btn>
+    <btn
+      class="btn-primary"
+      @click="$modal.push('modal-content-vote-confirmed')"
+    >
+      modal-content-vote-confirmed
+    </btn>
     <btn class="btn-primary" @click="$modal.push('modal-content-nebula')">
       modal-content-nebula
+    </btn>
+    <btn class="btn-primary" @click="$modal.push('modal-content-nebula-edit')">
+      modal-content-nebula-edit
     </btn>
     <btn class="btn-primary" @click="$modal.push('modal-content-node')">
       modal-content-node
@@ -82,6 +94,42 @@
     </btn>
 
     <client-only>
+      <modal name="modal-content-vote">
+        <modal-content-vote modal-head="Nebula @123">
+          <template v-slot:body>
+            <div class="text-center" style="font-weight: 600; font-size: 15px;">
+              Vote for Linkpool node
+            </div>
+          </template>
+          <template v-slot:footer>
+            <div style="padding-bottom: 70px;">
+              <form-input value="8" type="number" style="margin-bottom: 31px;">
+                <template v-slot:label>
+                  Enter a value from 0 to 10
+                </template>
+              </form-input>
+              <btn class="btn-primary btn-block">
+                Confirm
+              </btn>
+            </div>
+          </template>
+        </modal-content-vote>
+      </modal>
+
+      <modal name="modal-content-vote-confirmed">
+        <modal-content-vote modal-head="Confirmed">
+          <template v-slot:body>
+            <div class="text-center" style="margin-bottom: 32px;">
+              <div style="font-size: 16px; margin-bottom: 6px;">
+                Thanks for voting!
+              </div>
+              <div class="text-muted">Your vote has been counted</div>
+            </div>
+            <like-card style="margin-bottom: 30px;"></like-card>
+          </template>
+        </modal-content-vote>
+      </modal>
+
       <modal name="modal-content-nebula">
         <modal-content-nebula
           rating="8.7"
@@ -99,6 +147,38 @@
               '5 minutes avg. USD price feed of one troy fine ounce of gold on a London Good Delivery gold bar.',
           }"
         >
+          <btn class="btn-primary" style="min-width: 200px;">
+            Subscribe
+          </btn>
+        </modal-content-nebula>
+      </modal>
+
+      <modal name="modal-content-nebula-edit">
+        <modal-content-nebula
+          rating="8.7"
+          modal-head="Nebula @123"
+          card-title="Nebula @123"
+          card-avatar="/img/card/avatar.jpg"
+          :nodes-list="nodesList"
+          caption="Nodes List:"
+          :data="{
+            regularity: 'per hour',
+            chain: 'ETH',
+            fee: '~2 ETH | 487.14',
+            feed: 'Data feed: Binance-G',
+            description:
+              '5 minutes avg. USD price feed of one troy fine ounce of gold on a London Good Delivery gold bar.',
+          }"
+        >
+          <btn class="btn-primary" style="margin-bottom: 5px;">
+            Apply to nebula
+          </btn>
+          <btn class="btn-primary" style="margin-bottom: 5px;">
+            Approve nebula
+          </btn>
+          <btn class="btn-primary" style="margin-bottom: 5px;">
+            Change exctractor
+          </btn>
         </modal-content-nebula>
       </modal>
 
@@ -459,6 +539,7 @@ import ModalContentWallet from '~/components/ModalContentWallet.vue'
 import ModalContentSubscribe from '~/components/ModalContentSubscribe.vue'
 import ModalContentEdit from '~/components/ModalContentEdit.vue'
 import ModalContentLogin from '~/components/ModalContentLogin.vue'
+import ModalContentVote from '~/components/ModalContentVote.vue'
 import FormInput from '~/components/FormInput.vue'
 import CoinCheckbox from '~/components/CoinCheckbox.vue'
 import Checkbox from '~/components/Checkbox.vue'
@@ -469,6 +550,7 @@ import BlockList from '~/components/BlockList.vue'
 import Tabs from '~/components/Tabs.vue'
 import SearchInput from '~/components/SearchInput.vue'
 import CoinCard from '~/components/CoinCard.vue'
+import LikeCard from '~/components/LikeCard.vue'
 
 export default Vue.extend({
   components: {
@@ -483,6 +565,7 @@ export default Vue.extend({
     ModalContentWallet,
     ModalContentSubscribe,
     ModalContentEdit,
+    ModalContentVote,
     CoinCheckbox,
     Checkbox,
     BtnCheckboxGroup,
@@ -493,6 +576,7 @@ export default Vue.extend({
     SearchInput,
     ModalContentLogin,
     CoinCard,
+    LikeCard,
   },
   data: () => ({
     valueUrlLogin: 'https://27.215.121.161',
