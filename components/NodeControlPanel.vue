@@ -24,7 +24,7 @@
         <template v-slot:head>
           <tr>
             <th class="first-td">Name</th>
-            <th style="width: 100px;">Status</th>
+            <th style="width: 70px;">Status</th>
             <th>Data Feed</th>
             <th class="d-none-lg">Description</th>
             <th style="width: 110px;">Threshold<br />Score (0-10)</th>
@@ -43,7 +43,7 @@
               </table-avatar>
               Nebula @Demo
             </td>
-            <td style="width: 100px;">
+            <td style="width: 70px;">
               Active
             </td>
             <td>Binance-Huobi-BTC_USD</td>
@@ -69,17 +69,17 @@
       <table-block>
         <template v-slot:head>
           <tr>
-            <th class="first-td">Name</th>
+            <th class="first-td" style="width: 250px;">Name</th>
             <th style="width: 160px;">Type</th>
             <th>Amount</th>
-            <th>Currency</th>
+            <th class="d-none-lg">Currency</th>
             <th>Status</th>
-            <th>Time</th>
+            <th class="d-none-lg">Time</th>
           </tr>
         </template>
         <template v-slot:body>
           <tr v-for="index in 20" :key="index">
-            <td class="first-td">
+            <td class="first-td" style="width: 250px;">
               <table-avatar>
                 <icon image="/img/card/avatar2.svg"></icon>
               </table-avatar>
@@ -87,9 +87,9 @@
             </td>
             <td style="width: 160px;">Data sent</td>
             <td>~2 Etd | $487,14</td>
-            <td>Etd</td>
+            <td class="d-none-lg">Etd</td>
             <td class="text-danger">Pending</td>
-            <td>08.06.2020 03:34:35</td>
+            <td class="d-none-lg">08.06.2020 03:34:35</td>
           </tr>
         </template>
       </table-block>
@@ -132,7 +132,7 @@
           <tr>
             <th class="first-td" style="width: 250px;">Name</th>
             <th style="width: 160px;">Amount</th>
-            <th style="width: 100px;">Currency</th>
+            <th style="width: 70px;">Currency</th>
             <th>Time</th>
           </tr>
         </template>
@@ -145,7 +145,7 @@
               Nebula @19
             </td>
             <td style="width: 160px;">~2 Etd | $487,14</td>
-            <td style="width: 100px;">ETH</td>
+            <td style="width: 70px;">ETH</td>
             <td>08.06.2020 03:34:35</td>
           </tr>
         </template>
