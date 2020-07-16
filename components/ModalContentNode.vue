@@ -6,10 +6,9 @@
 
     <template v-slot:body>
       <div class="row no-gutters">
-        <card type-img="logo" :img="cardAvatar">
+        <card type-img="logo" :img="cardAvatar" :is-crown="true">
           <template v-if="rating" v-slot:rating>
             {{ rating }}
-            <icon class="modal-node-crown" image="/img/icons/сonsul.svg"></icon>
           </template>
           <div class="small">
             <div v-if="cardDate" style="margin-bottom: 12px;">
@@ -82,7 +81,6 @@ import Vue from 'vue'
 import ModalContent from '~/components/ModalContent.vue'
 import Card from '~/components/Card.vue'
 import TableList from '~/components/TableList.vue'
-import Icon from '~/components/Icon.vue'
 import Btn from '~/components/Btn.vue'
 import SocialLinkTelegram from '~/components/SocialLinks/Telegram.vue'
 import SocialLinkFacebook from '~/components/SocialLinks/Facebook.vue'
@@ -95,7 +93,6 @@ export default Vue.extend({
     ModalContent,
     Card,
     TableList,
-    Icon,
     Btn,
     SocialLinkTelegram,
     SocialLinkFacebook,
@@ -158,13 +155,6 @@ export default Vue.extend({
     margin-right: 6px;
     margin-bottom: 4px;
   }
-}
-.modal-node-crown {
-  position: absolute;
-  right: -35px;
-  top: 0;
-  width: 24px;
-  height: 24px;
 }
 .modal-node-data {
   padding-left: 42px;

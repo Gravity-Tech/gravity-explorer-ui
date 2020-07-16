@@ -97,6 +97,7 @@ fieldset:disabled a.btn {
 
 .btn-primary,
 .btn-secondary,
+.btn-danger,
 .btn-outline-primary {
   &:before,
   &:after {
@@ -160,6 +161,26 @@ fieldset:disabled a.btn {
   &:hover:not(:disabled) {
     color: #000000;
     background: #44d7b6;
+  }
+}
+
+.btn-danger {
+  color: #fa5959;
+  background: #878ea1;
+  &:before {
+    background: linear-gradient(
+      357.02deg,
+      #262940 -63.33%,
+      #414562 26.56%,
+      #23263e 147.98%
+    );
+  }
+  &:after {
+    background: #fa5959;
+  }
+  &:hover:not(:disabled) {
+    color: #000000;
+    background: #fa5959;
   }
 }
 

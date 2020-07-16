@@ -1,13 +1,18 @@
 <template>
-  <div class="card">
+  <div class="card" :class="className">
     <div v-if="$slots.rating" class="card-rating">
       <slot name="rating"></slot>
+      <icon
+        v-if="isCrown"
+        class="card-crown"
+        image="/img/icons/сonsul.svg"
+      ></icon>
     </div>
     <div class="card-bg"></div>
     <div class="card-body">
       <div v-if="isAvatar" class="card-avatar" :lazy-background="img"></div>
       <div v-if="isLogo" class="card-logo" :lazy-background="img"></div>
-      <div class="card-content">
+      <div v-if="isContent" class="card-content">
         <slot></slot>
       </div>
     </div>
@@ -16,13 +21,32 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import Icon from '~/components/Icon.vue'
 
 export default Vue.extend({
   name: 'Card',
+  components: {
+    Icon,
+  },
   props: {
     typeImg: {
       type: String,
       default: () => 'avatar',
+      required: false,
+    },
+    size: {
+      type: String,
+      default: () => '',
+      required: false,
+    },
+    isCrown: {
+      type: Boolean,
+      default: () => false,
+      required: false,
+    },
+    isContent: {
+      type: Boolean,
+      default: () => true,
       required: false,
     },
     img: {
@@ -32,6 +56,11 @@ export default Vue.extend({
     },
   },
   computed: {
+    className() {
+      return {
+        'card-slim': this.size === 'slim',
+      }
+    },
     isAvatar() {
       return this.img && this.typeImg === 'avatar'
     },
@@ -108,7 +137,6 @@ export default Vue.extend({
   background-position: center;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 25px;
 }
 .card-avatar {
   width: 100%;
@@ -126,8 +154,22 @@ export default Vue.extend({
 .card-content {
   text-align: center;
   font-size: 15px;
+  margin-top: 25px;
   small {
     font-size: 13px;
+  }
+}
+.card-crown {
+  position: absolute;
+  right: -35px;
+  top: 0;
+  width: 24px;
+  height: 24px;
+}
+.card-slim {
+  padding: 20px;
+  .card-rating {
+    left: -10px;
   }
 }
 </style>

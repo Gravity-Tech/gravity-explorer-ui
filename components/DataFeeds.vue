@@ -4,14 +4,14 @@
     <table-block style="margin-bottom: 34px;">
       <template v-slot:head>
         <tr>
-          <th class="data-feeds-first-td">Data feed</th>
+          <th class="first-td">Data feed</th>
           <th>Description</th>
           <th style="width: 50%;">Available Extractors</th>
         </tr>
       </template>
       <template v-slot:body>
         <tr v-for="index in 20" :key="index">
-          <td class="data-feeds-first-td">Binance-ETH_USD</td>
+          <td class="first-td">Binance-ETH_USD</td>
           <td>Binance-ETH_USD</td>
           <td style="width: 50%;">
             Ventuary Binance
@@ -38,8 +38,4 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
-.data-feeds-first-td {
-  padding-left: 36px !important;
-}
-</style>
+<style lang="scss"></style>

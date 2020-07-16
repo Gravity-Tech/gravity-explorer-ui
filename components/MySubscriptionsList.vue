@@ -17,7 +17,7 @@
     <table-block style="margin-bottom: 38px; max-height: 335px;">
       <template v-slot:head>
         <tr>
-          <th class="nebulae-first-td">Description</th>
+          <th class="first-td">Description</th>
           <th>Name</th>
           <th>Cost</th>
           <th>Nebula-SC</th>
@@ -28,7 +28,7 @@
       </template>
       <template v-slot:body>
         <tr v-for="index in 20" :key="index">
-          <td class="nebulae-first-td">ETH / USD price</td>
+          <td class="first-td">ETH / USD price</td>
           <td>CoinMarketCap</td>
           <td>$0.08/hour</td>
           <td>0x1441...151525</td>
@@ -51,11 +51,11 @@
       :items="[
         {
           label: 'My Nebulae',
-          to: { name: 'my-subscriptions-list' },
+          to: getTabLink(),
         },
         {
           label: 'History',
-          to: { name: 'my-subscriptions-list', query: { tab: 'history' } },
+          to: getTabLink('history'),
         },
       ]"
     ></tabs>
@@ -65,7 +65,7 @@
     >
       <template v-slot:head>
         <tr>
-          <th class="nebulae-first-td">Name</th>
+          <th class="first-td">Name</th>
           <th style="width: 100px;">Status</th>
           <th>Data Feed</th>
           <th class="d-none-lg">Description</th>
@@ -79,7 +79,7 @@
       </template>
       <template v-slot:body>
         <tr v-for="index in 20" :key="index">
-          <td class="nebulae-first-td">
+          <td class="first-td">
             <table-avatar>
               <icon image="/img/card/avatar2.svg"></icon>
             </table-avatar>
@@ -105,7 +105,7 @@
     >
       <template v-slot:head>
         <tr>
-          <th class="nebulae-first-td">Name</th>
+          <th class="first-td">Name</th>
           <th style="width: 160px;">Type</th>
           <th>Amount</th>
           <th>Currency</th>
@@ -115,7 +115,7 @@
       </template>
       <template v-slot:body>
         <tr v-for="index in 20" :key="index">
-          <td class="nebulae-first-td">
+          <td class="first-td">
             <table-avatar>
               <icon image="/img/card/avatar2.svg"></icon>
             </table-avatar>
@@ -134,7 +134,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Context } from '@nuxt/types/app'
 import TableBlock from '~/components/Table.vue'
 import Tabs from '~/components/Tabs.vue'
 import Btn from '~/components/Btn.vue'
@@ -152,9 +151,6 @@ export default Vue.extend({
     Btn,
     TableAvatar,
   },
-  asyncData(ctx: Context): Promise<object | void> | object | void {
-    return { tab: ctx.query.tab || defaultTab }
-  },
   data: () => ({
     defaultTab,
     tab: defaultTab,
@@ -165,13 +161,24 @@ export default Vue.extend({
       this.tab = to.query.tab || defaultTab
     },
   },
+  created() {
+    // @ts-ignore
+    this.tab = this.$route.query.tab || defaultTab
+  },
+  methods: {
+    getTabLink(tab?: string) {
+      const link = { name: this.$route.name }
+      if (tab) {
+        // @ts-ignore
+        link.query = { tab }
+      }
+      return link
+    },
+  },
 })
 </script>
 
 <style lang="scss">
-.nebulae-first-td {
-  padding-left: 36px !important;
-}
 .my-subscriptions-list-panel {
   display: flex;
   justify-content: space-between;

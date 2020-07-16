@@ -35,9 +35,20 @@
 }
 
 .col-6{
-  width: 100%;
-  max-width: 50%;
-  flex: 0 0 50%;
-  padding-left: $grid-gutter-width / 2;
-  padding-right: $grid-gutter-width / 2;
+  @include make-col-ready();
+  @include make-col(1, 2);
+}
+
+.col-auto{
+  @include make-col-ready();
+  @include make-col-auto();
+}
+
+
+.col{
+  @include make-col-ready();
+  flex-basis: 0;
+  flex-grow: 1;
+  min-width: 0;
+  max-width: 100%;
 }

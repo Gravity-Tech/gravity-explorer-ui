@@ -4,7 +4,7 @@
     <table-block style="margin-bottom: 34px;">
       <template v-slot:head>
         <tr>
-          <th class="nebulae-first-td">Name</th>
+          <th class="first-td">Name</th>
           <th style="width: 100px;">Status</th>
           <th>Data Feed</th>
           <th class="d-none-lg">Description</th>
@@ -18,7 +18,7 @@
       </template>
       <template v-slot:body>
         <tr v-for="index in 20" :key="index">
-          <td class="nebulae-first-td">
+          <td class="first-td">
             <table-avatar>
               <icon image="/img/card/avatar2.svg"></icon>
             </table-avatar>
@@ -66,8 +66,4 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
-.nebulae-first-td {
-  padding-left: 36px !important;
-}
-</style>
+<style lang="scss"></style>

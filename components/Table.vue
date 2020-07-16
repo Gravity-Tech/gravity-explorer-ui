@@ -163,4 +163,7 @@ export default Vue.extend({
     border-top-color: white;
   }
 }
+.first-td {
+  padding-left: 36px !important;
+}
 </style>

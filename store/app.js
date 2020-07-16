@@ -15,7 +15,7 @@ export const mutations = {
 // actions
 export const actions = {
   isAgreeCookies({ commit }) {
-    Cookies.set('IS_AGREE_COOKIES', '1')
+    Cookies.set('IS_AGREE_COOKIES', '1', { expires: 365 })
     commit('IS_AGREE_COOKIES')
   },
 }
