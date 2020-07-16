@@ -104,8 +104,41 @@
     <btn class="btn-primary" @click="$modal.push('modal-content-login')">
       modal-content-login
     </btn>
+    <btn class="btn-primary" @click="$modal.push('modal-content-management')">
+      Deposit management
+    </btn>
 
     <client-only>
+      <modal name="modal-content-management">
+        <modal-content-vote modal-head="Deposit management">
+          <template v-slot:body>
+            <coin-card-logo
+              logo="/img/icons/ethereum.svg"
+              name="Ethereum"
+              style="margin-bottom: 17px;"
+            ></coin-card-logo>
+            <div
+              style="font-size: 13px; line-height: 23px; margin-bottom: 24px;"
+            >
+              <div class="text-muted">
+                Withdraw address:
+              </div>
+              <div>
+                0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae
+              </div>
+            </div>
+            <btn class="btn-primary">Change withdraw address</btn>
+          </template>
+          <template v-slot:footer>
+            <div style="font-size: 13px; margin-bottom: 26px;">
+              Deposit Balance:
+              <span class="text-green">~1.1 ETH | $261.39</span>
+            </div>
+            <btn class="btn-block btn-primary">Increase</btn>
+          </template>
+        </modal-content-vote>
+      </modal>
+
       <modal name="modal-content-add-new-nebula">
         <modal-content-vote modal-head="Add New Nebula">
           <template v-slot:body>
@@ -725,6 +758,7 @@ import CoinCard from '~/components/CoinCard.vue'
 import LikeCard from '~/components/LikeCard.vue'
 import FormGroup from '~/components/FormGroup.vue'
 import BtnCheckboxInline from '~/components/BtnCheckboxInline.vue'
+import CoinCardLogo from '~/components/CoinCardLogo.vue'
 
 export default Vue.extend({
   components: {
@@ -753,6 +787,7 @@ export default Vue.extend({
     LikeCard,
     FormGroup,
     BtnCheckboxInline,
+    CoinCardLogo,
   },
   data: () => ({
     valueUrlLogin: 'https://27.215.121.161',
