@@ -98,8 +98,69 @@
     <btn class="btn-primary" @click="$modal.push('deposit-management')">
       Deposit management
     </btn>
+    <btn class="btn-primary" @click="$modal.push('datafeed-binance')">
+      Datafeed Binance-WAVES_USD
+    </btn>
+    <btn class="btn-primary" @click="$modal.push('install-extractor')">
+      Install extractor
+    </btn>
 
     <client-only>
+      <modal name="datafeed-binance">
+        <modal-content size="sm">
+          <template v-slot:head>Datafeed Binance-WAVES_USD</template>
+          <template v-slot:body>
+            <div style="margin-bottom: 19px;">
+              <span class="text-muted">Name:</span>
+              Binance-WAVES_USD
+            </div>
+            <div style="margin-bottom: 27px;">
+              <span class="text-muted">Description:</span>
+              Provides Binance Waves/USD data
+            </div>
+            <form-group>
+              <template v-slot:label>Active extractor</template>
+              <v-select
+                v-model="option"
+                label="name"
+                :options="options"
+              ></v-select>
+            </form-group>
+          </template>
+          <template v-slot:footer>
+            <btn class="btn-block btn-primary">Approve</btn>
+            <btn class="btn-block btn-link">Cancel</btn>
+          </template>
+        </modal-content>
+      </modal>
+      <modal name="install-extractor">
+        <modal-content size="sm">
+          <template v-slot:head>Install extractor</template>
+          <template v-slot:body>
+            <form-group>
+              <template v-slot:label>Choose a data feeds</template>
+              <v-select
+                v-model="option"
+                label="name"
+                :options="options"
+              ></v-select>
+            </form-group>
+            <form-group>
+              <template v-slot:label>Choose a data extractor</template>
+              <v-select
+                v-model="option"
+                label="name"
+                :options="options"
+              ></v-select>
+            </form-group>
+          </template>
+          <template v-slot:footer>
+            <btn class="btn-block btn-primary">Install on server</btn>
+            <btn class="btn-block btn-link">Cancel</btn>
+          </template>
+        </modal-content>
+      </modal>
+
       <modal name="deposit-management">
         <modal-content size="sm">
           <template v-slot:head>Deposit management</template>
