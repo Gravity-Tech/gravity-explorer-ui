@@ -267,7 +267,7 @@
 
       <modal name="modal-vote">
         <modal-content size="sm">
-          <template v-slot:head>Nebula @123</template>
+          <template v-slot:head>Vote</template>
           <template v-slot:body>
             <div class="text-center" style="font-weight: 600; font-size: 15px;">
               Vote for Linkpool node
