@@ -32,7 +32,7 @@ export default Vue.extend({
       required: false,
     },
     value: {
-      type: String,
+      type: [String, Number],
       default: () => '',
       required: false,
     },

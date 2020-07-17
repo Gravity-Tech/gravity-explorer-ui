@@ -275,7 +275,16 @@
           </template>
           <template v-slot:footer>
             <div style="padding-bottom: 70px;">
-              <form-input value="8" type="number" style="margin-bottom: 31px;">
+              <stars-vote
+                v-model.number="vote"
+                style="margin-bottom: 30px;"
+              ></stars-vote>
+              <form-input
+                v-model.number="vote"
+                value="8"
+                type="number"
+                style="margin-bottom: 31px;"
+              >
                 <template v-slot:label>
                   Enter a value from 0 to 10
                 </template>
@@ -789,9 +798,11 @@ import BtnCheckboxInline from '~/components/BtnCheckboxInline.vue'
 import CoinCardLogo from '~/components/CoinCardLogo.vue'
 import Sorting from '~/components/Sorting.vue'
 import FilePondAvatar from '~/components/FilePondAvatar.vue'
+import StarsVote from '~/components/StarsVote.vue'
 
 export default Vue.extend({
   components: {
+    StarsVote,
     Btn,
     FormInput,
     TableBlock,
@@ -822,6 +833,7 @@ export default Vue.extend({
     valueUrlLogin: 'https://27.215.121.161',
     isLoadMore: true,
     nebules: 20,
+    vote: 1,
     page: 1,
     option: {
       value: 't-1',
