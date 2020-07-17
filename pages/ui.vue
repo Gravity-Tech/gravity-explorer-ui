@@ -573,6 +573,29 @@
         <modal-content size="md">
           <template v-slot:head>Edit Info</template>
           <template v-slot:body>
+            <file-pond-avatar style="margin-bottom: 17px;">
+              <file-pond
+                ref="pond"
+                name="test"
+                label-idle=""
+                accepted-file-types="image/jpeg, image/png"
+                server="/api"
+                :allow-image-crop="true"
+                image-preview-height="100"
+                image-crop-aspect-ratio="1:1"
+                image-resize-target-width="100"
+                image-resize-target-height="100"
+                style-panel-layout="compact circle"
+                style-button-remove-item-position="top center"
+                style-button-process-item-position="bottom center"
+                style-load-indicator-position="center"
+                style-progress-indicator-position="center"
+              />
+
+              <template v-slot:label>
+                Add image<span class="text-danger">*</span>
+              </template>
+            </file-pond-avatar>
             <form-input value="LinkPool Node 1">
               <template v-slot:label>
                 Name<span class="text-red">*</span>
@@ -765,6 +788,7 @@ import FormGroup from '~/components/FormGroup.vue'
 import BtnCheckboxInline from '~/components/BtnCheckboxInline.vue'
 import CoinCardLogo from '~/components/CoinCardLogo.vue'
 import Sorting from '~/components/Sorting.vue'
+import FilePondAvatar from '~/components/FilePondAvatar.vue'
 
 export default Vue.extend({
   components: {
@@ -791,6 +815,7 @@ export default Vue.extend({
     BtnCheckboxInline,
     CoinCardLogo,
     Sorting,
+    FilePondAvatar,
   },
   data: () => ({
     isSorting: true,

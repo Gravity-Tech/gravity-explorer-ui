@@ -79,6 +79,7 @@ export default {
     { src: '~plugins/textarea-autosize', ssr: true },
     { src: '~plugins/infinite-scroll', ssr: false },
     { src: '~plugins/select', ssr: true },
+    { src: '~plugins/filepond', ssr: false },
   ],
   /*
    ** Auto import components
