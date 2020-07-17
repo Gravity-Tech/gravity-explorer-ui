@@ -29,7 +29,7 @@ import Icon from '~/components/Icon.vue'
 import Btn from '~/components/Btn.vue'
 
 export default Vue.extend({
-  name: 'ModalContentWithdrawDeposit',
+  name: 'ModalContentWithdrawSuccess',
   components: {
     ModalContent,
     Icon,

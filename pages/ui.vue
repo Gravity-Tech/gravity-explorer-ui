@@ -707,9 +707,17 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
     <table-block :is-load-more="isLoadMore" :page="page" @loadMore="loadMore">
       <template v-slot:head>
         <tr>
-          <th style="width: 10%;">Name</th>
+          <th style="width: 10%;">
+            <sorting :dir="isSorting ? 'desc' : 'asc'" @click="sorting"
+              >Name</sorting
+            >
+          </th>
           <th>About</th>
-          <th>Score (0-10)</th>
+          <th>
+            <sorting :dir="isSorting ? 'asc' : 'desc'" @click="sorting"
+              >Score (0-10)</sorting
+            >
+          </th>
           <th>Deposit chain</th>
           <th>Node deposit</th>
           <th>Joined</th>
@@ -756,6 +764,7 @@ import LikeCard from '~/components/LikeCard.vue'
 import FormGroup from '~/components/FormGroup.vue'
 import BtnCheckboxInline from '~/components/BtnCheckboxInline.vue'
 import CoinCardLogo from '~/components/CoinCardLogo.vue'
+import Sorting from '~/components/Sorting.vue'
 
 export default Vue.extend({
   components: {
@@ -781,8 +790,10 @@ export default Vue.extend({
     FormGroup,
     BtnCheckboxInline,
     CoinCardLogo,
+    Sorting,
   },
   data: () => ({
+    isSorting: true,
     valueUrlLogin: 'https://27.215.121.161',
     isLoadMore: true,
     nebules: 20,
@@ -848,6 +859,9 @@ export default Vue.extend({
           this.isLoadMore = false
         }
       }, 1000)
+    },
+    sorting() {
+      this.isSorting = !this.isSorting
     },
   },
 })
