@@ -124,3 +124,33 @@
     height: 13px;
   }
 }
+
+.modal-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modal-tiny {
+  @media (min-width: 690px) {
+    max-width: 630px;
+  }
+  .modal-container {
+    max-width: 276px;
+  }
+}
+.modal-sm {
+  @media (min-width: 690px) {
+    max-width: 630px;
+  }
+  .modal-container {
+    max-width: 400px;
+  }
+}
+.modal-md {
+  @include media-breakpoint-up(md) {
+    max-width: 720px;
+  }
+  .modal-container {
+    max-width: 400px;
+  }
+}

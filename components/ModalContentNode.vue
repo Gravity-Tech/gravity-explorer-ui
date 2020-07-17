@@ -1,7 +1,7 @@
 <template>
   <modal-content class="modal-node" :show-footer="showFooter">
-    <template v-if="modalHead" v-slot:head>
-      {{ modalHead }}
+    <template v-slot:head>
+      <slot name="head"></slot>
     </template>
 
     <template v-slot:body>

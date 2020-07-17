@@ -38,32 +38,23 @@
       </div>
     </div>
 
-    <btn
-      class="btn-primary"
-      @click="$modal.push('modal-content-add-new-nebula')"
-    >
-      modal-content-add-new-nebula
+    <btn class="btn-primary" @click="$modal.push('add-new-nebula')">
+      Add New Nebula
     </btn>
-    <btn class="btn-primary" @click="$modal.push('modal-content-vote')">
-      modal-content-vote
+    <btn class="btn-primary" @click="$modal.push('modal-vote')">
+      Vote
     </btn>
-    <btn
-      class="btn-primary"
-      @click="$modal.push('modal-content-vote-confirmed')"
-    >
-      modal-content-vote-confirmed
+    <btn class="btn-primary" @click="$modal.push('vote-confirmed')">
+      Vote Confirmed
     </btn>
-    <btn
-      class="btn-primary"
-      @click="$modal.push('modal-content-vote-apply-to-nebula')"
-    >
-      modal-content-vote-apply-to-nebula
+    <btn class="btn-primary" @click="$modal.push('apply-to-nebula')">
+      Apply to Nebula
     </btn>
-    <btn class="btn-primary" @click="$modal.push('modal-content-nebula')">
-      modal-content-nebula
+    <btn class="btn-primary" @click="$modal.push('nebula')">
+      Nebula
     </btn>
-    <btn class="btn-primary" @click="$modal.push('modal-content-nebula-edit')">
-      modal-content-nebula-edit
+    <btn class="btn-primary" @click="$modal.push('nebula-edit')">
+      Nebula Edit
     </btn>
     <btn class="btn-primary" @click="$modal.push('modal-content-node')">
       modal-content-node
@@ -80,37 +71,38 @@
     >
       modal-content-withdraw-success
     </btn>
-    <btn class="btn-primary" @click="$modal.push('modal-content-wallet')">
-      modal-content-wallet
-    </btn>
-    <btn class="btn-primary" @click="$modal.push('modal-content-subscribe')">
-      modal-content-subscribe
+    <btn class="btn-primary" @click="$modal.push('select-wallet-provider')">
+      Select Wallet Provider
     </btn>
     <btn
       class="btn-primary"
-      @click="$modal.push('modal-content-subscribe-code')"
+      @click="$modal.push('new-data-feed-subscription-1')"
     >
-      modal-content-subscribe-code
-    </btn>
-    <btn class="btn-primary" @click="$modal.push('modal-content-edit')">
-      modal-content-edit
+      New Data Feed Subscription 1
     </btn>
     <btn
       class="btn-primary"
-      @click="$modal.push('modal-content-increase-deposit')"
+      @click="$modal.push('new-data-feed-subscription-2')"
     >
-      modal-content-increase-deposit
+      New Data Feed Subscription 2
     </btn>
-    <btn class="btn-primary" @click="$modal.push('modal-content-login')">
-      modal-content-login
+    <btn class="btn-primary" @click="$modal.push('edit-info')">
+      Edit Info
     </btn>
-    <btn class="btn-primary" @click="$modal.push('modal-content-management')">
+    <btn class="btn-primary" @click="$modal.push('increase-deposit')">
+      Increase deposit
+    </btn>
+    <btn class="btn-primary" @click="$modal.push('log-in')">
+      Log in
+    </btn>
+    <btn class="btn-primary" @click="$modal.push('deposit-management')">
       Deposit management
     </btn>
 
     <client-only>
-      <modal name="modal-content-management">
-        <modal-content-vote modal-head="Deposit management">
+      <modal name="deposit-management">
+        <modal-content size="sm">
+          <template v-slot:head>Deposit management</template>
           <template v-slot:body>
             <coin-card-logo
               logo="/img/icons/ethereum.svg"
@@ -136,11 +128,12 @@
             </div>
             <btn class="btn-block btn-primary">Increase</btn>
           </template>
-        </modal-content-vote>
+        </modal-content>
       </modal>
 
-      <modal name="modal-content-add-new-nebula">
-        <modal-content-vote modal-head="Add New Nebula">
+      <modal name="add-new-nebula">
+        <modal-content size="md">
+          <template v-slot:head>Add New Nebula</template>
           <template v-slot:body>
             <form-group>
               <template v-slot:label>Choose a data extractor</template>
@@ -269,11 +262,12 @@
               Create new nebula
             </btn>
           </template>
-        </modal-content-vote>
+        </modal-content>
       </modal>
 
-      <modal name="modal-content-vote">
-        <modal-content-vote modal-head="Nebula @123">
+      <modal name="modal-vote">
+        <modal-content size="sm">
+          <template v-slot:head>Nebula @123</template>
           <template v-slot:body>
             <div class="text-center" style="font-weight: 600; font-size: 15px;">
               Vote for Linkpool node
@@ -291,11 +285,12 @@
               </btn>
             </div>
           </template>
-        </modal-content-vote>
+        </modal-content>
       </modal>
 
-      <modal name="modal-content-vote-confirmed">
-        <modal-content-vote :show-footer="false" modal-head="Confirmed">
+      <modal name="vote-confirmed">
+        <modal-content :show-footer="false" size="sm">
+          <template v-slot:head>Confirmed</template>
           <template v-slot:body>
             <div class="text-center" style="margin-bottom: 32px;">
               <div style="font-size: 16px; margin-bottom: 6px;">
@@ -305,11 +300,12 @@
             </div>
             <like-card style="margin-bottom: 30px;"></like-card>
           </template>
-        </modal-content-vote>
+        </modal-content>
       </modal>
 
-      <modal name="modal-content-vote-apply-to-nebula">
-        <modal-content-vote modal-head="Apply to Nebula">
+      <modal name="apply-to-nebula">
+        <modal-content size="sm">
+          <template v-slot:head>Apply to Nebula</template>
           <template v-slot:body>
             <div style="margin-bottom: 18px;">
               <span class="text-muted">Data feed:</span> Binance-GLD_USD
@@ -332,13 +328,12 @@
               Cancel
             </btn>
           </template>
-        </modal-content-vote>
+        </modal-content>
       </modal>
 
-      <modal name="modal-content-nebula">
+      <modal name="nebula">
         <modal-content-nebula
           rating="8.7"
-          modal-head="Nebula @123"
           card-title="Nebula @123"
           card-avatar="/img/card/avatar.jpg"
           :nodes-list="nodesList"
@@ -352,16 +347,16 @@
               '5 minutes avg. USD price feed of one troy fine ounce of gold on a London Good Delivery gold bar.',
           }"
         >
+          <template v-slot:head>Nebula @123</template>
           <btn class="btn-primary" style="min-width: 200px;">
             Subscribe
           </btn>
         </modal-content-nebula>
       </modal>
 
-      <modal name="modal-content-nebula-edit">
+      <modal name="nebula-edit">
         <modal-content-nebula
           rating="8.7"
-          modal-head="Nebula @123"
           card-title="Nebula @123"
           card-avatar="/img/card/avatar.jpg"
           :nodes-list="nodesList"
@@ -375,6 +370,7 @@
               '5 minutes avg. USD price feed of one troy fine ounce of gold on a London Good Delivery gold bar.',
           }"
         >
+          <template v-slot:head>Nebula @123</template>
           <btn class="btn-primary" style="margin-bottom: 5px;">
             Apply to nebula
           </btn>
@@ -390,7 +386,6 @@
       <modal name="modal-content-node">
         <modal-content-node
           rating="8.7"
-          modal-head="LinkPool Node 2"
           card-date="27.05.2020"
           card-deposit="~10 WAVES | $12.6"
           card-avatar="/img/card/example-logo.svg"
@@ -407,18 +402,19 @@
             },
           }"
         >
+          <template v-slot:head>LinkPool Node 2</template>
         </modal-content-node>
       </modal>
 
       <modal name="modal-content-withdraw-deposit">
         <modal-content-withdraw-deposit
-          modal-head="Withdraw deposit"
           :coin="{
             logo: '/img/icons/ethereum.svg',
             name: 'Ethereum',
             min: '10 ETH',
           }"
         >
+          <template v-slot:head>Withdraw deposit</template>
           <template v-slot:body>
             <form-input value="0x1015e2182E6AD26FB945723F7180795693A80D15">
               <template v-slot:label>
@@ -442,15 +438,16 @@
 
       <modal name="modal-content-withdraw-success">
         <modal-content-withdraw-success
-          modal-head="Withdraw deposit"
           title="Your deposit has been sent"
           description="You have sent 25 ETH"
         >
+          <template v-slot:head>Withdraw deposit</template>
         </modal-content-withdraw-success>
       </modal>
 
-      <modal name="modal-content-wallet">
-        <modal-content-wallet modal-head="Select Wallet Provider">
+      <modal name="select-wallet-provider">
+        <modal-content size="sm">
+          <template v-slot:head>Select Wallet Provider</template>
           <template v-slot:body>
             <coin-checkbox name="wallet" icon="/img/icons/metamask.svg"
               >Metamask</coin-checkbox
@@ -470,15 +467,15 @@
           <template v-slot:footer>
             <btn class="btn-outline-primary btn-block">Login</btn>
           </template>
-        </modal-content-wallet>
+        </modal-content>
       </modal>
 
-      <modal name="modal-content-subscribe">
+      <modal name="new-data-feed-subscription-1">
         <modal-content-subscribe
-          modal-head="New Data Feed Subscription"
           title="Nebula @11"
           avatar="/img/card/avatar.jpg"
         >
+          <template v-slot:head>New Data Feed Subscription</template>
           <template v-slot:body>
             <form-input value="0x1015e2182E6AD26FB945723F7180795693A80D15">
               <template v-slot:label>
@@ -515,8 +512,9 @@
         </modal-content-subscribe>
       </modal>
 
-      <modal name="modal-content-subscribe-code">
-        <modal-content-subscribe modal-head="New Data Feed Subscription">
+      <modal name="new-data-feed-subscription-2">
+        <modal-content-subscribe>
+          <template v-slot:head>New Data Feed Subscription</template>
           <template v-slot:body>
             <div class="text-center" style="margin-bottom: 20px;">
               You can use this template code <br />in your smart contract
@@ -571,8 +569,9 @@
         </modal-content-subscribe>
       </modal>
 
-      <modal name="modal-content-edit">
-        <modal-content-edit modal-head="Edit Info">
+      <modal name="edit-info">
+        <modal-content size="md">
+          <template v-slot:head>Edit Info</template>
           <template v-slot:body>
             <form-input value="LinkPool Node 1">
               <template v-slot:label>
@@ -626,11 +625,12 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
           <template v-slot:footer>
             <btn class="btn-outline-primary btn-block">Save</btn>
           </template>
-        </modal-content-edit>
+        </modal-content>
       </modal>
 
-      <modal name="modal-content-increase-deposit">
-        <modal-content-increase-deposit modal-head="Increase deposit">
+      <modal name="increase-deposit">
+        <modal-content size="sm">
+          <template v-slot:head>Increase deposit</template>
           <template v-slot:body>
             <block-list
               :items="[
@@ -647,11 +647,12 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
           <template v-slot:footer>
             <btn class="btn-primary btn-block">Increase</btn>
           </template>
-        </modal-content-increase-deposit>
+        </modal-content>
       </modal>
 
-      <modal name="modal-content-login">
-        <modal-content-login modal-head="Log in">
+      <modal name="log-in">
+        <modal-content size="sm">
+          <template v-slot:head>Log in</template>
           <template v-slot:body>
             <form-input v-model="valueUrlLogin">
               <template v-slot:label>
@@ -699,7 +700,7 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
               Log in with Metamask
             </btn>
           </template>
-        </modal-content-login>
+        </modal-content>
       </modal>
     </client-only>
 
@@ -735,16 +736,12 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
 import Vue from 'vue'
 import Btn from '~/components/Btn.vue'
 import TableBlock from '~/components/Table.vue'
-import ModalContentIncreaseDeposit from '~/components/ModalContentIncreaseDeposit.vue'
+import ModalContent from '~/components/ModalContent.vue'
 import ModalContentNebula from '~/components/ModalContentNebula.vue'
 import ModalContentNode from '~/components/ModalContentNode.vue'
 import ModalContentWithdrawDeposit from '~/components/ModalContentWithdrawDeposit.vue'
 import ModalContentWithdrawSuccess from '~/components/ModalContentWithdrawSuccess.vue'
-import ModalContentWallet from '~/components/ModalContentWallet.vue'
 import ModalContentSubscribe from '~/components/ModalContentSubscribe.vue'
-import ModalContentEdit from '~/components/ModalContentEdit.vue'
-import ModalContentLogin from '~/components/ModalContentLogin.vue'
-import ModalContentVote from '~/components/ModalContentVote.vue'
 import FormInput from '~/components/FormInput.vue'
 import CoinCheckbox from '~/components/CoinCheckbox.vue'
 import Checkbox from '~/components/Checkbox.vue'
@@ -765,15 +762,12 @@ export default Vue.extend({
     Btn,
     FormInput,
     TableBlock,
-    ModalContentIncreaseDeposit,
+    ModalContent,
     ModalContentNebula,
     ModalContentNode,
     ModalContentWithdrawDeposit,
     ModalContentWithdrawSuccess,
-    ModalContentWallet,
     ModalContentSubscribe,
-    ModalContentEdit,
-    ModalContentVote,
     CoinCheckbox,
     Checkbox,
     BtnCheckboxGroup,
@@ -782,7 +776,6 @@ export default Vue.extend({
     BlockList,
     Tabs,
     SearchInput,
-    ModalContentLogin,
     CoinCard,
     LikeCard,
     FormGroup,

@@ -1,27 +1,23 @@
 <template>
-  <modal-content class="modal-w-success" :show-footer="showFooter">
-    <template v-if="modalHead" v-slot:head>
-      {{ modalHead }}
+  <modal-content class="modal-w-success" :show-footer="showFooter" size="tiny">
+    <template v-slot:head>
+      <slot name="head"></slot>
     </template>
 
     <template v-slot:body>
-      <div class="modal-w-success-container">
-        <div class="modal-w-success-card">
-          <icon image="/img/icons/verification.svg"></icon>
-        </div>
-        <div v-if="title" class="modal-w-success-title">
-          {{ title }}
-        </div>
-        <div v-if="description" class="modal-w-success-description text-muted">
-          {{ description }}
-        </div>
+      <div class="modal-w-success-card">
+        <icon image="/img/icons/verification.svg"></icon>
+      </div>
+      <div v-if="title" class="modal-w-success-title">
+        {{ title }}
+      </div>
+      <div v-if="description" class="modal-w-success-description text-muted">
+        {{ description }}
       </div>
     </template>
 
     <template v-slot:footer>
-      <div class="modal-w-success-container">
-        <btn class="btn-primary btn-block">View details</btn>
-      </div>
+      <btn class="btn-primary btn-block">View details</btn>
     </template>
   </modal-content>
 </template>
@@ -65,14 +61,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-.modal-w-success {
-  max-width: 630px;
-}
-.modal-w-success-container {
-  max-width: 276px;
-  margin-left: auto;
-  margin-right: auto;
-}
 .modal-w-success-title {
   font-size: 15px;
   line-height: lh(15px, 22px);

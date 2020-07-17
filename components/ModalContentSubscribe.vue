@@ -1,32 +1,25 @@
 <template>
-  <modal-content class="modal-subscribe" :show-footer="showFooter">
-    <template v-if="modalHead" v-slot:head>
-      {{ modalHead }}
+  <modal-content class="modal-subscribe" :show-footer="showFooter" size="md">
+    <template v-slot:head>
+      <slot name="head"></slot>
     </template>
 
     <template v-slot:body>
-      <div class="modal-subscribe-container">
-        <div v-if="avatar" class="modal-subscribe-card">
-          <div class="modal-subscribe-avatar" :lazy-background="avatar"></div>
-        </div>
-        <div v-if="title" class="modal-subscribe-title">{{ title }}</div>
-        <slot name="body"></slot>
-        <div v-if="$slots.bodyDescription" class="modal-subscribe-description">
-          <slot name="bodyDescription"></slot>
-        </div>
+      <div v-if="avatar" class="modal-subscribe-card">
+        <div class="modal-subscribe-avatar" :lazy-background="avatar"></div>
+      </div>
+      <div v-if="title" class="modal-subscribe-title">{{ title }}</div>
+      <slot name="body"></slot>
+      <div v-if="$slots.bodyDescription" class="modal-subscribe-description">
+        <slot name="bodyDescription"></slot>
       </div>
     </template>
 
     <template v-slot:footer>
-      <div class="modal-subscribe-container">
-        <div
-          v-if="$slots.footerDescription"
-          class="modal-subscribe-description"
-        >
-          <slot name="footerDescription"></slot>
-        </div>
-        <slot name="footer"></slot>
+      <div v-if="$slots.footerDescription" class="modal-subscribe-description">
+        <slot name="footerDescription"></slot>
       </div>
+      <slot name="footer"></slot>
     </template>
   </modal-content>
 </template>
@@ -41,11 +34,6 @@ export default Vue.extend({
     ModalContent,
   },
   props: {
-    modalHead: {
-      type: String,
-      default: () => '',
-      required: false,
-    },
     title: {
       type: String,
       default: () => '',
@@ -66,16 +54,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-.modal-subscribe {
-  @include media-breakpoint-up(md) {
-    max-width: 720px;
-  }
-}
-.modal-subscribe-container {
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-}
 .modal-subscribe-title {
   position: relative;
   top: -14px;

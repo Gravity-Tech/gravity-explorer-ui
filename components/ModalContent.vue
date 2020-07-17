@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="className">
     <button class="modal-close" aria-label="Close Modal" @click="$modal.pop()">
       <icon>
         <svg
@@ -32,11 +32,15 @@
       <slot name="head"></slot>
     </div>
     <div class="modal-body">
-      <slot name="body"></slot>
+      <div class="modal-container">
+        <slot name="body"></slot>
+      </div>
     </div>
     <hr v-if="showFooter" />
     <div v-if="showFooter" class="modal-footer">
-      <slot name="footer"></slot>
+      <div class="modal-container">
+        <slot name="footer"></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -53,6 +57,20 @@ export default Vue.extend({
       type: Boolean,
       default: () => true,
       required: false,
+    },
+    size: {
+      type: String,
+      default: () => '',
+      required: false,
+    },
+  },
+  computed: {
+    className() {
+      return {
+        'modal-tiny': this.size === 'tiny',
+        'modal-sm': this.size === 'sm',
+        'modal-md': this.size === 'md',
+      }
     },
   },
 })
