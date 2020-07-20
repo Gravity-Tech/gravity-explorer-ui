@@ -71,7 +71,7 @@
           :modal-head="currentNode.name"
           :card-date="currentNode.joined_at"
           card-deposit="~10 WAVES | $12.6"
-          card-avatar="/img/card/example-logo.svg"
+          :card-avatar="currentNode.avatar"
           :nodes-list="currentNodeNebulas"
           caption="Nebulae List:"
           :data="{

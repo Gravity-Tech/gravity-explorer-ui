@@ -2,7 +2,7 @@ import moment from 'moment'
 import { ChainEnum } from './../data/enums';
 
 export class DateFormatter {
-  static formatter = 'DD.mm.yyyy'
+  static formatter = 'DD.MM.yyyy'
 
   static format(date: moment.Moment): string {
     return date.format(this.formatter)
