@@ -7,5 +7,5 @@ export interface FetchCommand {
 }
 
 export class DataEnviromentCenter {
-  static domain = 'http://node.gravityhub.org:8090'
+  static domain = 'https://node.gravityhub.org'
 }

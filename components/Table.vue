@@ -53,13 +53,15 @@ export default Vue.extend({
     }
   },
   mounted() {
+    // @ts-ignore
     this.scrollbarWidth =
       window.innerWidth - document.documentElement.clientWidth
-
+    // @ts-ignore
     if (!this.isLoading) return
 
     // @ts-ignore
     this.subs = (this.isLoading as BehaviorSubject<Boolean>).subscribe((next: Boolean) => {
+      // @ts-ignore
       this.busy = next
     })
   },

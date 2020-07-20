@@ -127,6 +127,7 @@ export default Vue.extend({
   },
   methods: {
     queryUpdate(query: string) {
+      // @ts-ignore
       this.$refs.table.$el.querySelector('tbody').scrollTo(0, 0)
       this.command = { query, page: 0 }
       this.$emit('query-update', this.command)
@@ -152,8 +153,8 @@ export default Vue.extend({
         // @ts-ignore
         node.nebulas_using.map((address) => {
           return NebulaDataProvider.fetchExactNebula(address)
-        })
-      ).then((list: Nebula[]) => {
+        }) as Nebula[]
+      ).then((list) => {
         this.currentNodeNebulas = list.filter(Boolean).map((nebula) => {
           return {
             ...nebula,

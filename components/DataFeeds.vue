@@ -56,6 +56,7 @@ export default Vue.extend({
   },
   methods: {
     queryUpdate(query: string) {
+      // @ts-ignore
       this.$refs.table.$el.querySelector('tbody').scrollTo(0, 0)
       this.command = { query, page: 0 }
       this.$emit('query-update', this.command)

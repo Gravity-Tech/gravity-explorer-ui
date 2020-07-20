@@ -110,6 +110,7 @@ export default Vue.extend({
   props: ['stats'],
   computed: {
     isAuth() {
+      // @ts-ignore
       return this.$store.getters['auth/isAuth']
     },
   },
