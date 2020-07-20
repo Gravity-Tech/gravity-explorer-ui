@@ -36,9 +36,9 @@
     <hr />
     <div class="container">
       <div class="footer-socials">
-        <btn tag="a" href="/" class="footer-socials-btn">
+        <!-- <btn tag="a" href="/" class="footer-socials-btn">
           <icon image="/img/icons/ventuary-lab.svg"></icon>
-        </btn>
+        </btn> -->
         <a
           v-for="(social, key) in socials"
           :key="key"
