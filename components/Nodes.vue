@@ -98,7 +98,7 @@ import Icon from '~/components/Icon.vue'
 import TableAvatarIcon from '~/components/TableAvatarIcon.vue'
 import { Nebula } from '~/models/model/nebula'
 import { Node } from '~/models/model/node'
-import { NodeDataProvider, mapNode, mapNodeChain } from '~/data/providers/node'
+import { NodeDataProvider, mapNode } from '~/data/providers/node'
 import { NebulaDataProvider } from '~/data/providers/nebula'
 import { FetchCommand } from '~/data/global'
 
@@ -158,7 +158,7 @@ export default Vue.extend({
           return {
             ...nebula,
             // @ts-ignore
-            type: mapNodeChain(nebula.deposit_chain),
+            type: CurrencyFormatter.formatChain(nebula.deposit_chain),
             count: String(nebula.score),
             amount: '~10 WAVES | $12.6',
           }

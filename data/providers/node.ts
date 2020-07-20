@@ -1,3 +1,4 @@
+import { CurrencyFormatter } from './../../misc/format'
 import axios from 'axios'
 import moment from 'moment'
 import { DataEnviromentCenter, FetchCommand } from '../global'
@@ -16,25 +17,16 @@ export const NodeRoutes = {
   nodesActionsHistory,
 }
 
-export function mapNodeChain(chain: number): string {
-  if (chain === ChainEnum.ETH) {
-    return 'ETH'
-  }
-  if (chain === ChainEnum.WAVES) {
-    return 'WAVES'
-  }
-  return ''
-}
-
 export function mapNode(
   node: Node
 ): Omit<Node, 'depositChain'> & { depositChain: string } {
+  // @ts-ignore
+  const { deposit_chain, joined_at } = node
   return {
     ...node,
     // @ts-ignore
-    deposit_chain: mapNodeChain(Number(node.deposit_chain)),
-    // @ts-ignore
-    joined_at: DateFormatter.format(moment(node.joined_at)),
+    deposit_chain: CurrencyFormatter.formatChainDescription(deposit_chain),
+    joined_at: DateFormatter.format(moment(joined_at)),
   }
 }
 

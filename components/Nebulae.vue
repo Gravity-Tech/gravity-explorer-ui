@@ -24,7 +24,7 @@
       </template>
       <template v-slot:body>
         <tr
-          v-for="nebula in nebulaList"
+          v-for="nebula in mappedNebulaList"
           :key="nebula.address"
           @click="handleNebulaSelect(nebula)"
         >
@@ -43,7 +43,7 @@
           </td>
           <td class="text-green" style="width: 110px;">{{ nebula.score }}</td>
           <td class="d-none-lg" style="width: 120px;">
-            Waves, ID={{ nebula.target_chain }}
+            {{ nebula.target_chain }}
           </td>
           <td class="d-none-lg" style="width: 120px;">
             ~per {{ nebula.regularity }} blocks
@@ -91,6 +91,7 @@ import { Nebula } from '~/models/model/nebula'
 import { Node } from '~/models/model/node'
 import { FetchCommand } from '~/data/global'
 import { NodeDataProvider } from '~/data/providers/node'
+import { CurrencyFormatter } from '../misc/format'
 
 type Props = {
   nebulaList: Nebula[]
@@ -112,6 +113,18 @@ export default Vue.extend({
       command: { page: 0 } as FetchCommand,
       currentNebula: null as Nebula | null,
       currentNebulaNodes: [] as Node[],
+    }
+  },
+  computed: {
+    mappedNebulaList: function() {
+      return this.nebulaList.map((nebula: Nebula) => {
+        // @ts-ignore
+        const { target_chain } = nebula;
+        return {
+          ...nebula,
+          target_chain: CurrencyFormatter.formatChainDescription(target_chain)
+        }
+      })
     }
   },
   methods: {
