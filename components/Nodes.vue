@@ -35,11 +35,11 @@
           @click="handleNodeSelect(node)"
         >
           <th style="width: 35px;">
-            <icon
+            <!-- <icon
               v-if="index === 1"
               image="/img/icons/сonsul.svg"
               style="top: 1px;"
-            ></icon>
+            ></icon> -->
           </th>
           <td style="width: 265px;">
             <table-avatar-icon>
