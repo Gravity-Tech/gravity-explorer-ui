@@ -100,3 +100,14 @@ input[type="search"]::-webkit-search-results-decoration {
     text-decoration: underline;
   }
 }
+
+
+::-webkit-scrollbar-track{
+  background: #404462;
+}
+::-webkit-scrollbar-thumb{
+  background: #D8D8D8;
+}
+::-webkit-scrollbar{
+  width: 7px;
+}
