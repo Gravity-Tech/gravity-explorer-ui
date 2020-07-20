@@ -50,9 +50,9 @@
         </a>
       </div>
       <div class="footer-contacts">
-        <btn tag="a" href="/" class="footer-socials-btn">
+        <!-- <btn tag="a" href="/" class="footer-socials-btn">
           <icon image="/img/icons/ventuary-lab.svg"></icon>
-        </btn>
+        </btn> -->
         <a
           class="text-green footer-contacts-email"
           href="mailto:oracle@gravity.tech"
