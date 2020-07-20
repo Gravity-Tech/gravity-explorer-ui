@@ -52,11 +52,11 @@
           </td>
           <td class="text-green">
             {{ node.score }}
-            <icon
+            <!-- <icon
               v-if="index === 1"
               image="/img/icons/сonnect_node.svg"
               style="top: 5px;"
-            ></icon>
+            ></icon> -->
           </td>
           <td>{{ node.deposit_chain }}</td>
           <td>~10 WAVES | $12.6</td>
