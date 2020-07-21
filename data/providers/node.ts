@@ -18,18 +18,33 @@ export const NodeRoutes = {
 }
 
 
+const nodeAddressMap: Record<string, string> = {
+  wx: '0xf5a51bff7e8d034da2b043decc106789b55b84702bf2c2f2cf6c859e37dc30ec',
+  neutrino:
+    '0x01cf446ac9fb2a7f5b0beac300c696feea6e179e3972fd9c536e2685bd4f5b74',
+  band: '0x4e03cefdbf754d0aeae948b57ed312f68fc3dfe0af857749619cbd97fe810b01',
+  ventuary:
+    '0x59f943a6acdcbf72e506b50b49cfc5b53ac80b6c64e6bfd70d31f8b970e8d03e',
+  gravity: '0xcb06f19b806d96d5bebf922d1159be9035f9b671a4535044ff45cc391702d3ed',
+}
+
 function matchNodeAvatar(address: string): string {
-  switch (address) {
-    case '0x01cf446ac9fb2a7f5b0beac300c696feea6e179e3972fd9c536e2685bd4f5b74':
-      return 'https://avatars2.githubusercontent.com/u/18295288?s=200&v=4'
-    case '0x4e03cefdbf754d0aeae948b57ed312f68fc3dfe0af857749619cbd97fe810b01':
-      return 'https://avatars3.githubusercontent.com/u/39086992?s=280&v=4'
-    case '0xf5a51bff7e8d034da2b043decc106789b55b84702bf2c2f2cf6c859e37dc30ec':
-      return 'http://explorer.gravityhub.org/img/icons/ventuary-lab.svg'
-    case '0xcb06f19b806d96d5bebf922d1159be9035f9b671a4535044ff45cc391702d3ed':
-      return 'http://explorer.gravityhub.org/img/icons/ventuary-lab.svg'
-    case '0x59f943a6acdcbf72e506b50b49cfc5b53ac80b6c64e6bfd70d31f8b970e8d03e':
-      return 'https://pbs.twimg.com/profile_images/1061204718045839360/IUienGDb_400x400.jpg'
+  for (const key of Object.keys(nodeAddressMap)) {
+    const value = nodeAddressMap[key]
+    if (value === address) {
+      switch (key) {
+        case 'wx':
+          return 'https://i.imgur.com/8HaqFEr.png'
+        case 'neutrino':
+          return 'https://i.imgur.com/ZOzrpni.png'
+        case 'band':
+          return 'https://i.imgur.com/rVwItiC.png'
+        case 'ventuary':
+          return '/img/icons/ventuary-lab.svg'
+        case 'gravity':
+          return '/img/logo.svg'
+      }
+    }
   }
 
   return ''
@@ -37,15 +52,17 @@ function matchNodeAvatar(address: string): string {
 
 export function mapNode(
   node: Node
-): Omit<Node, 'depositChain'> & { depositChain: string, avatar: string } {
+): Omit<Node, 'depositChain'> & { depositChain: string; avatar: string } {
   // @ts-ignore
-  const { deposit_chain, joined_at, address } = node
+  let { deposit_chain, joined_at, address } = node
+  joined_at = Number(joined_at) * 1000
+  
   return {
     ...node,
     // @ts-ignore
     deposit_chain: CurrencyFormatter.formatChainDescription(deposit_chain),
     joined_at: DateFormatter.format(moment(joined_at)),
-    avatar: matchNodeAvatar(address)
+    avatar: matchNodeAvatar(address),
   }
 }
 

@@ -22,6 +22,7 @@ export class CurrencyFormatter {
   }
 
   static formatChainDescription(chain: ChainEnum): string {
-    return `${this.formatChain(chain)}, ID=${chain}`
+    return `${this.formatChain(chain)}`
+    // return `${this.formatChain(chain)}, ID=${chain}`
   }
 }

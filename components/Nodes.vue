@@ -30,16 +30,15 @@
       </template>
       <template v-slot:body>
         <tr
-          v-for="(node, index) in mappedNodesList"
+          v-for="(node) in mappedNodesList"
           :key="node.address"
           @click="handleNodeSelect(node)"
         >
           <th style="width: 35px;">
-            <!-- <icon
-              v-if="index === 1"
+            <icon
               image="/img/icons/сonsul.svg"
               style="top: 1px;"
-            ></icon> -->
+            ></icon>
           </th>
           <td style="width: 265px;">
             <table-avatar-icon>
@@ -101,6 +100,7 @@ import { Node } from '~/models/model/node'
 import { NodeDataProvider, mapNode } from '~/data/providers/node'
 import { NebulaDataProvider } from '~/data/providers/nebula'
 import { FetchCommand } from '~/data/global'
+import { CurrencyFormatter } from '../misc/format'
 
 export default Vue.extend({
   name: 'Nodes',

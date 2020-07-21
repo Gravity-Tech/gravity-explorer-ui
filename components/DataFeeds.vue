@@ -22,8 +22,6 @@
           </td>
           <td style="width: 50%;">
             Ventuary Binance
-            <br />
-            Tradisys Binance
           </td>
         </tr>
       </template>
