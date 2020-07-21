@@ -24,8 +24,8 @@
         <div class="footer-nav-item">
           <a class="link-invert" href="/">Brand Assets</a>
         </div>
-        <div class="footer-nav-item"><a href="/">Privacy policy</a></div>
-        <div class="footer-nav-item"><a href="/">Terms & Conditions</a></div>
+        <div class="footer-nav-item"><a href="/docs/privacy-policy">Privacy policy</a></div>
+        <div class="footer-nav-item"><a href="/docs/terms-of-use">Terms & Conditions</a></div>
         <div class="footer-nav-item footer-contacts-email">
           <a href="mailto:oracle@gravity.tech" class="text-green">
             oracle@gravity.tech
