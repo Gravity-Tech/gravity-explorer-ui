@@ -27,10 +27,18 @@ const nodeAddressMap: Record<string, string> = {
   gravity: '0xcb06f19b806d96d5bebf922d1159be9035f9b671a4535044ff45cc391702d3ed',
 }
 
-function matchNodeAvatar(address: string): string {
-  for (const key of Object.keys(nodeAddressMap)) {
-    const value = nodeAddressMap[key]
-    if (value === address) {
+const nodeNameMap: Record<string, string> = {
+  wx: '#5 - WX Demo Node',
+  neutrino: '#1 - Neutrino Demo Node',
+  band: '#2 - Band Demo Node',
+  ventuary: '#3 - VenLab Demo Node',
+  gravity: '#4 - Gravity Demo Node'
+}
+
+function matchNodeAvatar(name: string): string {
+  for (const key of Object.keys(nodeNameMap)) {
+    const value = nodeNameMap[key]
+    if (value === name) {
       switch (key) {
         case 'wx':
           return 'https://i.imgur.com/8HaqFEr.png'
@@ -53,7 +61,7 @@ export function mapNode(
   node: Node
 ): Omit<Node, 'depositChain'> & { depositChain: string; avatar: string } {
   // @ts-ignore
-  let { deposit_chain, joined_at, address, deposit_amount } = node
+  let { deposit_chain, joined_at, name, deposit_amount } = node
   joined_at = Number(joined_at) * 1000
 
   return {
@@ -62,7 +70,7 @@ export function mapNode(
     deposit_chain: CurrencyFormatter.formatChainDescription(deposit_chain),
     joined_at: DateFormatter.format(moment(joined_at)),
     deposit_amount: CurrencyFormatter.formatSubFee(deposit_chain, deposit_amount),
-    avatar: matchNodeAvatar(address),
+    avatar: matchNodeAvatar(name as string),
   }
 }
 
