@@ -69,7 +69,7 @@ export function mapNode(
     // @ts-ignore
     deposit_chain: CurrencyFormatter.formatChainDescription(deposit_chain),
     joined_at: DateFormatter.format(moment(joined_at)),
-    deposit_amount: CurrencyFormatter.formatSubFee(deposit_chain, deposit_amount),
+    deposit_amount: CurrencyFormatter.formatSubFee(deposit_chain, Number(deposit_amount) / 1e4),
     avatar: matchNodeAvatar(name as string),
   }
 }
