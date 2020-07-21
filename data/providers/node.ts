@@ -53,7 +53,7 @@ export function mapNode(
   node: Node
 ): Omit<Node, 'depositChain'> & { depositChain: string; avatar: string } {
   // @ts-ignore
-  let { deposit_chain, joined_at, address } = node
+  let { deposit_chain, joined_at, address, deposit_amount } = node
   joined_at = Number(joined_at) * 1000
 
   return {
@@ -61,6 +61,7 @@ export function mapNode(
     // @ts-ignore
     deposit_chain: CurrencyFormatter.formatChainDescription(deposit_chain),
     joined_at: DateFormatter.format(moment(joined_at)),
+    deposit_amount: CurrencyFormatter.formatSubFee(deposit_chain, deposit_amount),
     avatar: matchNodeAvatar(address),
   }
 }

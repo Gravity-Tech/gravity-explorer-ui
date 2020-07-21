@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { ChainEnum } from './../data/enums';
+import { ChainEnum } from './../data/enums'
 
 export class DateFormatter {
   static formatter = 'DD.MM.yyyy'
@@ -10,19 +10,22 @@ export class DateFormatter {
 }
 
 export class CurrencyFormatter {
-
   static formatChain(chain: ChainEnum): string {
     switch (chain) {
       case ChainEnum.ETH:
-        return "ETH"
+        return 'ETH'
       case ChainEnum.WAVES:
-        return "WAVES"
+        return 'WAVES'
     }
-    return ""
+    return ''
   }
 
   static formatChainDescription(chain: ChainEnum): string {
     return `${this.formatChain(chain)}`
-    // return `${this.formatChain(chain)}, ID=${chain}`
+  }
+
+  static formatSubFee(chain: ChainEnum, amount: number): string {
+    return `~${amount} $${this.formatChainDescription(chain)}`
+    // ~10 WAVES | $12.6
   }
 }

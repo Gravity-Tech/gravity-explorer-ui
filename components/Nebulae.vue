@@ -46,9 +46,9 @@
             {{ nebula.target_chain }}
           </td>
           <td class="d-none-lg" style="width: 120px;">
-            ~per {{ nebula.regularity }} blocks
+            ~per {{ nebula.regularity }} block
           </td>
-          <td style="width: 140px;">~10 WAVES | $12.6</td>
+          <td style="width: 140px;">{{ nebula.subscription_fee }}</td>
         </tr>
       </template>
     </table-block>
@@ -119,9 +119,10 @@ export default Vue.extend({
     mappedNebulaList: function() {
       return this.nebulaList.map((nebula: Nebula) => {
         // @ts-ignore
-        const { target_chain } = nebula;
+        const { target_chain, subscription_fee } = nebula;
         return {
           ...nebula,
+          subscription_fee: CurrencyFormatter.formatSubFee(target_chain, subscription_fee),
           target_chain: CurrencyFormatter.formatChainDescription(target_chain)
         }
       })

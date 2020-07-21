@@ -58,7 +58,7 @@
             ></icon> -->
           </td>
           <td>{{ node.deposit_chain }}</td>
-          <td>~10 WAVES | $12.6</td>
+          <td>{{ node.deposit_amount }}</td>
           <td class="d-none-lg">{{ node.joined_at }}</td>
         </tr>
       </template>
@@ -69,7 +69,7 @@
           :rating="String(currentNode.score)"
           :modal-head="currentNode.name"
           :card-date="currentNode.joined_at"
-          card-deposit="~10 WAVES | $12.6"
+          :card-deposit="currentNode.deposit_amount"
           :card-avatar="currentNode.avatar"
           :nodes-list="currentNodeNebulas"
           caption="Nebulae List:"
@@ -161,7 +161,8 @@ export default Vue.extend({
             // @ts-ignore
             type: CurrencyFormatter.formatChain(nebula.deposit_chain),
             count: String(nebula.score),
-            amount: '~10 WAVES | $12.6',
+            // @ts-ignore
+            amount: CurrencyFormatter.formatSubFee(nebula.deposit_chain, nebula.subscription_fee)
           }
         })
       })
