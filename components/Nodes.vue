@@ -166,7 +166,7 @@ export default Vue.extend({
             type: CurrencyFormatter.formatChain(nebula.deposit_chain),
             count: String(nebula.score),
             // @ts-ignore
-            amount: CurrencyFormatter.formatSubFee(nebula.deposit_chain, nebula.subscription_fee)
+            amount: CurrencyFormatter.formatSubFee(nebula.deposit_chain, Number(Number(nebula.subscription_fee) / 1e8)),
           }
         })
       })
