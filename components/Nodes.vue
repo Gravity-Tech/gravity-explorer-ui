@@ -41,10 +41,14 @@
             ></icon>
           </th>
           <td style="width: 265px;">
-            <table-avatar-icon>
-              <icon image="/img/icons/nodes_table.svg"></icon>
-            </table-avatar-icon>
-            {{ node.name }}
+            <div class="table-icon-cont">
+              <table-avatar-icon>
+                <icon image="/img/icons/nodes_table.svg"></icon>
+              </table-avatar-icon>
+              <span>
+              {{ node.name }}
+              </span>
+            </div>
           </td>
           <td style="width: 30%;" class="d-none-lg">
             {{ node.description }}
@@ -174,5 +178,16 @@ export default Vue.extend({
 <style lang="scss">
 .nodes-table td {
   cursor: pointer;
+}
+.table-icon-cont {
+  display: flex;
+  flex-direction: row;
+  
+  & > :nth-child(1) {
+    top: 0;
+    margin: auto;
+    margin-left: 0;
+    margin-right: 8px;
+  }
 }
 </style>

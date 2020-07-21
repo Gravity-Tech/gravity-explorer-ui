@@ -5,12 +5,13 @@
       <div class="footer-nav">
         <hr />
         <div class="footer-nav-logo-wrapper">
-          <nuxt-link
-            to="/"
+          <a
+            href="https://gravity.tech"
+            target="_blank"
             class="footer-nav-logo responsive responsive-bsizer"
           >
             <img class="responsive-item" src="/img/logo_gravity_demo.svg" alt="Logo" />
-          </nuxt-link>
+          </a>
         </div>
         <div class="footer-nav-item">
           <a class="link-invert" href="/">Docs</a>

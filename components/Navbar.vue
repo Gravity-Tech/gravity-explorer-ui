@@ -1,9 +1,9 @@
 <template>
   <nav class="nav">
     <div class="nav-container container">
-      <nuxt-link to="/" class="nav-logo responsive responsive-bsizer">
+      <a href="https://gravity.tech" target="_blank" class="nav-logo responsive responsive-bsizer">
         <img class="responsive-item" src="/img/logo_gravity_demo.svg" alt="Logo" />
-      </nuxt-link>
+      </a>
       <div class="nav-panel">
         <div class="nav-panel-col">
           <div class="nav-panel-indikator">

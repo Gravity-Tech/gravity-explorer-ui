@@ -122,7 +122,7 @@ export default Vue.extend({
         const { target_chain, subscription_fee } = nebula;
         return {
           ...nebula,
-          subscription_fee: CurrencyFormatter.formatSubFee(target_chain, subscription_fee),
+          subscription_fee: CurrencyFormatter.formatSubFee(target_chain, Number(Number(subscription_fee) / 1e8)),
           target_chain: CurrencyFormatter.formatChainDescription(target_chain)
         }
       })
