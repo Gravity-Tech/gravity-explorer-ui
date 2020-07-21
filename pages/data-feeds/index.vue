@@ -94,7 +94,7 @@ export default Vue.extend({
       })
     },
     queryUpdate(command: FetchCommand) {
-      console.log({ command, isLoading: this.isLoading }, 'A')
+      console.log({ command, isLoading: this.isLoading }, command.query)
       this.command.next(command)
     },
   },

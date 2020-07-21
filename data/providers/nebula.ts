@@ -26,6 +26,8 @@ export class NebulaDataProvider {
     const resp = await axios.get<Nebula[]>(NebulaRoutes.allNebulas, {
       params: mappedCommand,
     })
+    if (!resp.data) return []
+
     return resp.data
   }
 

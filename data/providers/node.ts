@@ -17,7 +17,6 @@ export const NodeRoutes = {
   nodesActionsHistory,
 }
 
-
 const nodeAddressMap: Record<string, string> = {
   wx: '0xf5a51bff7e8d034da2b043decc106789b55b84702bf2c2f2cf6c859e37dc30ec',
   neutrino:
@@ -56,7 +55,7 @@ export function mapNode(
   // @ts-ignore
   let { deposit_chain, joined_at, address } = node
   joined_at = Number(joined_at) * 1000
-  
+
   return {
     ...node,
     // @ts-ignore
@@ -88,6 +87,8 @@ export class NodeDataProvider {
     const resp = await axios.get<Node[]>(NodeRoutes.allNodes, {
       params: mappedCommand,
     })
+    if (!resp.data) return []
+
     return resp.data
   }
 
