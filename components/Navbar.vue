@@ -2,7 +2,7 @@
   <nav class="nav">
     <div class="nav-container container">
       <nuxt-link to="/" class="nav-logo responsive responsive-bsizer">
-        <img class="responsive-item" src="/img/logo.svg" alt="Logo" />
+        <img class="responsive-item" src="/img/logo_gravity_demo.svg" alt="Logo" />
       </nuxt-link>
       <div class="nav-panel">
         <div class="nav-panel-col">

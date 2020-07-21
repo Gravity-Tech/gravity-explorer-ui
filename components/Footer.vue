@@ -9,7 +9,7 @@
             to="/"
             class="footer-nav-logo responsive responsive-bsizer"
           >
-            <img class="responsive-item" src="/img/logo.svg" alt="Logo" />
+            <img class="responsive-item" src="/img/logo_gravity_demo.svg" alt="Logo" />
           </nuxt-link>
         </div>
         <div class="footer-nav-item">
