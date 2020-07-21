@@ -21,7 +21,7 @@
             <span class="data-feeds-second-td">{{ datafeed.description }}</span>
           </td>
           <td style="width: 50%;">
-            Ventuary Binance
+            Provided by: Gravity Team
           </td>
         </tr>
       </template>
