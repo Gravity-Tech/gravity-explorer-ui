@@ -1,26 +1,11 @@
-import Cookies from 'js-cookie'
-
 // States
-export const state = () => ({
-  isAgreeCookies: false,
-})
+export const state = () => ({})
 
 // mutations
-export const mutations = {
-  IS_AGREE_COOKIES(state) {
-    state.isAgreeCookies = true
-  },
-}
+export const mutations = {}
 
 // actions
-export const actions = {
-  isAgreeCookies({ commit }) {
-    Cookies.set('IS_AGREE_COOKIES', '1', { expires: 365 })
-    commit('IS_AGREE_COOKIES')
-  },
-}
+export const actions = {}
 
 // Getters
-export const getters = {
-  isAgreeCookies: (state) => state.isAgreeCookies,
-}
+export const getters = {}

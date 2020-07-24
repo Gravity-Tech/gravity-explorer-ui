@@ -67,8 +67,8 @@
         >
       </div>
     </div>
-    <div v-if="isCookiesBox" class="footer-cookies" :style="getCookiesStyle">
-      <div class="footer-cookies-wrapper">
+    <div class="footer-cookies" :style="getCookiesStyle">
+      <div class="footer-cookies-wrapper" :style="getWrapperCookiesStyle">
         <div class="container">
           <div ref="cookiesBox" class="footer-cookies-box">
             <div>
@@ -131,32 +131,36 @@ export default Vue.extend({
       },
     ],
     heightCookiesBox: 100,
+    isCookiesBox: false,
     instanceHeightCookiesBox: undefined,
   }),
   computed: {
-    isCookiesBox() {
-      // @ts-ignore
-      return !this.isAgreeCookies
-    },
-    isAgreeCookies() {
-      return this.$store.getters['app/isAgreeCookies']
+    getWrapperCookiesStyle() {
+      return {
+        bottom: this.isCookiesBox ? '30px' : '-100%',
+      }
     },
     getCookiesStyle() {
       return {
-        height: this.heightCookiesBox + 30 + 'px',
+        height: this.isCookiesBox ? this.heightCookiesBox + 30 + 'px' : '0px',
+        'min-height': this.isCookiesBox ? '100px' : '0px',
       }
     },
   },
   mounted() {
     this.calcHeightCookiesBox()
     this.bindHeightCookiesBox()
+    setTimeout(() => {
+      this.isCookiesBox = !localStorage.getItem('IS_AGREE_COOKIES')
+    }, 2000)
   },
   beforeDestroy() {
     this.unbindHeightCookiesBox()
   },
   methods: {
     hideCookiesBox() {
-      this.$store.dispatch('app/isAgreeCookies')
+      this.isCookiesBox = false
+      localStorage.setItem('IS_AGREE_COOKIES', '1')
       this.unbindHeightCookiesBox()
     },
     bindHeightCookiesBox() {
@@ -187,7 +191,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .footer-cookies {
-  min-height: 100px;
+  transition: height 0.5s ease;
 }
 .footer {
   font-weight: 300;
@@ -269,6 +273,7 @@ export default Vue.extend({
   left: 0;
   width: 100%;
   z-index: 10;
+  transition: bottom 0.5s ease;
 }
 .footer-cookies-box {
   font-weight: 400;
