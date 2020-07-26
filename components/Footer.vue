@@ -61,7 +61,7 @@
         </a>
       </div>
       <div class="footer-copyright">
-        &copy; 2020 Gravity Protocol.
+        &copy; {{ new Date().getFullYear() }} Gravity Protocol.
         <span class="footer-copyright-lg"
           >Oracles and Cross-chain Communication Network</span
         >
