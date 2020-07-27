@@ -148,10 +148,10 @@ export default Vue.extend({
     },
   },
   mounted() {
-    this.calcHeightCookiesBox()
-    this.bindHeightCookiesBox()
     setTimeout(() => {
       this.isCookiesBox = !localStorage.getItem('IS_AGREE_COOKIES')
+      this.calcHeightCookiesBox()
+      this.bindHeightCookiesBox()
     }, 2000)
   },
   beforeDestroy() {
@@ -182,7 +182,7 @@ export default Vue.extend({
             // @ts-ignore:  Property 'getBoundingClientRect' does not exist on type 'Element | Element[] | Vue | Vue[]'
             this.heightCookiesBox = this.$refs.cookiesBox.getBoundingClientRect().height
           }
-        }, 1000)
+        }, 500)
       }
     },
   },
