@@ -61,7 +61,7 @@
         </a>
       </div>
       <div class="footer-copyright">
-        &copy; 2020 Gravity Protocol.
+       <span class="footer-copyright-lg" > &copy; 2020 Gravity Protocol.</span>
         <span class="footer-copyright-lg"
           >Oracles and Cross-chain Communication Network</span
         >
@@ -284,8 +284,11 @@ export default Vue.extend({
 }
 .footer-copyright-lg {
   display: none;
+  font-size:13px;
+  font-weight:300;
   @include media-breakpoint-up(sm) {
     display: inline;
+    
   }
 }
 .footer-socials,
@@ -379,7 +382,8 @@ export default Vue.extend({
 .footer-copyright {
   padding-bottom: 24px;
   @include media-breakpoint-down(xs) {
-    font-weight: 200;
+    font-weight: 300;
+    font-size:13px;
   }
   @include media-breakpoint-up(sm) {
     padding-bottom: 38px;

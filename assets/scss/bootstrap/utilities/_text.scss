@@ -21,6 +21,7 @@
 
 .text-green {
   color: $green !important;
+  text-align:center;
 }
 
 .text-orange {
@@ -29,4 +30,10 @@
 
 .text-muted{
   color: $text-muted !important;
+}
+.text-chain{
+  text-align:center;
+}
+.text-node{
+  text-align:center;
 }

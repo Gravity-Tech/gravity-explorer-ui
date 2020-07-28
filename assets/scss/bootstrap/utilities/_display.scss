@@ -17,5 +17,6 @@
 .d-none-lg{
   @include media-breakpoint-down(lg){
     display: none!important;
+    font-size:11px;
   }
 }

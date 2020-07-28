@@ -18,7 +18,7 @@
                 image="/img/icons/сonsul.svg"
                 style="top: 3px; margin-top: -6px;"
               ></icon>
-              — Consul)
+              — Consul )
             </span>
           </th>
           <th class="d-none-lg" style="width: 30%;">About</th>
@@ -58,8 +58,8 @@
               style="top: 5px;"
             ></icon>
           </td>
-          <td>{{ node.deposit_chain }}</td>
-          <td>~10 WAVES | $12.6</td>
+          <td class="text-chain">{{ node.deposit_chain }}</td>
+          <td class="text-node">~10 WAVES | $12.6</td>
           <td class="d-none-lg">{{ node.joined_at }}</td>
         </tr>
       </template>

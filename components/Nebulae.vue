@@ -14,7 +14,7 @@
           <th style="width: 100px;">Status</th>
           <th>Data Feed</th>
           <th class="d-none-lg">Description</th>
-          <th style="width: 110px;">Threshold<br />Score (0-10)</th>
+          <th style="width: 110px;">Threshold <br/> Score (0-10)</th>
           <th class="d-none-lg" style="width: 120px;">Target chain</th>
           <th class="d-none-lg" style="width: 120px;">
             Regularity<br />(hour/day)
@@ -154,8 +154,13 @@ export default Vue.extend({
 <style lang="scss">
 .nebulae-first-td {
   padding-left: 36px !important;
+  font-size: 13px;
 }
 .nebulae-table td {
   cursor: pointer;
+  font-size: 13px;
+}
+.nebulae-table th{
+  font-size:13px;
 }
 </style>

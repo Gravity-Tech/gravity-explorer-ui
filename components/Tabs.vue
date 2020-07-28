@@ -42,6 +42,7 @@ export default Vue.extend({
     color: $text-muted;
     letter-spacing: 0.636364px;
     font-size: 14px;
+    font-family:'Conv_Orbitron_Light';
     line-height: lh(14px, 18px);
     padding-bottom: 5px;
     border-bottom: 1px solid transparent;
@@ -51,6 +52,7 @@ export default Vue.extend({
     &.nuxt-link-exact-active {
       color: #d8d8d8;
       border-color: #d8d8d8;
+
     }
   }
 }
