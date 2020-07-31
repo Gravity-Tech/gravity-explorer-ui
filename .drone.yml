@@ -1,6 +1,6 @@
 kind: pipeline
 type: docker
-name: default
+name: gravity-explorer
 
 trigger:
   branch:
@@ -8,12 +8,14 @@ trigger:
   - test-ci
   - develop
 
+
+
 pipeline:
-  # test:
-  #   image: node
-  #   commands:
-      # - npm i
-      # - npm run test
+  test:
+    image: node
+    commands:
+      - npm i
+      - npm run test
 
   publish-ui:
     image: plugins/docker
