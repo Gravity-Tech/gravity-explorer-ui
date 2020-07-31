@@ -1,0 +1,22 @@
+kind: pipeline
+type: docker
+
+pipeline:
+  # test:
+  #   image: node
+  #   commands:
+      # - npm i
+      # - npm run test
+
+  publish-ui:
+    image: plugins/docker
+    dockerfile: ./Dockerfile
+    context: .
+    repo: gravityhuborg/gravity-explorer-ui
+    tags: [latest, v2]
+    secrets: [ docker_username, docker_password ]
+
+  test-deployment:
+    image: gravityhuborg/gravity-explorer-ui
+    secrets: []
+    bash: "rebuild.sh"
