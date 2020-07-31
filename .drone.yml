@@ -1,11 +1,12 @@
 kind: pipeline
 type: docker
+name: default
 
-branches:
-  include:
-    - master
-    - test-ci
-    - develop
+trigger:
+  branch:
+  - master
+  - test-ci
+  - develop
 
 pipeline:
   # test:
