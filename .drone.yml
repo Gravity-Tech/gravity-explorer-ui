@@ -1,6 +1,12 @@
 kind: pipeline
 type: docker
 
+branches:
+  include:
+    - master
+    - test-ci
+    - develop
+
 pipeline:
   # test:
   #   image: node
