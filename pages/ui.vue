@@ -178,8 +178,8 @@
             >
             <checkbox name="isAgree">
               By connecting, you agree to the
-              <a href="/">Terms of Service</a> and
-              <a href="/">Privacy Policy</a>
+              <a href="/docs/terms-of-use">Terms of Service</a> and
+              <a href="/docs/privacy-policy">Privacy Policy</a>
             </checkbox>
           </template>
           <template v-slot:footer>

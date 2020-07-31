@@ -5,27 +5,28 @@
       <div class="footer-nav">
         <hr />
         <div class="footer-nav-logo-wrapper">
-          <nuxt-link
-            to="/"
+          <a
+            href="https://gravity.tech"
+            target="_blank"
             class="footer-nav-logo responsive responsive-bsizer"
           >
-            <img class="responsive-item" src="/img/logo.svg" alt="Logo" />
-          </nuxt-link>
+            <img class="responsive-item" src="/img/logo_gravity_demo.svg" alt="Logo" />
+          </a>
         </div>
         <div class="footer-nav-item">
-          <a class="link-invert" href="/">Docs</a>
+          <a class="link-invert" target="_blank" :href="githubLink">Docs</a>
         </div>
         <div class="footer-nav-item">
-          <a class="link-invert" href="/">Whitepaper</a>
+          <a class="link-invert" target="_blank" :href="wpLink">Whitepaper</a>
         </div>
         <div class="footer-nav-item">
-          <a class="link-invert" href="/">FAQ</a>
+          <a class="link-invert" target="_blank" :href="faqLink">FAQ</a>
         </div>
         <div class="footer-nav-item">
-          <a class="link-invert" href="/">Brand Assets</a>
+          <a class="link-invert" target="_blank" :href="brandAssetsLink">Brand Assets</a>
         </div>
-        <div class="footer-nav-item"><a href="/">Privacy policy</a></div>
-        <div class="footer-nav-item"><a href="/">Terms & Conditions</a></div>
+        <div class="footer-nav-item"><a href="/docs/privacy-policy">Privacy policy</a></div>
+        <div class="footer-nav-item"><a href="/docs/terms-of-use">Terms & Conditions</a></div>
         <div class="footer-nav-item footer-contacts-email">
           <a href="mailto:oracle@gravity.tech" class="text-green">
             oracle@gravity.tech
@@ -36,9 +37,9 @@
     <hr />
     <div class="container">
       <div class="footer-socials">
-        <btn tag="a" href="/" class="footer-socials-btn">
+        <!-- <btn tag="a" href="/" class="footer-socials-btn">
           <icon image="/img/icons/ventuary-lab.svg"></icon>
-        </btn>
+        </btn> -->
         <a
           v-for="(social, key) in socials"
           :key="key"
@@ -50,9 +51,9 @@
         </a>
       </div>
       <div class="footer-contacts">
-        <btn tag="a" href="/" class="footer-socials-btn">
+        <!-- <btn tag="a" href="/" class="footer-socials-btn">
           <icon image="/img/icons/ventuary-lab.svg"></icon>
-        </btn>
+        </btn> -->
         <a
           class="text-green footer-contacts-email"
           href="mailto:oracle@gravity.tech"
@@ -92,10 +93,24 @@
 import Vue from 'vue'
 import Btn from '~/components/Btn.vue'
 import Icon from '~/components/Icon.vue'
+import { sections } from '~/misc/links'
+
+// @ts-ignore
+const githubLink = sections.protocol.links.find(link => link.label === 'GitHub').link
+// @ts-ignore
+const wpLink = sections.protocol.links.find(link => link.label === 'Whitepaper').link
+// @ts-ignore
+const faqLink = sections.protocol.links.find(link => link.label === 'FAQ').link
+// @ts-ignore
+const brandAssetsLink = sections.resources.links.find(link => link.label === 'Brand Assets').link
 
 export default Vue.extend({
   components: { Btn, Icon },
   data: () => ({
+    githubLink,
+    wpLink,
+    faqLink,
+    brandAssetsLink,
     socials: [
       {
         icon: 'facebook',
@@ -103,31 +118,38 @@ export default Vue.extend({
       },
       {
         icon: 'medium',
-        link: '/',
+        // @ts-ignore
+        link: sections.news.links.find(link => link.label === 'Blog').link,
       },
       {
         icon: 'twitter',
-        link: '/',
+        // @ts-ignore
+        link: sections.news.links.find(link => link.label === 'Twitter').link,
       },
       {
         icon: 'linked-in',
-        link: '/',
+        // @ts-ignore
+        link: sections.news.links.find(link => link.label === 'LinkedIn').link,
       },
       {
         icon: 'telegram',
-        link: '/',
+        // @ts-ignore
+        link: sections.community.links.find(link => link.label === 'Telegram').link,
       },
       {
         icon: 'discord',
-        link: '/',
+        // @ts-ignore
+        link: sections.community.links.find(link => link.label === 'Discord').link,
       },
       {
         icon: 'reddit',
-        link: '/',
+        // @ts-ignore
+        link: sections.community.links.find(link => link.label === 'Reddit').link,
       },
       {
         icon: 'github',
-        link: '/',
+        // @ts-ignore
+        link: githubLink,
       },
     ],
     heightCookiesBox: 100,

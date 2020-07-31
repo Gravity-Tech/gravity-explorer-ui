@@ -1,9 +1,9 @@
 <template>
   <nav class="nav">
     <div class="nav-container container">
-      <nuxt-link to="/" class="nav-logo responsive responsive-bsizer">
-        <img class="responsive-item" src="/img/logo.svg" alt="Logo" />
-      </nuxt-link>
+      <a href="https://gravity.tech" target="_blank" class="nav-logo responsive responsive-bsizer">
+        <img class="responsive-item" src="/img/logo_gravity_demo.svg" alt="Logo" />
+      </a>
       <div class="nav-panel">
         <div class="nav-panel-col">
           <div class="nav-panel-indikator">
@@ -110,6 +110,7 @@ export default Vue.extend({
   props: ['stats'],
   computed: {
     isAuth() {
+      // @ts-ignore
       return this.$store.getters['auth/isAuth']
     },
   },

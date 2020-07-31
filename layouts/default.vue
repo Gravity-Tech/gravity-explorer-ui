@@ -11,7 +11,9 @@
 
 <script lang="ts">
 import { Subject as PublishSubject, Subscription } from 'rxjs'
+    // @ts-ignore
 import navbarBlock from '~/components/Navbar'
+    // @ts-ignore
 import footerBlock from '~/components/Footer'
 import { CommonDataProvider, MappedCommonStats } from '~/data/providers/common'
 import { SystemTimeIntervalIterator } from '~/misc/iterator'
@@ -34,17 +36,15 @@ export default {
     }
   },
   mounted() {
-    this.statsSubject.subscribe((stats: MappedCommonStats) => {
-      this.stats = stats
-    })
+    // @ts-ignore
+    this.subsription = this.statsSubject.subscribe((stats: MappedCommonStats) => { this.stats = stats })
 
-    this.updateData()
-    this.iterator.startInterval()
+    // @ts-ignore
+    this.updateData(); this.iterator.startInterval();
   },
   beforeDestroy() {
-    this.iterator.stopInterval()
     // @ts-ignore
-    this.subsription?.unsubscribe()
+    this.iterator.stopInterval(); this.subsription?.unsubscribe()
   },
   methods: {
     updateData() {
