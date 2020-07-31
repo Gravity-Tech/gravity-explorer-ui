@@ -8,24 +8,34 @@ trigger:
   - test-ci
   - develop
 
-
-
 pipeline:
-  test:
-    image: node
-    commands:
-      - npm i
-      - npm run test
+  # test:
+  #   image: node
+  #   commands:
+  #     - npm i
+  #     - npm run test
 
-  publish-ui:
-    image: plugins/docker
-    dockerfile: ./Dockerfile
-    context: .
-    repo: gravityhuborg/gravity-explorer-ui
-    tags: [latest, v2]
-    secrets: [ docker_username, docker_password ]
+  # publish-ui:
+  #   image: plugins/docker
+  #   dockerfile: ./Dockerfile
+  #   context: .
+  #   repo: gravityhuborg/gravity-explorer-ui
+  #   tags: [latest, v2]
+  #   secrets: [ docker_username, docker_password ]
 
-  test-deployment:
-    image: gravityhuborg/gravity-explorer-ui
-    secrets: []
-    bash: "rebuild.sh"
+  # deploy:
+  #   image: gravityhuborg/gravity-explorer-ui
+  #   secrets: []
+  #   bash: "rebuild.sh"
+
+  explorer-deploy:
+    image: appleboy/drone-ssh
+    host: drone.gravityhub.org
+    username: root
+    port: 22
+    key:
+      from_secret: private_key
+    envs:
+      - drone_branch
+    script:
+      - branch=${DRONE_BRANCH} && cd /var/www/gravity-explorer-ui && bash ./rebuild.sh $branch

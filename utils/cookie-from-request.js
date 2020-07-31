@@ -7,6 +7,10 @@
  * @return {String|undefined}
  */
 export default function cookieFromRequest(req, key, json) {
+  if (!req) {
+    return
+  }
+
   if (!req.headers.cookie) {
     return
   }

@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt-ts --downlevelIteration",
-    "build": "nuxt-ts build --downlevelIteration",
-    "start": "nuxt-ts start --downlevelIteration",
-    "export": "nuxt-ts export --downlevelIteration",
-    "serve": "nuxt-ts serve --downlevelIteration",
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "export": "nuxt-ts export",
+    "generate": "nuxt-ts generate",
+    "serve": "nuxt-ts serve",
     "lint:js": "eslint --ext .js,.vue --fix --ignore-path .gitignore .",
     "lint": "npm run lint:js",
     "swagger-typegen": "swagger-codegen generate -i https://node.gravityhub.org/swagger.json -l typescript-angular -o models/"
