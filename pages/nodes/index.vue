@@ -56,7 +56,6 @@ export default Vue.extend({
         filter((command) => command.page === 0 && command.query !== undefined)
       )
       .subscribe((command) => {
-        // console.log('searchSub', command.page)
         this.isLoading.next(true)
         this.updateData(command)
       })
@@ -91,7 +90,7 @@ export default Vue.extend({
       })
     },
     queryUpdate(command: FetchCommand) {
-      console.log({ command, isLoading: this.isLoading }, 'A')
+      // console.log({ command, isLoading: this.isLoading }, command.query)
       this.command.next(command)
     },
   },
