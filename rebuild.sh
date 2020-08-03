@@ -16,4 +16,4 @@ current_id=$(docker ps -a | grep "$name" | awk '{ print $1 }')
 
 docker stop "$current_id"
 docker rm "$current_id"
-docker run -itd -p "$port":80 --name "$name" gravityhuborg/gravity-explorer-ui
+docker run -itd -p "$port":80 --name "$name" gravityhuborg/gravity-explorer-ui:latest
