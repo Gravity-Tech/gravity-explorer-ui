@@ -30,36 +30,39 @@
       </template>
       <template v-slot:body>
         <tr
-          v-for="(node, index) in mappedNodesList"
+          v-for="(node) in mappedNodesList"
           :key="node.address"
           @click="handleNodeSelect(node)"
         >
           <th style="width: 35px;">
             <icon
-              v-if="index === 1"
               image="/img/icons/сonsul.svg"
               style="top: 1px;"
             ></icon>
           </th>
           <td style="width: 265px;">
-            <table-avatar-icon>
-              <icon image="/img/icons/nodes_table.svg"></icon>
-            </table-avatar-icon>
-            {{ node.name }}
+            <div class="table-icon-cont">
+              <table-avatar-icon>
+                <icon image="/img/icons/nodes_table.svg"></icon>
+              </table-avatar-icon>
+              <span>
+              {{ node.name }}
+              </span>
+            </div>
           </td>
           <td style="width: 30%;" class="d-none-lg">
             {{ node.description }}
           </td>
           <td class="text-green">
             {{ node.score }}
-            <icon
+            <!-- <icon
               v-if="index === 1"
               image="/img/icons/сonnect_node.svg"
               style="top: 5px;"
-            ></icon>
+            ></icon> -->
           </td>
           <td class="text-position">{{ node.deposit_chain }}</td>
-          <td class="text-position">~10 WAVES | $12.6</td>
+          <td class="text-position">{{ node.deposit_amount }}</td>
           <td class="d-none-lg">{{ node.joined_at }}</td>
         </tr>
       </template>
@@ -70,8 +73,8 @@
           :rating="String(currentNode.score)"
           :modal-head="currentNode.name"
           :card-date="currentNode.joined_at"
-          card-deposit="~10 WAVES | $12.6"
-          card-avatar="/img/card/example-logo.svg"
+          :card-deposit="currentNode.deposit_amount"
+          :card-avatar="currentNode.avatar"
           :nodes-list="currentNodeNebulas"
           caption="Nebulae List:"
           :data="{
@@ -98,9 +101,10 @@ import Icon from '~/components/Icon.vue'
 import TableAvatarIcon from '~/components/TableAvatarIcon.vue'
 import { Nebula } from '~/models/model/nebula'
 import { Node } from '~/models/model/node'
-import { NodeDataProvider, mapNode, mapNodeChain } from '~/data/providers/node'
+import { NodeDataProvider, mapNode } from '~/data/providers/node'
 import { NebulaDataProvider } from '~/data/providers/nebula'
 import { FetchCommand } from '~/data/global'
+import { CurrencyFormatter } from '../misc/format'
 
 export default Vue.extend({
   name: 'Nodes',
@@ -127,6 +131,7 @@ export default Vue.extend({
   },
   methods: {
     queryUpdate(query: string) {
+      // @ts-ignore
       this.$refs.table.$el.querySelector('tbody').scrollTo(0, 0)
       this.command = { query, page: 0 }
       this.$emit('query-update', this.command)
@@ -152,15 +157,16 @@ export default Vue.extend({
         // @ts-ignore
         node.nebulas_using.map((address) => {
           return NebulaDataProvider.fetchExactNebula(address)
-        })
-      ).then((list: Nebula[]) => {
+        }) as Nebula[]
+      ).then((list) => {
         this.currentNodeNebulas = list.filter(Boolean).map((nebula) => {
           return {
             ...nebula,
             // @ts-ignore
-            type: mapNodeChain(nebula.deposit_chain),
+            type: CurrencyFormatter.formatChain(nebula.deposit_chain),
             count: String(nebula.score),
-            amount: '~10 WAVES | $12.6',
+            // @ts-ignore
+            amount: CurrencyFormatter.formatSubFee(nebula.deposit_chain, Number(Number(nebula.subscription_fee) / 1e8)),
           }
         })
       })
@@ -172,5 +178,16 @@ export default Vue.extend({
 <style lang="scss">
 .nodes-table td {
   cursor: pointer;
+}
+.table-icon-cont {
+  display: flex;
+  flex-direction: row;
+  
+  & > :nth-child(1) {
+    top: 0;
+    margin: auto;
+    margin-left: 0;
+    margin-right: 8px;
+  }
 }
 </style>

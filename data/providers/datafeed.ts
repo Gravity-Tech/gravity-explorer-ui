@@ -29,6 +29,6 @@ export class DatafeedDataProvider {
     const resp = await axios.get<MappedExtractor[]>(DatafeedRoutes.all, {
       params: mappedCommand,
     })
-    return resp.data.filter(Boolean)
+    return (resp.data || []).filter(Boolean)
   }
 }

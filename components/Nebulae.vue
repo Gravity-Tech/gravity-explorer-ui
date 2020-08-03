@@ -24,7 +24,7 @@
       </template>
       <template v-slot:body>
         <tr
-          v-for="nebula in nebulaList"
+          v-for="nebula in mappedNebulaList"
           :key="nebula.address"
           @click="handleNebulaSelect(nebula)"
         >
@@ -48,7 +48,7 @@
           <td class="d-none-lg d-none-position" style="width: 120px;">
             ~per {{ nebula.regularity }} blocks
           </td>
-          <td style="width: 140px; font-size: 13px">~10 WAVES | $12.6</td>
+          <td style="width: 140px; font-size: 13px">{{ nebula.subscription_fee }}</td>
         </tr>
       </template>
     </table-block>
@@ -91,6 +91,7 @@ import { Nebula } from '~/models/model/nebula'
 import { Node } from '~/models/model/node'
 import { FetchCommand } from '~/data/global'
 import { NodeDataProvider } from '~/data/providers/node'
+import { CurrencyFormatter } from '../misc/format'
 
 type Props = {
   nebulaList: Nebula[]
@@ -114,8 +115,22 @@ export default Vue.extend({
       currentNebulaNodes: [] as Node[],
     }
   },
+  computed: {
+    mappedNebulaList: function() {
+      return this.nebulaList.map((nebula: Nebula) => {
+        // @ts-ignore
+        const { target_chain, subscription_fee } = nebula;
+        return {
+          ...nebula,
+          subscription_fee: CurrencyFormatter.formatSubFee(target_chain, Number(Number(subscription_fee) / 1e8)),
+          target_chain: CurrencyFormatter.formatChainDescription(target_chain)
+        }
+      })
+    }
+  },
   methods: {
     queryUpdate(query: string) {
+      // @ts-ignore
       this.$refs.table.$el.querySelector('tbody').scrollTo(0, 0)
       this.command = { query, page: 0 }
       this.$emit('query-update', this.command)
@@ -142,7 +157,7 @@ export default Vue.extend({
         // @ts-ignore
         nebula.nodes_using.map((address) => {
           return NodeDataProvider.fetchExactNode(address)
-        })
+        }) as Node[]
       ).then((list: Node[]) => {
         this.currentNebulaNodes = list.filter(Boolean)
       })
