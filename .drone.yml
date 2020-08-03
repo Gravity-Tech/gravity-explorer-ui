@@ -33,4 +33,4 @@ pipeline:
     envs:
       - drone_branch
     script:
-      - branch=${DRONE_BRANCH} && cd /var/www/gravity-explorer-ui && bash ./rebuild.sh $branch
+      - branch=${DRONE_BRANCH} && cd /var/www/gravity-explorer-ui && bash ./rebuild.sh "$branch"
