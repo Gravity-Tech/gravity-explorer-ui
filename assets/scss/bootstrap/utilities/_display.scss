@@ -17,5 +17,10 @@
 .d-none-lg{
   @include media-breakpoint-down(lg){
     display: none!important;
+    font-size: 11px;
   }
+}
+.d-none-position{
+  text-align: center;
+  font-size: 13px;
 }

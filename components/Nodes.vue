@@ -18,7 +18,7 @@
                 image="/img/icons/сonsul.svg"
                 style="top: 3px; margin-top: -6px;"
               ></icon>
-              — Consul)
+              — Consul )
             </span>
           </th>
           <th class="d-none-lg" style="width: 30%;">About</th>
@@ -61,8 +61,8 @@
               style="top: 5px;"
             ></icon> -->
           </td>
-          <td>{{ node.deposit_chain }}</td>
-          <td>{{ node.deposit_amount }}</td>
+          <td class="text-position">{{ node.deposit_chain }}</td>
+          <td class="text-position">{{ node.deposit_amount }}</td>
           <td class="d-none-lg">{{ node.joined_at }}</td>
         </tr>
       </template>

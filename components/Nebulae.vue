@@ -38,17 +38,17 @@
             Active
           </td>
           <td>Binance-Huobi-BTC_USD</td>
-          <td class="d-none-lg">
+          <td class="d-none-lg-text">
             {{ nebula.description }}
           </td>
           <td class="text-green" style="width: 110px;">{{ nebula.score }}</td>
-          <td class="d-none-lg" style="width: 120px;">
-            {{ nebula.target_chain }}
+          <td class="d-none-lg d-none-position" style="width: 120px;">
+            Waves
           </td>
-          <td class="d-none-lg" style="width: 120px;">
-            ~per {{ nebula.regularity }} block
+          <td class="d-none-lg d-none-position" style="width: 120px;">
+            ~per {{ nebula.regularity }} blocks
           </td>
-          <td style="width: 140px;">{{ nebula.subscription_fee }}</td>
+          <td style="width: 140px; font-size: 13px">{{ nebula.subscription_fee }}</td>
         </tr>
       </template>
     </table-block>
@@ -172,5 +172,6 @@ export default Vue.extend({
 }
 .nebulae-table td {
   cursor: pointer;
+  
 }
 </style>

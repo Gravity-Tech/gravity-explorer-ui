@@ -21,6 +21,8 @@
 
 .text-green {
   color: $green !important;
+  text-align: center;
+  font-size:13px;
 }
 
 .text-orange {
@@ -30,3 +32,10 @@
 .text-muted{
   color: $text-muted !important;
 }
+.text-position{
+  text-align: center;
+}
+.d-none-lg-text{
+  font-size: 11px;
+}
+

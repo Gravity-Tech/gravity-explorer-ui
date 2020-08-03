@@ -39,6 +39,7 @@ export default Vue.extend({
   }
   a {
     text-decoration: none !important;
+    font-family: 'Orbitron';
     color: $text-muted;
     letter-spacing: 0.636364px;
     font-size: 14px;
