@@ -58,8 +58,13 @@
               style="top: 5px;"
             ></icon>
           </td>
+<<<<<<< Updated upstream
           <td class="text-chain">{{ node.deposit_chain }}</td>
           <td class="text-node">~10 WAVES | $12.6</td>
+=======
+          <td class="text-position">{{ node.deposit_chain }}</td>
+          <td class="text-position">~10 WAVES | $12.6</td>
+>>>>>>> Stashed changes
           <td class="d-none-lg">{{ node.joined_at }}</td>
         </tr>
       </template>

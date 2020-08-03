@@ -21,7 +21,12 @@
 
 .text-green {
   color: $green !important;
+<<<<<<< Updated upstream
   text-align:center;
+=======
+  text-align: center;
+  font-size:13px;
+>>>>>>> Stashed changes
 }
 
 .text-orange {
@@ -31,9 +36,19 @@
 .text-muted{
   color: $text-muted !important;
 }
+<<<<<<< Updated upstream
 .text-chain{
   text-align:center;
 }
 .text-node{
   text-align:center;
 }
+=======
+.text-position{
+  text-align: center;
+}
+.d-none-lg-text{
+  font-size: 11px;
+}
+
+>>>>>>> Stashed changes

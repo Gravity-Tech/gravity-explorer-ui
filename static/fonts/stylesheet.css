@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'Orbitron';
+    src: url(../'Orbitron-Black.eot');
+    src: url(../'Orbitron-Black.eot?#iefix') format('embedded-opentype'),
+        url(../'Orbitron-Black.woff2') format('woff2'),
+        url(../'Orbitron-Black.woff') format('woff'),
+        url(../'Orbitron-Black.ttf') format('truetype'),
+        url(../'Orbitron-Black.svg#Orbitron-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url(../'Orbitron-Regular.eot');
+    src: url(../'Orbitron-Regular.eot?#iefix') format('embedded-opentype'),
+        url(../'Orbitron-Regular.woff2') format('woff2'),
+        url(../'Orbitron-Regular.woff') format('woff'),
+        url(../'Orbitron-Regular.ttf') format('truetype'),
+        url(../'Orbitron-Regular.svg#Orbitron-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url(../'Orbitron-Bold.eot');
+    src: url(../'Orbitron-Bold.eot?#iefix') format('embedded-opentype'),
+        url(../'Orbitron-Bold.woff2') format('woff2'),
+        url(../'Orbitron-Bold.woff') format('woff'),
+        url(../'Orbitron-Bold.ttf') format('truetype'),
+        url(../'Orbitron-Bold.svg#Orbitron-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url(../'Orbitron-Medium.eot');
+    src: url(../'Orbitron-Medium.eot?#iefix') format('embedded-opentype'),
+        url(../'Orbitron-Medium.woff2') format('woff2'),
+        url(../'Orbitron-Medium.woff') format('woff'),
+        url(../'Orbitron-Medium.ttf') format('truetype'),
+        url(../'Orbitron-Medium.svg#Orbitron-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+

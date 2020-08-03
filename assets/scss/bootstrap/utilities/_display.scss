@@ -17,6 +17,16 @@
 .d-none-lg{
   @include media-breakpoint-down(lg){
     display: none!important;
+<<<<<<< Updated upstream
     font-size:11px;
   }
 }
+=======
+    font-size: 11px;
+  }
+}
+.d-none-position{
+  text-align: center;
+  font-size: 13px;
+}
+>>>>>>> Stashed changes

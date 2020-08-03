@@ -61,7 +61,11 @@
         </a>
       </div>
       <div class="footer-copyright">
+<<<<<<< Updated upstream
        <span class="footer-copyright-lg" > &copy; 2020 Gravity Protocol.</span>
+=======
+        <span class="footer-copyright-lg">&copy; 2020 Gravity Protocol.</span>
+>>>>>>> Stashed changes
         <span class="footer-copyright-lg"
           >Oracles and Cross-chain Communication Network</span
         >
@@ -288,7 +292,12 @@ export default Vue.extend({
   font-weight:300;
   @include media-breakpoint-up(sm) {
     display: inline;
+<<<<<<< Updated upstream
     
+=======
+    font-size:13px;
+    font-weight:300;
+>>>>>>> Stashed changes
   }
 }
 .footer-socials,
