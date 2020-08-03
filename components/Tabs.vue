@@ -39,17 +39,10 @@ export default Vue.extend({
   }
   a {
     text-decoration: none !important;
-<<<<<<< Updated upstream
-    color: $text-muted;
-    letter-spacing: 0.636364px;
-    font-size: 14px;
-    font-family:'Conv_Orbitron_Light';
-=======
     font-family: 'Orbitron';
     color: $text-muted;
     letter-spacing: 0.636364px;
     font-size: 14px;
->>>>>>> Stashed changes
     line-height: lh(14px, 18px);
     padding-bottom: 5px;
     border-bottom: 1px solid transparent;
@@ -59,10 +52,6 @@ export default Vue.extend({
     &.nuxt-link-exact-active {
       color: #d8d8d8;
       border-color: #d8d8d8;
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     }
   }
 }

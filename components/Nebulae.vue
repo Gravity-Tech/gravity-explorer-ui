@@ -14,11 +14,7 @@
           <th style="width: 100px;">Status</th>
           <th>Data Feed</th>
           <th class="d-none-lg">Description</th>
-<<<<<<< Updated upstream
-          <th style="width: 110px;">Threshold <br/> Score (0-10)</th>
-=======
           <th style="width: 110px;">Threshold<br />Score (0-10)</th>
->>>>>>> Stashed changes
           <th class="d-none-lg" style="width: 120px;">Target chain</th>
           <th class="d-none-lg" style="width: 120px;">
             Regularity<br />(hour/day)
@@ -42,19 +38,6 @@
             Active
           </td>
           <td>Binance-Huobi-BTC_USD</td>
-<<<<<<< Updated upstream
-          <td class="d-none-lg">
-            {{ nebula.description }}
-          </td>
-          <td class="text-green" style="width: 110px;">{{ nebula.score }}</td>
-          <td class="d-none-lg" style="width: 120px;">
-            Waves, ID={{ nebula.target_chain }}
-          </td>
-          <td class="d-none-lg" style="width: 120px;">
-            ~per {{ nebula.regularity }} blocks
-          </td>
-          <td style="width: 140px;">~10 WAVES | $12.6</td>
-=======
           <td class="d-none-lg-text">
             {{ nebula.description }}
           </td>
@@ -66,7 +49,6 @@
             ~per {{ nebula.regularity }} blocks
           </td>
           <td style="width: 140px; font-size: 13px">~10 WAVES | $12.6</td>
->>>>>>> Stashed changes
         </tr>
       </template>
     </table-block>
@@ -172,20 +154,9 @@ export default Vue.extend({
 <style lang="scss">
 .nebulae-first-td {
   padding-left: 36px !important;
-<<<<<<< Updated upstream
-  font-size: 13px;
-}
-.nebulae-table td {
-  cursor: pointer;
-  font-size: 13px;
-}
-.nebulae-table th{
-  font-size:13px;
-=======
 }
 .nebulae-table td {
   cursor: pointer;
   
->>>>>>> Stashed changes
 }
 </style>
