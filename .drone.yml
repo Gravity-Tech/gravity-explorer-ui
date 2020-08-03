@@ -20,8 +20,12 @@ pipeline:
     dockerfile: ./Dockerfile
     context: .
     repo: gravityhuborg/gravity-explorer-ui
-    tags: [latest, v2]
-    secrets: [ docker_username, docker_password ]
+    tags: "${DRONE_BRANCH}"
+    secrets: [docker_username, docker_password]
+    when:
+      branch:
+      - master
+      - develop
 
   explorer-deploy:
     image: appleboy/drone-ssh
@@ -34,3 +38,7 @@ pipeline:
       - drone_branch
     script:
       - branch=${DRONE_BRANCH} && cd /var/www/gravity-explorer-ui && bash ./rebuild.sh "$branch"
+    when:
+      branch:
+      - master
+      - develop
