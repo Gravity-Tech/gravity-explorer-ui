@@ -25,8 +25,8 @@
         <div class="footer-nav-item">
           <a class="link-invert" target="_blank" :href="brandAssetsLink">Brand Assets</a>
         </div>
-        <div class="footer-nav-item"><a href="/docs/privacy-policy">Privacy policy</a></div>
-        <div class="footer-nav-item"><a href="/docs/terms-of-use">Terms & Conditions</a></div>
+        <div class="footer-nav-item"><a :href="docsLinks.privacy" target="_blank">Privacy policy</a></div>
+        <div class="footer-nav-item"><a :href="docsLinks.terms" target="_blank">Terms & Conditions</a></div>
         <div class="footer-nav-item footer-contacts-email">
           <a href="mailto:oracle@gravity.tech" class="text-green">
             oracle@gravity.tech
@@ -94,6 +94,7 @@ import Vue from 'vue'
 import Btn from '~/components/Btn.vue'
 import Icon from '~/components/Icon.vue'
 import { sections } from '~/misc/links'
+import { pathResolve } from '~/misc/path'
 
 // @ts-ignore
 const githubLink = sections.protocol.links.find(link => link.label === 'GitHub').link
@@ -111,6 +112,7 @@ export default Vue.extend({
     wpLink,
     faqLink,
     brandAssetsLink,
+    docsLinks: { terms: pathResolve('/docs/terms-of-use'), privacy: pathResolve('/docs/privacy-policy') },
     socials: [
       {
         icon: 'facebook',
