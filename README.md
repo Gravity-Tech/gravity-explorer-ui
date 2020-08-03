@@ -1,7 +1,7 @@
 # gravity-explorer-ui
 Gravity Explorer UI Client
 
-[![Build Status](https://drone.gravityhub.org/api/badges/Gravity-Hub-Org/gravity-explorer-ui/status.svg)](https://drone.gravityhub.org/Gravity-Hub-Org/gravity-explorer-ui)
+[![Build Status](https://drone.gravityhub.org/api/badges/Gravity-Tech/gravity-explorer-ui/status.svg)](https://drone.gravityhub.org/Gravity-Hub-Org/gravity-explorer-ui)
 
 
 ## How to run

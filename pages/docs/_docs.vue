@@ -8,7 +8,7 @@ export default {
   // @ts-ignore
   fetch({ route, redirect }) {
     // @ts-ignore
-    redirect(301, pathResolve(route.path))
+    window?.location?.href = pathResolve(route.path)
     // redirect(301, 'https://explorer.gravityhub.org');
   },
 }
