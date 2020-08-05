@@ -27,7 +27,7 @@
         </tr>
       </template>
       <template v-slot:body>
-        <tr v-for="index in 20" :key="index">
+        <tr  v-for="index in 20" :key="index">
           <td class="nebulae-first-td">ETH / USD price</td>
           <td>CoinMarketCap</td>
           <td>$0.08/hour</td>
@@ -68,10 +68,10 @@
           <th class="nebulae-first-td">Name</th>
           <th style="width: 100px;">Status</th>
           <th>Data Feed</th>
-          <th class="d-none-lg">Description</th>
+          <th class="">Description</th>
           <th style="width: 110px;">Threshold<br />Score (0-10)</th>
-          <th class="d-none-lg" style="width: 120px;">Target chain</th>
-          <th class="d-none-lg" style="width: 120px;">
+          <th class="" style="width: 120px;">Target chain</th>
+          <th class="" style="width: 120px;">
             Regularity<br />(hour/day)
           </th>
           <th style="width: 140px;">Subscription fee</th>
@@ -79,17 +79,17 @@
       </template>
       <template v-slot:body>
         <tr v-for="index in 20" :key="index">
-          <td class="nebulae-first-td">
+          <td class="nebulae-first-td d-none-position">
             <table-avatar>
               <icon image="/img/card/avatar2.svg"></icon>
             </table-avatar>
             Nebula @Demo
           </td>
-          <td style="width: 100px;">
+          <td style="width: 100px; font-size: 13px;" >
             Active
           </td>
-          <td>Binance-Huobi-BTC_USD</td>
-          <td class="d-none-lg">
+          <td class="d-none-position">Binance-Huobi-BTC_USD</td>
+          <td class="">
             Demo Nebula to accumulate Gravity score.
           </td>
           <td class="text-green" style="width: 110px;">0.1</td>
@@ -113,7 +113,7 @@
           <th>Time</th>
         </tr>
       </template>
-      <template v-slot:body>
+      <template  v-slot:body>
         <tr v-for="index in 20" :key="index">
           <td class="nebulae-first-td">
             <table-avatar>
