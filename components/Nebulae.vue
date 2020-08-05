@@ -28,16 +28,16 @@
           :key="nebula.address"
           @click="handleNebulaSelect(nebula)"
         >
-          <td class="nebulae-first-td">
+          <td class="nebulae-first-td nebulae-info">
             <table-avatar>
               <icon image="/img/card/avatar2.svg"></icon>
             </table-avatar>
             {{ nebula.name }}
           </td>
-          <td style="width: 100px;">
+          <td class="nebulae-info" style="width: 100px;">
             Active
           </td>
-          <td>Binance-Huobi-BTC_USD</td>
+          <td class="nebulae-info">Binance-Huobi-BTC_USD</td>
           <td class="d-none-lg-text">
             {{ nebula.description }}
           </td>
@@ -45,10 +45,10 @@
           <td class="d-none-lg d-none-position" style="width: 120px;">
             Waves
           </td>
-          <td class="d-none-lg d-none-position" style="width: 120px;">
+          <td class="d-none-lg " style="width: 120px;">
             ~per {{ nebula.regularity }} blocks
           </td>
-          <td style="width: 140px; font-size: 13px">{{ nebula.subscription_fee }}</td>
+          <td class="d-none-position"style="width: 140px; font-size: 13px">{{ nebula.subscription_fee }}</td>
         </tr>
       </template>
     </table-block>
@@ -173,5 +173,8 @@ export default Vue.extend({
 .nebulae-table td {
   cursor: pointer;
   
+}
+.nebulae-info{
+  font-size: 13px;
 }
 </style>

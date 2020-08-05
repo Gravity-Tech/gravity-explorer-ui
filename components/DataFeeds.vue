@@ -15,7 +15,7 @@
         </tr>
       </template>
       <template v-slot:body>
-        <tr v-for="datafeed in list" :key="datafeed.datafeed_tag">
+        <tr class="data-main" v-for="datafeed in list" :key="datafeed.datafeed_tag">
           <td class="data-feeds-first-td">{{ datafeed.datafeed_tag }}</td>
           <td>
             <span class="data-feeds-second-td">{{ datafeed.description }}</span>
@@ -82,5 +82,8 @@ export default Vue.extend({
   padding: 5px;
   text-overflow: ellipsis;
   display: block;
+}
+.data-main{
+  font-size: 13px;
 }
 </style>
