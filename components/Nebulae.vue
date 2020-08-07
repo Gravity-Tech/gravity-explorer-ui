@@ -14,12 +14,12 @@
           <th style="width: 100px;">Status</th>
           <th>Data Feed</th>
           <th class="d-none-lg">Description</th>
-          <th style="width: 110px;">Threshold<br />Score (0-10)</th>
+          <th style="width: 110px;">Threshold<br/>Score (0-10)</th>
           <th class="d-none-lg" style="width: 120px;">Target chain</th>
           <th class="d-none-lg" style="width: 120px;">
             Regularity<br />(hour/day)
           </th>
-          <th style="width: 140px;">Subscription fee</th>
+          <th style="width: 140px; padding-right: 36px;">Subscription fee</th>
         </tr>
       </template>
       <template v-slot:body>
@@ -48,7 +48,7 @@
           <td class="d-none-lg " style="width: 120px;">
             ~per {{ nebula.regularity }} blocks
           </td>
-          <td class="d-none-position"style="width: 140px; font-size: 13px">{{ nebula.subscription_fee }}</td>
+          <td class="d-none-position"style="width: 140px; font-size: 13px; padding-right: 36px;">{{ nebula.subscription_fee }}</td>
         </tr>
       </template>
     </table-block>

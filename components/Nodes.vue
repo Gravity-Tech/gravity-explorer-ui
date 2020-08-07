@@ -22,10 +22,10 @@
             </span>
           </th>
           <th class="d-none-lg" style="width: 30%;">About</th>
-          <th>Score (0-10)</th>
-          <th>Deposit chain</th>
-          <th>Node deposit</th>
-          <th class="d-none-lg">Joined</th>
+          <th class="header-nodes">Score (0-10)</th>
+          <th class="header-nodes">Deposit chain</th>
+          <th class="header-nodes">Node deposit</th>
+          <th class="header-nodes">Joined</th>
         </tr>
       </template>
       <template v-slot:body>
@@ -40,7 +40,7 @@
               style="top: 1px;"
             ></icon>
           </th>
-          <td style="width: 265px;">
+          <td style="width: 265px; font-size: 13px;">
             <div class="table-icon-cont">
               <table-avatar-icon>
                 <icon image="/img/icons/nodes_table.svg"></icon>
@@ -63,7 +63,7 @@
           </td>
           <td class="text-position">{{ node.deposit_chain }}</td>
           <td class="text-position">{{ node.deposit_amount }}</td>
-          <td class="d-none-lg">{{ node.joined_at }}</td>
+          <td class="text-position">{{ node.joined_at }}</td>
         </tr>
       </template>
     </table-block>
@@ -179,6 +179,9 @@ export default Vue.extend({
 .nodes-table td {
   cursor: pointer;
 }
+.header-nodes{
+  text-align: center;
+}
 .table-icon-cont {
   display: flex;
   flex-direction: row;
@@ -189,5 +192,11 @@ export default Vue.extend({
     margin-left: 0;
     margin-right: 8px;
   }
+}
+.d-none-lg{
+  font-size: 13px;
+}
+.text-position{
+  font-size: 13px;
 }
 </style>
