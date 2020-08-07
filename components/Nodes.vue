@@ -45,7 +45,7 @@
               <table-avatar-icon>
                 <icon image="/img/icons/nodes_table.svg"></icon>
               </table-avatar-icon>
-              <span style="padding: 10px;">
+              <span style="margin: auto 0;">
               {{ node.name }}
               </span>
             </div>
