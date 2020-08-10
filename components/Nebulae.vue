@@ -43,7 +43,7 @@
           </td>
           <td class="text-green" style="width: 110px;">{{ nebula.score }}</td>
           <td class="d-none-lg d-none-position" style="width: 120px;">
-            Waves
+             {{ nebula.target_chain }}
           </td>
           <td class="d-none-lg " style="width: 120px;">
             ~per {{ nebula.regularity }} blocks
