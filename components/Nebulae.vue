@@ -14,12 +14,12 @@
           <th style="width: 100px;">Status</th>
           <th>Data Feed</th>
           <th class="d-none-lg">Description</th>
-          <th style="width: 110px;">Threshold<br />Score (0-10)</th>
+          <th style="width: 110px;">Threshold<br/>Score (0-10)</th>
           <th class="d-none-lg" style="width: 120px;">Target chain</th>
           <th class="d-none-lg" style="width: 120px;">
             Regularity<br />(hour/day)
           </th>
-          <th style="width: 140px;">Subscription fee</th>
+          <th style="width: 140px; padding-right: 36px;">Subscription fee</th>
         </tr>
       </template>
       <template v-slot:body>
@@ -28,27 +28,27 @@
           :key="nebula.address"
           @click="handleNebulaSelect(nebula)"
         >
-          <td class="nebulae-first-td">
+          <td class="nebulae-first-td nebulae-info">
             <table-avatar>
               <icon image="/img/card/avatar2.svg"></icon>
             </table-avatar>
             {{ nebula.name }}
           </td>
-          <td style="width: 100px;">
+          <td class="nebulae-info" style="width: 100px;">
             Active
           </td>
-          <td>Binance-Huobi-BTC_USD</td>
-          <td class="d-none-lg">
+          <td class="nebulae-info">Binance-Huobi-BTC_USD</td>
+          <td class="d-none-lg-text">
             {{ nebula.description }}
           </td>
           <td class="text-green" style="width: 110px;">{{ nebula.score }}</td>
-          <td class="d-none-lg" style="width: 120px;">
-            {{ nebula.target_chain }}
+          <td class="d-none-lg d-none-position" style="width: 120px;">
+             {{ nebula.target_chain }}
           </td>
-          <td class="d-none-lg" style="width: 120px;">
-            ~per {{ nebula.regularity }} block
+          <td class="d-none-lg " style="width: 120px;">
+            ~per {{ nebula.regularity }} blocks
           </td>
-          <td style="width: 140px;">{{ nebula.subscription_fee }}</td>
+          <td class="d-none-position"style="width: 140px; font-size: 13px; padding-right: 36px;">{{ nebula.subscription_fee }}</td>
         </tr>
       </template>
     </table-block>
@@ -172,5 +172,9 @@ export default Vue.extend({
 }
 .nebulae-table td {
   cursor: pointer;
+  
+}
+.nebulae-info{
+  font-size: 13px;
 }
 </style>

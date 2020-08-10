@@ -56,6 +56,10 @@ export default {
         rel: 'preconnect',
         href: 'https://fonts.gstatic.com/',
       },
+      {
+        rel: 'stylesheet',
+        href: '/fonts/stylesheet.css',
+      },
     ],
   },
   /*

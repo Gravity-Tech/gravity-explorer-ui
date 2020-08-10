@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'Orbitron';
+    src: url(/fonts/Orbitron-Black.eot);
+    src: url(/fonts/Orbitron-Black.eot?#iefix) format('embedded-opentype'),
+        url(/fonts/Orbitron-Black.woff2) format('woff2'),
+        url(/fonts/Orbitron-Black.woff) format('woff'),
+        url(/fonts/Orbitron-Black.ttf) format('truetype'),
+        url(/fonts/Orbitron-Black.svg#Orbitron-Black) format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url(/fonts/Orbitron-Regular.eot);
+    src: url(/fonts/Orbitron-Regular.eot?#iefix) format('embedded-opentype'),
+        url(/fonts/Orbitron-Regular.woff2) format('woff2'),
+        url(/fonts/Orbitron-Regular.woff) format('woff'),
+        url(/fonts/Orbitron-Regular.ttf) format('truetype'),
+        url(/fonts/Orbitron-Regular.svg#Orbitron-Regular) format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url(/fonts/Orbitron-Bold.eot);
+    src: url(/fonts/Orbitron-Bold.eot?#iefix) format('embedded-opentype'),
+        url(/fonts/Orbitron-Bold.woff2) format('woff2'),
+        url(/fonts/Orbitron-Bold.woff) format('woff'),
+        url(/fonts/Orbitron-Bold.ttf) format('truetype'),
+        url(/fonts/Orbitron-Bold.svg#Orbitron-Bold) format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url(/fonts/Orbitron-Medium.eot);
+    src: url(/fonts/Orbitron-Medium.eot?#iefix) format('embedded-opentype'),
+        url(/fonts/Orbitron-Medium.woff2) format('woff2'),
+        url(/fonts/Orbitron-Medium.woff) format('woff'),
+        url(/fonts/Orbitron-Medium.ttf) format('truetype'),
+        url(/fonts/Orbitron-Medium.svg#Orbitron-Medium) format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
