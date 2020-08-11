@@ -105,20 +105,20 @@
       <modal name="modal-content-node">
         <modal-content-node
           rating="8.7"
-          modal-head="LinkPool Node 2"
+          modal-head="Band Node 2"
           card-date="27.05.2020"
           card-deposit="~10 WAVES | $12.6"
           card-avatar="/img/card/example-logo.svg"
           :nodes-list="nodesList"
           caption="Nebulae List:"
           :data="{
-            name: 'LinkPool Node 1',
+            name: 'Band Node 1',
             address: '0x123456789',
             description:
-              'LinkPool is a leading Gravity node service provider with the goal of providing tools and services that benefit the Gravity ecosystem. ',
+              'Band is a leading Gravity node service provider with the goal of providing tools and services that benefit the Gravity ecosystem. ',
             website: {
-              name: 'linkpool.io',
-              href: 'https://linkpool.io',
+              name: 'bandprotocol.com',
+              href: 'https://bandprotocol.com',
             },
           }"
         >
@@ -289,14 +289,14 @@
       <modal name="modal-content-edit">
         <modal-content-edit modal-head="Edit Info">
           <template v-slot:body>
-            <form-input value="LinkPool Node 1">
+            <form-input value="Band Node 1">
               <template v-slot:label>
                 Name<span class="text-red">*</span>
               </template>
             </form-input>
             <form-textarea
               rows="3"
-              value="LinkPool is a leading Gravity node service provider
+              value="Band is a leading Gravity node service provider
 withthe goal of providing tools and services that benefit the Gravity ecosystem. "
             >
               <template v-slot:label>
@@ -431,7 +431,7 @@ withthe goal of providing tools and services that benefit the Gravity ecosystem.
       </template>
       <template v-slot:body>
         <tr v-for="index in nebules" :key="index">
-          <td style="width: 10%;">LinkPool Node 1</td>
+          <td style="width: 10%;">Band Node 1</td>
           <td>
             Payouts depend on platform but are always automated and almost
             instant.
@@ -501,7 +501,7 @@ export default Vue.extend({
     page: 1,
     nodesList: [
       {
-        name: 'LinkPool Node 1',
+        name: 'Band Node 1',
         description:
           'Payouts depend on platform but are always automated and almost instant.',
         type: 'Waves',
@@ -510,7 +510,7 @@ export default Vue.extend({
         amount: '~10 WAVES | $12.6',
       },
       {
-        name: 'LinkPool Node 1',
+        name: 'Band Node 1',
         description:
           'Payouts depend on platform but are always automated and almost instant.',
         type: 'Waves',
@@ -519,7 +519,7 @@ export default Vue.extend({
         amount: '~10 WAVES | $12.6',
       },
       {
-        name: 'LinkPool Node 1',
+        name: 'Band Node 1',
         description:
           'Payouts depend on platform but are always automated and almost instant.',
         type: 'Waves',
