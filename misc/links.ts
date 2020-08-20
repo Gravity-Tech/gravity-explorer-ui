@@ -64,7 +64,7 @@ export const sections: SectionsDict = {
     links: [
       {
         label: 'Blog',
-        link: 'https://medium.com/@gravity_protocol',
+        link: 'https://medium.com/gravity-protocol',
         target: '_blank',
       },
       {
