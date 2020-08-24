@@ -31,7 +31,9 @@
     "nuxt-mq": "^2.0.1",
     "rxjs": "^6.6.0",
     "swagger-codegen": "^0.1.1",
+    "vue": "^2.6.12",
     "vue-infinite-scroll": "^2.0.2",
+    "vue-server-renderer": "^2.6.12",
     "vue-textarea-autosize": "^1.1.1",
     "vue-thin-modal": "^1.3.0"
   },
