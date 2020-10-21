@@ -10,7 +10,11 @@
             target="_blank"
             class="footer-nav-logo responsive responsive-bsizer"
           >
-            <img class="responsive-item" src="/img/logo_gravity_demo.svg" alt="Logo" />
+            <img
+              class="responsive-item"
+              src="/img/_logo_devnet.svg"
+              alt="Logo"
+            />
           </a>
         </div>
         <div class="footer-nav-item">
@@ -23,10 +27,16 @@
           <a class="link-invert" target="_blank" :href="faqLink">FAQ</a>
         </div>
         <div class="footer-nav-item">
-          <a class="link-invert" target="_blank" :href="brandAssetsLink">Brand Assets</a>
+          <a class="link-invert" target="_blank" :href="brandAssetsLink"
+            >Brand Assets</a
+          >
         </div>
-        <div class="footer-nav-item"><a :href="docsLinks.privacy" target="_blank">Privacy policy</a></div>
-        <div class="footer-nav-item"><a :href="docsLinks.terms" target="_blank">Terms & Conditions</a></div>
+        <div class="footer-nav-item">
+          <a :href="docsLinks.privacy" target="_blank">Privacy policy</a>
+        </div>
+        <div class="footer-nav-item">
+          <a :href="docsLinks.terms" target="_blank">Terms & Conditions</a>
+        </div>
         <div class="footer-nav-item footer-contacts-email">
           <a href="mailto:oracle@gravity.tech" class="text-green">
             oracle@gravity.tech
@@ -97,13 +107,20 @@ import { sections } from '~/misc/links'
 import { pathResolve } from '~/misc/path'
 
 // @ts-ignore
-const githubLink = sections.protocol.links.find(link => link.label === 'GitHub').link
+const githubLink = sections.protocol.links.find(
+  (link) => link.label === 'GitHub'
+).link
 // @ts-ignore
-const wpLink = sections.protocol.links.find(link => link.label === 'Whitepaper').link
+const wpLink = sections.protocol.links.find(
+  (link) => link.label === 'Whitepaper'
+).link
 // @ts-ignore
-const faqLink = sections.protocol.links.find(link => link.label === 'FAQ').link
+const faqLink = sections.protocol.links.find((link) => link.label === 'FAQ')
+  .link
 // @ts-ignore
-const brandAssetsLink = sections.resources.links.find(link => link.label === 'Brand Assets').link
+const brandAssetsLink = sections.resources.links.find(
+  (link) => link.label === 'Brand Assets'
+).link
 
 export default Vue.extend({
   components: { Btn, Icon },
@@ -112,7 +129,10 @@ export default Vue.extend({
     wpLink,
     faqLink,
     brandAssetsLink,
-    docsLinks: { terms: pathResolve('/docs/terms-of-use'), privacy: pathResolve('/docs/privacy-policy') },
+    docsLinks: {
+      terms: pathResolve('/docs/terms-of-use'),
+      privacy: pathResolve('/docs/privacy-policy'),
+    },
     socials: [
       {
         icon: 'facebook',
@@ -121,32 +141,36 @@ export default Vue.extend({
       {
         icon: 'medium',
         // @ts-ignore
-        link: sections.news.links.find(link => link.label === 'Blog').link,
+        link: sections.news.links.find((link) => link.label === 'Blog').link,
       },
       {
         icon: 'twitter',
         // @ts-ignore
-        link: sections.news.links.find(link => link.label === 'Twitter').link,
+        link: sections.news.links.find((link) => link.label === 'Twitter').link,
       },
       {
         icon: 'linked-in',
         // @ts-ignore
-        link: sections.news.links.find(link => link.label === 'LinkedIn').link,
+        link: sections.news.links.find((link) => link.label === 'LinkedIn')
+          .link,
       },
       {
         icon: 'telegram',
         // @ts-ignore
-        link: sections.community.links.find(link => link.label === 'Telegram').link,
+        link: sections.community.links.find((link) => link.label === 'Telegram')
+          .link,
       },
       {
         icon: 'discord',
         // @ts-ignore
-        link: sections.community.links.find(link => link.label === 'Discord').link,
+        link: sections.community.links.find((link) => link.label === 'Discord')
+          .link,
       },
       {
         icon: 'reddit',
         // @ts-ignore
-        link: sections.community.links.find(link => link.label === 'Reddit').link,
+        link: sections.community.links.find((link) => link.label === 'Reddit')
+          .link,
       },
       {
         icon: 'github',
@@ -308,12 +332,12 @@ export default Vue.extend({
 }
 .footer-copyright-lg {
   display: none;
-  font-size:13px;
-  font-weight:300;
+  font-size: 13px;
+  font-weight: 300;
   @include media-breakpoint-up(sm) {
     display: inline;
-    font-size:13px;
-    font-weight:300;
+    font-size: 13px;
+    font-weight: 300;
   }
 }
 .footer-socials,
@@ -408,7 +432,7 @@ export default Vue.extend({
   padding-bottom: 24px;
   @include media-breakpoint-down(xs) {
     font-weight: 300;
-    font-size:13px;
+    font-size: 13px;
   }
   @include media-breakpoint-up(sm) {
     padding-bottom: 38px;
