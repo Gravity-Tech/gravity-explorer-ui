@@ -6,7 +6,7 @@ type SectionsDict = Record<
     links: Link[]
   }
 >
-
+export const getNode = () => 'https://forms.gle/mu7mf7aX9K9XFVds9'
 export const sections: SectionsDict = {
   protocol: {
     label: 'Protocol',
@@ -20,6 +20,12 @@ export const sections: SectionsDict = {
         label: 'FAQ',
         link:
           'https://medium.com/@gravity_protocol/gravity-protocol-faq-9092bc9c5cf7',
+        target: '_blank',
+      },
+      {
+        label: 'Submit',
+        link:
+          'http://explorer.gravity.tech/new-node-submission',
         target: '_blank',
       },
       {

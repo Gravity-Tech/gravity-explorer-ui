@@ -12,7 +12,7 @@
           >
             <img
               class="responsive-item"
-              src="/img/_logo_devnet.svg"
+              src="/img/gravity_logo_devnet.svg"
               alt="Logo"
             />
           </a>
@@ -25,6 +25,9 @@
         </div>
         <div class="footer-nav-item">
           <a class="link-invert" target="_blank" :href="faqLink">FAQ</a>
+        </div>
+        <div class="footer-nav-item">
+          <a class="link-invert" target="_blank" :href="Node">Submit</a>
         </div>
         <div class="footer-nav-item">
           <a class="link-invert" target="_blank" :href="brandAssetsLink"
@@ -118,6 +121,9 @@ const wpLink = sections.protocol.links.find(
 const faqLink = sections.protocol.links.find((link) => link.label === 'FAQ')
   .link
 // @ts-ignore
+const Node = sections.protocol.links.find((link) => link.label === 'Submit')
+  .link
+// @ts-ignore
 const brandAssetsLink = sections.resources.links.find(
   (link) => link.label === 'Brand Assets'
 ).link
@@ -128,6 +134,7 @@ export default Vue.extend({
     githubLink,
     wpLink,
     faqLink,
+    Node,
     brandAssetsLink,
     docsLinks: {
       terms: pathResolve('/docs/terms-of-use'),
