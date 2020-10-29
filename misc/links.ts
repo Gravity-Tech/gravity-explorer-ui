@@ -6,11 +6,28 @@ type SectionsDict = Record<
     links: Link[]
   }
 >
-export const getNode = () => 'https://forms.gle/mu7mf7aX9K9XFVds9'
+
+export const getNodeLink = (sections) => sections.protocol.links.find(item => item.label === 'AddNode');
+
+export const internalProtocolLinks = {
+  links: [
+    {
+      label: 'AddNode',
+      link: '/new-node-submission',
+      target: '_blank',
+    },
+  ],
+}
+
 export const sections: SectionsDict = {
   protocol: {
     label: 'Protocol',
     links: [
+      {
+        label: 'AddNode',
+        link: 'https://docs.google.com/forms/d/e/1FAIpQLSf5EZ0baglFkEswgR0RCJTZx-YAgy07WjRlwEc5YiWf0hM-kw/viewform?embedded=true',
+        target: '_blank',
+      },
       {
         label: 'Whitepaper',
         link: 'https://gravity.tech/whitepaper',
@@ -20,12 +37,6 @@ export const sections: SectionsDict = {
         label: 'FAQ',
         link:
           'https://medium.com/@gravity_protocol/gravity-protocol-faq-9092bc9c5cf7',
-        target: '_blank',
-      },
-      {
-        label: 'Submit',
-        link:
-          'http://explorer.gravity.tech/new-node-submission',
         target: '_blank',
       },
       {

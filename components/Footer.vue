@@ -27,7 +27,7 @@
           <a class="link-invert" target="_blank" :href="faqLink">FAQ</a>
         </div>
         <div class="footer-nav-item">
-          <a class="link-invert" target="_blank" :href="Node">Submit</a>
+          <a class="link-invert" target="_blank" :href="Node">AddNode</a>
         </div>
         <div class="footer-nav-item">
           <a class="link-invert" target="_blank" :href="brandAssetsLink"
@@ -108,6 +108,7 @@ import Btn from '~/components/Btn.vue'
 import Icon from '~/components/Icon.vue'
 import { sections } from '~/misc/links'
 import { pathResolve } from '~/misc/path'
+import { internalProtocolLinks } from '~/misc/links'
 
 // @ts-ignore
 const githubLink = sections.protocol.links.find(
@@ -121,8 +122,9 @@ const wpLink = sections.protocol.links.find(
 const faqLink = sections.protocol.links.find((link) => link.label === 'FAQ')
   .link
 // @ts-ignore
-const Node = sections.protocol.links.find((link) => link.label === 'Submit')
-  .link
+const Node = sections.protocol.links.find((link) =>
+  sections.protocol.links.find((link) => link.label === 'AddNode')
+).link
 // @ts-ignore
 const brandAssetsLink = sections.resources.links.find(
   (link) => link.label === 'Brand Assets'
