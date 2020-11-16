@@ -6,11 +6,7 @@
         target="_blank"
         class="nav-logo responsive responsive-bsizer"
       >
-        <img
-          class="responsive-item"
-          src="/img/gravity_logo_devnet.svg"
-          alt="Logo"
-        />
+        <img class="responsive-item" src="/img/gravity_alpha.svg" alt="Logo" />
       </a>
       <div class="nav-panel">
         <div class="nav-panel-col">
@@ -94,7 +90,7 @@
         <div
           v-if="!isAuth"
           class="nav-panel-col"
-          style="margin-left: auto; display: none;"
+          style="margin-left: auto; display: none"
         >
           <a href="/" class="link-invert">
             <div class="nav-panel-indikator">

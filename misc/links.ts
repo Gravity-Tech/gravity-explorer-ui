@@ -7,7 +7,36 @@ type SectionsDict = Record<
   }
 >
 
-export const getNodeLink = (sections) => sections.protocol.links.find(item => item.label === 'AddNode');
+const filterObjectListBy = (objectsList: any[], fieldName: string) => {
+  const res = [];
+
+  for (const obj of objectsList) {
+    const resultsMapped = res.map(item => item[fieldName])
+
+    if (resultsMapped.includes(obj[fieldName])) {
+      continue
+    }
+
+    res.push(obj)
+  }
+
+  return res
+}
+export const constructPreviewLinks = (sections: { protocol: { links: any; }; }) => {
+
+  return {
+    ...sections,
+    protocol: {
+      ...sections.protocol,
+      links: filterObjectListBy([
+        ...internalProtocolLinks.links,
+        ...sections.protocol.links,
+      ], 'label')
+    },
+  }
+}
+
+export const getNodeLink = (sections: { protocol: { links: any[]; }; }) => sections.protocol.links.find((item: { label: string; }) => item.label === 'AddNode');
 
 export const internalProtocolLinks = {
   links: [

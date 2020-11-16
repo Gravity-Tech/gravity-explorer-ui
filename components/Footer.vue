@@ -12,7 +12,7 @@
           >
             <img
               class="responsive-item"
-              src="/img/gravity_logo_devnet.svg"
+              src="/img/gravity_alpha.svg"
               alt="Logo"
             />
           </a>
