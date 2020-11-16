@@ -27,9 +27,6 @@
           <a class="link-invert" target="_blank" :href="faqLink">FAQ</a>
         </div>
         <div class="footer-nav-item">
-          <a class="link-invert" target="_blank" :href="Node">AddNode</a>
-        </div>
-        <div class="footer-nav-item">
           <a class="link-invert" target="_blank" :href="brandAssetsLink"
             >Brand Assets</a
           >
