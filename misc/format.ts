@@ -8,6 +8,22 @@ export class DateFormatter {
     return date.format(this.formatter)
   }
 }
+export class TimestampFormatter {
+  static format(timestamp: string): string {
+    var t = timestamp.split(/[-T:.Z]/);
+    var d = new Date(
+      Date.UTC(
+        parseInt(t[0]),
+        parseInt(t[1]) - 1,
+        parseInt(t[2]),
+        parseInt(t[3]),
+        parseInt(t[4]),
+        parseInt(t[5])
+      )
+    );
+    return d.toUTCString();
+  }
+}
 
 export class CurrencyFormatter {
   static formatChain(chain: ChainEnum): string {
