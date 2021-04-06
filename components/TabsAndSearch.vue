@@ -6,6 +6,8 @@
           { label: 'Nebulae', to: { name: 'nebulae' } },
           { label: 'Nodes', to: { name: 'nodes' } },
           { label: 'Data feeds', to: { name: 'data-feeds' } },
+          { label: 'Transactions', to: { name: 'transactions' } },
+          { label: 'Swaps', to: { name: 'swaps' } },
         ]"
       ></tabs>
     </div>
