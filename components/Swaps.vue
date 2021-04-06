@@ -52,7 +52,7 @@ import TableBlock from "~/components/Table.vue";
 import TabsAndSearch from "~/components/TabsAndSearch.vue";
 import Icon from "~/components/Icon.vue";
 import TableAvatarIcon from "~/components/TableAvatarIcon.vue";
-import { Transaction } from "~/models/model/transaction";
+import { Swap } from "~/models/model/transaction";
 import {
  TransactionDataProvider,
  GetNebula
