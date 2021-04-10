@@ -77,6 +77,13 @@ const availableNebulae: Array<Nebula> = [
     18
   ),
   new Nebula(
+    "3P5SKDHPTBF1Spe1nzEA11GFjfuv1V59zVd",
+    "3PEXiW1BrBNMo5A9dfj2CnBW2mwMiaf2sAe",
+    "USDN",
+    "BSC->Waves",
+    6
+  ),
+  new Nebula(
     "0x9ca159a9b75f8d9c7156af7e8e198d63b622360c",
     "0xf427525Eb648d14c1Da28E530e9fe7ab9832c411",
     "NSBT",
@@ -91,17 +98,80 @@ const availableNebulae: Array<Nebula> = [
     18
   ),
   new Nebula(
-    "3P5SKDHPTBF1Spe1nzEA11GFjfuv1V59zVd",
-    "3PEXiW1BrBNMo5A9dfj2CnBW2mwMiaf2sAe",
-    "USDN",
-    "BSC->Waves",
-    6
-  ),
-  new Nebula(
     "3PJuTExHfmoYVCXHxQFeUUYhvq7YpmeGGq4",
     "3PRGPGtsVZVUCFRsEKp1FHccv6uFu8YNqb1",
     "NSBT",
     "BSC->Waves",
+    6
+  ),
+  new Nebula(
+    "0x3B6c620fe111339B3Bfbd5BEBDE1Db750884BfE3",
+    "0xd6C8D0d800B9CbbAE0B13f6d41087bA3CCe797E6",
+    "SWOP",
+    "Waves->BSC",
+    18
+  ),
+  new Nebula(
+    "3PKb7aSnvjLrnbksyZopzQobCYRrYp4RTgs",
+    "3P3Fb6UCW3TB7TGK2BWsV6YfmoL3Y8bv1Km",
+    "SWOP",
+    "BSC->Waves",
+    6
+  ),
+  new Nebula(
+    "0x746ab504C722292E43520d5FDA6Fd2c79a046065",
+    "0x072232c6B713024e04D596bf68f1B22AC123af7f",
+    "SIGN",
+    "Waves->BSC",
+    18
+  ),
+  new Nebula(
+    "3PLN7YKkWMjFNXqTTFYRMgS3D1HfZ1tL6X",
+    "3PKKYSedPuFuExJCweD52mj1MtjJLT8da9g",
+    "SIGN",
+    "BSC->Waves",
+    6
+  ),
+  new Nebula(
+    "0x97D58D2c46F77D245bbe36e2D3DAD14e929f9bc2",
+    "0x9a7B1800CE35aAca97d7Aa06d82F61cb971E947c",
+    "USDN",
+    "Waves->AVAX",
+    18
+  ),
+  new Nebula(
+    "3PLnuvyzpTmQUTDSEaDABofhv2RSybxkfVX",
+    "3PDdegFA8R2jUAZHpppcyAdQJ5BFsSMx4Pm",
+    "USDN",
+    "AVAX->Waves",
+    6
+  ),
+  new Nebula(
+    "0x497299613eDBD6aA5461d3A3de5843B33e2798B3",
+    "0x4d43E4ed92469F38839ea2077db7649BC7c175ef",
+    "USDN",
+    "Waves->HECO",
+    18
+  ),
+  new Nebula(
+    "3PLRJ8W321thTdrKuQzxkuvF7RUYDoSrLvM",
+    "3P5ASZYdgDgB6uLKaeVxZmcf71gFhwzDvH2",
+    "USDN",
+    "HECO->Waves",
+    6
+  ),
+  new Nebula(
+    "0xcBC5FC99Ff12Ae77c0F712805134bd0abAeee609",
+    "0x83d97d01db4ae12CB637e0732BbB3569d0D218e9",
+    "USDN",
+    "Waves->FTM",
+    18
+  ),
+  new Nebula(
+    "3P2UzKyojeQuZ9PrSL9am4L7YWGX3goownZ",
+    "3PPJ2HnXKjuaTopung1K2DsrgMigpwXHsFF",
+    "USDN",
+    "FTM->Waves",
     6
   ),
 ];
