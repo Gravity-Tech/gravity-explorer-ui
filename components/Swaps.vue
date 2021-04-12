@@ -55,7 +55,7 @@ import TableAvatarIcon from "~/components/TableAvatarIcon.vue";
 import { Swap } from "~/models/model/transaction";
 import {
  TransactionDataProvider,
- GetNebula
+ GetSusyNebula
 } from "~/data/providers/transaction";
 import { FetchCommand } from "~/data/global";
 import { TimestampFormatter } from "~/misc/format";
@@ -77,11 +77,11 @@ export default Vue.extend({
   };
  },
  // eslint-disable-next-line vue/require-prop-types
- computed: {
-  mappedSwapsList() {
-   return this.swapsList as Swap[];
-  }
- },
+     // computed: {
+     //  mappedSwapsList() {
+     //   return this.swapsList as Swap[];
+     //  }
+     // },
  methods: {
   queryUpdate(query: string) {
    // @ts-ignore
@@ -104,14 +104,14 @@ export default Vue.extend({
    return TimestampFormatter.format(timestamp);
   },
   formatAmount(nebula_id: string, amount: number) {
-   var nebula = GetNebula(nebula_id);
+   var nebula = GetSusyNebula(nebula_id);
    if (!nebula) {
     return amount;
    }
    return nebula.formatAmount(amount);
   },
   getDirection(nebula_id: string) {
-   var nebula = GetNebula(nebula_id);
+   var nebula = GetSusyNebula(nebula_id);
    if (!nebula) {
     return "undefined";
    }
