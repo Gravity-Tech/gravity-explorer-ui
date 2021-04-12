@@ -68,7 +68,7 @@ class Nebula {
   }
 }
 
-const availableNebulae: Array<Nebula> = [
+const susyNebulae: Array<Nebula> = [
   new Nebula(
     "0x3a9e63494d6258feeaa2a348c519cc14c6df8827",
     "0x8c0e11a6E692d02f71598AB5050083ED691Eb760",
@@ -176,8 +176,20 @@ const availableNebulae: Array<Nebula> = [
   ),
 ];
 
-export function GetNebula(nebula_id: string) {
-  return availableNebulae.find((nebula) => nebula.nebula_id.toLowerCase() == nebula_id.toLowerCase());
+const gravitonNebulae: Array<Nebula> = [
+  new Nebula(
+    "0x3efb36001cc91204241ba4638c3c32af4cd560c7",
+    "",
+    "",
+    "",
+    0
+  ),
+]
+export function GetSusyNebula(nebula_id: string) {
+  return susyNebulae.find((nebula) => nebula.nebula_id.toLowerCase() == nebula_id.toLowerCase());
+}
+export function IsGravitonNebula(nebula_id: string) {
+  return gravitonNebulae.some((nebula) => nebula.nebula_id.toLowerCase() == nebula_id.toLowerCase());
 }
 
 export class TransactionDataProvider {
@@ -266,6 +278,8 @@ export class TransactionDataProvider {
     });
     if (!resp.data) return [];
 
-    return resp.data;
+    var list: Swap[] = resp.data
+    list = list.filter((swap) => !IsGravitonNebula(swap.nebula_id))
+    return list;
   }
 }

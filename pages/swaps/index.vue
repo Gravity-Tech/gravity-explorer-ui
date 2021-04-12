@@ -12,7 +12,7 @@ import Vue from 'vue'
 import { Subject as PublishSubject, BehaviorSubject, Subscription } from 'rxjs'
 import { debounceTime, filter } from 'rxjs/operators'
 import Swaps from '~/components/Swaps.vue'
-import { TransactionDataProvider } from '~/data/providers/transaction'
+import { TransactionDataProvider, IsGravitonNebula } from '~/data/providers/transaction'
 import { Swap } from '~/models/model/transaction'
 import { FetchCommand } from '~/data/global'
 
@@ -38,7 +38,7 @@ export default Vue.extend({
     const paginationSub = this.command
       .pipe(
         filter(
-          (command) => command.page !== undefined && command.page !== 1 && this.swapsList.length > 15
+          (command) => command.page !== undefined && command.page !== 1 // && this.swapsList.length > 15
         )
       )
       .subscribe((command) => {
@@ -78,8 +78,8 @@ export default Vue.extend({
     },
     concatData(command: FetchCommand) {
       TransactionDataProvider.fetchAllSwaps(command).then((list) => {
-        // @ts-ignore
-        this.swapsSubject.next([...this.swapsList, ...list])
+          // @ts-ignore
+          this.swapsSubject.next([...this.swapsList, ...list])
       })
     },
     queryUpdate(command: FetchCommand) {
