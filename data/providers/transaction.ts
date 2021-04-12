@@ -126,7 +126,7 @@ const availableNebulae: Array<Nebula> = [
     18
   ),
   new Nebula(
-    "3PLN7YKkWMjFNXqTTFYRMgS3D1HfZ1tL6X",
+    "3PLN7YKkWMjFNXqTTFYRMgS3D1HfZ1tL6XN",
     "3PKKYSedPuFuExJCweD52mj1MtjJLT8da9g",
     "SIGN",
     "BSC->Waves",
@@ -177,7 +177,7 @@ const availableNebulae: Array<Nebula> = [
 ];
 
 export function GetNebula(nebula_id: string) {
-  return availableNebulae.find((nebula) => nebula.nebula_id == nebula_id);
+  return availableNebulae.find((nebula) => nebula.nebula_id.toLowerCase() == nebula_id.toLowerCase());
 }
 
 export class TransactionDataProvider {
