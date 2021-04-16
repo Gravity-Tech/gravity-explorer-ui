@@ -177,13 +177,10 @@ const susyNebulae: Array<Nebula> = [
 ];
 
 const gravitonNebulae: Array<Nebula> = [
-  new Nebula(
-    "0x3efb36001cc91204241ba4638c3c32af4cd560c7",
-    "",
-    "",
-    "",
-    0
-  ),
+  new Nebula("0x3efb36001cc91204241ba4638c3c32af4cd560c7","","","",0),
+  new Nebula("0x188b4e59efc8e9d5fcde922539a2828bd305df64","","","",0),
+  new Nebula("0xe316ebea5304a05ccb0df6bbf0c8fe7ecef519d6","","","",0),
+  new Nebula("0x8765c4d536c0c2b19de85d039c3ab33352a3736e","","","",0),
 ]
 export function GetSusyNebula(nebula_id: string) {
   return susyNebulae.find((nebula) => nebula.nebula_id.toLowerCase() == nebula_id.toLowerCase());
