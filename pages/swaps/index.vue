@@ -38,7 +38,7 @@ export default Vue.extend({
     const paginationSub = this.command
       .pipe(
         filter(
-          (command) => command.page !== undefined && command.page !== 1 && this.swapsList.length > 15
+          (command) => command.page !== undefined && command.page !== 1 // && this.swapsList.length > 15
         )
       )
       .subscribe((command) => {
