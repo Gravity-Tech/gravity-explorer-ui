@@ -188,6 +188,9 @@ export function GetSusyNebula(nebula_id: string) {
 export function IsGravitonNebula(nebula_id: string) {
   return gravitonNebulae.some((nebula) => nebula.nebula_id.toLowerCase() == nebula_id.toLowerCase());
 }
+export function FilterGraviton(list: Swap[]) {
+  return list.filter((swap) => !IsGravitonNebula(swap.nebula_id))
+}
 
 export class TransactionDataProvider {
   static mapCommandToQuery(
@@ -275,8 +278,6 @@ export class TransactionDataProvider {
     });
     if (!resp.data) return [];
 
-    var list: Swap[] = resp.data
-    list = list.filter((swap) => !IsGravitonNebula(swap.nebula_id))
-    return list;
+    return FilterGraviton(resp.data);
   }
 }
